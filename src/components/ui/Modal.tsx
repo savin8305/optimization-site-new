@@ -4,7 +4,6 @@ import { StaticImageData } from "next/image";
 import { motion } from "framer-motion";
 import { Item } from "../../type"; // Adjust the path according to your file structure
 import Breadcrumb from "./Breadcrumb";
-import { MdKeyboardArrowRight } from "react-icons/md";
 import PositionAwareButton from "./PositionAwareButton";
 
 interface ModalProps {

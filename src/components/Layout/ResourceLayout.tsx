@@ -3,10 +3,8 @@ import Image from "next/image";
 import { StaticImageData } from "next/image";
 import { motion } from "framer-motion";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
-import { FaPhone } from "react-icons/fa6";
 import { MdPlayCircleOutline } from "react-icons/md";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
-import PositionAwareButton from "../ui/PositionAwareButton";
 import Link from "next/link";
 
 type SupportItem = {
@@ -22,7 +20,6 @@ interface ResourceGridProps {
   supporItem: SupportItem[];
   ResourcesMobile:ResourcesMobile[];
 }
-const ITEMS_PER_PAGE = 4;
 
 const ResourceGrid: React.FC<ResourceGridProps> = ({ supporItem,ResourcesMobile }) => {
   const carouselRef = useRef<HTMLDivElement>(null);
@@ -75,19 +72,8 @@ const ResourceGrid: React.FC<ResourceGridProps> = ({ supporItem,ResourcesMobile 
   };
 
   const shouldShowArrows = supporItem.length > 4;
-  const [currentPage, setCurrentPage] = useState<number>(0);
 
-  const handleNextPage = () => {
-    if ((currentPage + 1) * ITEMS_PER_PAGE < supporItem.length) {
-      setCurrentPage(currentPage + 1);
-    }
-  };
-
-  const handlePreviousPage = () => {
-    if (currentPage > 0) {
-      setCurrentPage(currentPage - 1);
-    }
-  };
+  
   const chunkItems = (arr: SupportItem[], size: number): SupportItem[][] =>
     arr.length
       ? [arr.slice(0, size), ...chunkItems(arr.slice(size), size)]

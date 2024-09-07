@@ -15,8 +15,7 @@ import { BlurImage } from "../ui/BlurImage";
 import { motion } from "framer-motion";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { FaArrowLeftLong } from "react-icons/fa6";
-import { BiMinus } from "react-icons/bi";
-import { useRouter, usePathname } from "next/navigation";
+import { usePathname } from "next/navigation";
 
 interface ProductLayoutProps {
   setHoveredItem: (item: string | null) => void;
@@ -37,9 +36,7 @@ const ProductLayout: React.FC<ProductLayoutProps> = ({
     SidebarLinks[0].name
   );
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [hoveredImageIndex, setHoveredImageIndex] = useState<number | null>(
-    null
-  );
+
   const [sidebarIndex, setSidebarIndex] = useState(0);
   const containerRef = useRef<HTMLDivElement | null>(null);
 
@@ -128,9 +125,7 @@ const ProductLayout: React.FC<ProductLayoutProps> = ({
     setHeading(heading);
     setIsVisible(false);
   };
-  const handleImageClick = (linkName: number) => {
-    setHoveredImageIndex(linkName);
-  };
+
   const sidebarVariants = {
     hidden: { opacity: 0, x: -30 },
     visible: (i: number) => ({
@@ -145,15 +140,11 @@ const ProductLayout: React.FC<ProductLayoutProps> = ({
   };
   // expand feature for mobile
   const [expandedItem, setExpandedItem] = useState<string | null>(null);
-  const [active, setActive] = useState<string | null>(null);
-  const toggleItem = (item: string) => {
-    setActive(active === item ? null : item);
-  };
+
 
   const expandItem = (item: string) => {
     setExpandedItem(expandedItem === item ? null : item);
   };
-  const router = useRouter();
   const pathname = usePathname() || "";
   const countryCode = pathname.split("/")[1]?.toLowerCase();
   return (
@@ -187,8 +178,6 @@ const ProductLayout: React.FC<ProductLayoutProps> = ({
                     initial="hidden"
                     animate="visible"
                     variants={imageVariants}
-                    onMouseEnter={() => setHoveredImageIndex(index)}
-                    onMouseLeave={() => setHoveredImageIndex(null)}
                   >
                     <a href={`/${countryCode}/products/${machine.name}`}>
                       <Image
@@ -214,9 +203,7 @@ const ProductLayout: React.FC<ProductLayoutProps> = ({
                       initial="hidden"
                       animate="visible"
                       variants={imageVariants}
-                      onMouseEnter={() => setHoveredImageIndex(index)}
-                      onMouseLeave={() => setHoveredImageIndex(null)}
-                    >
+                        >
                       <a href={`/${countryCode}/products/${machine.name}`}>
                         <Image
                           src={machine.image}
@@ -317,7 +304,7 @@ const ProductLayout: React.FC<ProductLayoutProps> = ({
                 {SidebarLinks.slice(sidebarIndex, SidebarLinks.length).map(
                   (link, index) => (
                     <motion.div
-                      key={link.name}
+                      key={index}
                       initial={{
                         height: expandedItem === link.name ? "auto" : "3rem",
                       }}
@@ -381,7 +368,6 @@ const ProductLayout: React.FC<ProductLayoutProps> = ({
                                         initial="hidden"
                                         animate="visible"
                                         variants={imageVariants}
-                                        onClick={() => handleImageClick(index)}
                                       >
                                         <Image
                                           src={machine.image}
@@ -408,9 +394,7 @@ const ProductLayout: React.FC<ProductLayoutProps> = ({
                                           initial="hidden"
                                           animate="visible"
                                           variants={imageVariants}
-                                          onClick={() =>
-                                            handleImageClick(index)
-                                          }
+                                         
                                         >
                                           <BlurImage
                                             src={machine.image}

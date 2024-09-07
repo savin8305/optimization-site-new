@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useRouter, usePathname } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { SignupFormDemo } from "./SignupFormDemo";
 import { IoClose } from "react-icons/io5"; // Import the close icon
 import Link from "next/link";
@@ -10,21 +10,16 @@ interface ContactFormProps {
   setContactFormVisible: (visible: boolean) => void;
   isVisible: boolean;
   setIsFlagOpen: (flag: boolean) => void;
-  // setOpenSearch: (open: boolean) => void;
-  // setProfileOpen: (open: boolean) => void;
-  // setAccountOpen: (open: boolean) => void;
+
 }
 
 const ContactForm: React.FC<ContactFormProps> = ({
   isContactFormVisible,
   setContactFormVisible,
-  // isVisible,
   setIsFlagOpen,
-  // setOpenSearch,
-  // setProfileOpen,
+
 }) => {
   const contactRef = useRef<HTMLDivElement>(null);
-  const router = useRouter(); // Initialize useRouter
 
   const handleClickOutside = (event: MouseEvent) => {
     if (
@@ -48,8 +43,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
   const handleMouseEnter = () => {
     setContactFormVisible(true);
     setIsFlagOpen(false);
-    // setOpenSearch(false);
-    // setProfileOpen(false);
+
   };
 
   const transition = {

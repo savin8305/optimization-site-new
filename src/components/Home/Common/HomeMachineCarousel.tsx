@@ -1,15 +1,13 @@
 "use client";
-import Image, { StaticImageData } from "next/image";
+import  { StaticImageData } from "next/image";
 import React from "react";
 import { Carousel, Card } from "@/components/ui/HomeMachine-cards-carousel";
-import image from "../../../../public/assets/image.png";
 import PositionAwareButton from "../../ui/PositionAwareButton";
 import Breadcrumb from "../../ui/Breadcrumb";
 import { FaCircleNotch } from "react-icons/fa";
 import {
   papercup,
   paperbowl,
- 
 } from "../../../../public/assets";
 import {
   DisposablePaperCupMakingMachine,

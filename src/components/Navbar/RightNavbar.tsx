@@ -6,8 +6,7 @@ import AccountLayout from "../Layout/AccountLayout";
 import ProfileLayout from "../Layout/ProfileLayout";
 import ContactForm from "../Contact/Contact";
 import { VscAccount } from "react-icons/vsc";
-import { TfiSearch } from "react-icons/tfi";
-import { IoClose } from "react-icons/io5";
+
 
 const RightNavbar: React.FC = memo(() => {
   const [menuState, setMenuState] = useState({
@@ -27,9 +26,6 @@ const RightNavbar: React.FC = memo(() => {
   const [isVisible, setIsVisible] = useState(true);
   const accountRef = useRef<HTMLDivElement | null>(null);
 
-  const toggleMenu = useCallback(() => {
-    setMenuState((prev) => ({ ...prev, open: !prev.open }));
-  }, []);
 
   const handleMouseLeave = useCallback(() => {
     setMenuState({ ...menuState, hoveredItem: null, heading: "" });
@@ -67,8 +63,6 @@ const RightNavbar: React.FC = memo(() => {
       visibilityState;
     setIsVisible(!(isFlagOpen || openSearch || profileOpen || accountOpen));
   }, [visibilityState]);
-  const searchRef = useRef<HTMLDivElement>(null);
-  const [searchValue, setSearchValue] = useState<string>("");
 
   useEffect(() => {
     document.addEventListener("mousedown", handleClickOutside);
@@ -77,13 +71,6 @@ const RightNavbar: React.FC = memo(() => {
     };
   }, []);
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchValue(e.target.value);
-  };
-
-  const handleClearSearch = () => {
-    setSearchValue("");
-  };
 
   return (
     <div

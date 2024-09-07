@@ -4,7 +4,6 @@ import React, {
   useRef,
   useState,
   createContext,
-  useContext,
 } from "react";
 import {
   IconArrowNarrowLeft,
@@ -12,9 +11,7 @@ import {
   IconX,
 } from "@tabler/icons-react";
 import { cn } from "@/lib/utils";
-import { AnimatePresence, motion } from "framer-motion";
-import Image, { ImageProps, StaticImageData } from "next/image";
-import { useOutsideClick } from "@/hooks/use-outside-click";
+import {StaticImageData } from "next/image";
 import { BlurImage } from "./BlurImage";
 interface CarouselProps {
   items: JSX.Element[];
@@ -277,8 +274,6 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
 
 export const Card = ({
   card,
-  index,
-  layout = false,
 }: {
   card: Card;
   index: number;
@@ -286,7 +281,6 @@ export const Card = ({
 }) => {
   const [open, setOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
-  const { onCardClose, currentIndex } = useContext(CarouselContext);
 
   useEffect(() => {
     function onKeyDown(event: KeyboardEvent) {
@@ -298,18 +292,12 @@ export const Card = ({
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [open]);
 
-  useOutsideClick(containerRef, () => handleClose());
-  const [openModalIndex, setOpenModalIndex] = useState<number | null>(null);
-
   const handleOpen = () => {
-    setOpenModalIndex(null);
     setOpen(true);
   };
 
   const handleClose = () => {
     setOpen(false);
-    setOpenModalIndex(null);
-    onCardClose(index);
   };
 
   return (

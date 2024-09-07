@@ -347,25 +347,24 @@ export const newscardcontent = [
 interface CardContent {
   title: string;
   image: StaticImageData;
-  lottieAnimation: any; // Adjust the type if you want to be more specific
+  lottieAnimation: object; // Use 'object' or a more specific type if you know the structure
 }
-
 
 export const cardContents: CardContent[] = [
   {
     title: "Know Your Product",
     image: productbox,
-    lottieAnimation: KnowYouProduct,
+    lottieAnimation: KnowYouProduct, // This should be JSON data or a file path
   },
   {
     title: "Know Your Machine",
     image: factory,
-    lottieAnimation: KnowYourMachine,
+    lottieAnimation: KnowYourMachine, // This should be JSON data or a file path
   },
   {
     title: "Know Your Business",
     image: teamunity,
-    lottieAnimation:KnowYoubusiness,
+    lottieAnimation: KnowYoubusiness, // This should be JSON data or a file path
   },
 ];
 export const CARDS_DATA = [

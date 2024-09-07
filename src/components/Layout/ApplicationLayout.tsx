@@ -7,14 +7,12 @@ import { motion } from "framer-motion";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa"; // Import the icons
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
 
-const ITEMS_PER_PAGE = 9;
 
 const Application: React.FC<{
   onHover: (item: itemDataType) => void;
   items: itemDataType[];
 }> = ({ onHover, items }) => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-  const [currentPage, setCurrentPage] = useState<number>(0);
   const handleMouseEnter = (index: number, item: itemDataType) => {
     setHoveredIndex(index);
     onHover(item);
@@ -23,17 +21,7 @@ const Application: React.FC<{
   const handleMouseLeave = () => {
     setHoveredIndex(null);
   };
-  const handleNextPage = () => {
-    if ((currentPage + 1) * ITEMS_PER_PAGE < items.length) {
-      setCurrentPage(currentPage + 1);
-    }
-  };
-
-  const handlePreviousPage = () => {
-    if (currentPage > 0) {
-      setCurrentPage(currentPage - 1);
-    }
-  };
+  
   const carouselRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
@@ -163,8 +151,8 @@ const Application: React.FC<{
                         | bigint
                         | boolean
                         | React.ReactElement<
-                            any,
-                            string | React.JSXElementConstructor<any>
+                            
+                            string 
                           >
                         | Iterable<React.ReactNode>
                         | Promise<React.AwaitedReactNode>

@@ -2,7 +2,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { useRouter, usePathname } from "next/navigation";
+import {usePathname } from "next/navigation";
 
 export const Menu = ({ children }: { children: React.ReactNode }) => {
   const [active, setActive] = useState<string | null>(null);
@@ -17,7 +17,7 @@ export const Menu = ({ children }: { children: React.ReactNode }) => {
       className="mx-auto px-4 flex w-fit rounded-full border-1"
     >
       {React.Children.map(children, (child) =>
-        React.cloneElement(child as React.ReactElement<any>, {
+        React.cloneElement(child as React.ReactElement, {
           setActive,
           active,
           setPosition,
@@ -74,7 +74,6 @@ export const MenuItem = ({
       element.removeEventListener("mouseenter", handleMouseEnter);
     };
   }, [ref, setActive, setPosition, item]);
-  const router = useRouter();
   const pathname = usePathname() || "";
   const countryCode = pathname.split("/")[1]?.toLowerCase();
 

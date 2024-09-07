@@ -1,6 +1,4 @@
 import React, { useEffect, useRef, useState } from "react";
-import Image from "next/image";
-import { StaticImageData } from "next/image";
 import { motion } from "framer-motion";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { FaPhone } from "react-icons/fa6";
@@ -8,7 +6,7 @@ import bgPick from "../../../public/assets/nav_support/BgMapImage.png";
 import LottieAnimation from "../ui/LottieAnimation";
 type SupportItem = {
   title: string;
-  image: any;
+  image:object;
 };
 type supportMobile = {
   mobileFirst: string;
@@ -18,7 +16,6 @@ interface SupportGridProps {
   supporItem: SupportItem[];
   supportMobile: supportMobile;
 }
-const ITEMS_PER_PAGE = 4;
 
 const SupportGrid: React.FC<SupportGridProps> = ({
   supporItem,
@@ -74,19 +71,8 @@ const SupportGrid: React.FC<SupportGridProps> = ({
   };
 
   const shouldShowArrows = supporItem.length > 4;
-  const [currentPage, setCurrentPage] = useState<number>(0);
 
-  const handleNextPage = () => {
-    if ((currentPage + 1) * ITEMS_PER_PAGE < supporItem.length) {
-      setCurrentPage(currentPage + 1);
-    }
-  };
 
-  const handlePreviousPage = () => {
-    if (currentPage > 0) {
-      setCurrentPage(currentPage - 1);
-    }
-  };
   const chunkItems = (arr: SupportItem[], size: number): SupportItem[][] =>
     arr.length
       ? [arr.slice(0, size), ...chunkItems(arr.slice(size), size)]
@@ -165,13 +151,7 @@ const SupportGrid: React.FC<SupportGridProps> = ({
                     variants={imageVariants}
                   >
                     <div className="relative w-32 bg-white rounded-xl border-[1px] h-16 flex justify-center items-center">
-                      <Image
-                        src={item.image.src}
-                        alt={item.title}
-                        width={96}
-                        height={96}
-                        className="object-contain h-16 w-32"
-                      />
+                     
                     </div>
                     <p className="relative font-poppins text-center mt-4 text-black font-medium hover:text-[#483d78] hover:font-bold text-16">
                       {item.title}

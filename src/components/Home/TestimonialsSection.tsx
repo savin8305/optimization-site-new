@@ -1,5 +1,4 @@
 import React from "react";
-import { Highlight } from "../ui/hero-highlight";
 import { InfiniteMovingCardsDemo } from "../ui/HeroSection";
 import { SwipeCarousel } from "./Common/slider";
 import AnimatedText from "../ui/AnimatedText";

@@ -46,7 +46,7 @@ export const Testing = ({
         const containerHeight = containerRef.current.clientHeight;
 
         // Duplicate the content enough times to ensure a seamless loop
-        let duplicateCount = Math.ceil(containerHeight / totalHeight) + 1;
+        const duplicateCount = Math.ceil(containerHeight / totalHeight) + 1;
         for (let i = 0; i < duplicateCount; i++) {
           scrollerContent.forEach((item) => {
             const duplicatedItem = item.cloneNode(true);

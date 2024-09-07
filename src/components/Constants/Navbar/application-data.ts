@@ -1,10 +1,7 @@
-import { AiOutlineProduct } from "react-icons/ai";
-import { LiaToolsSolid } from "react-icons/lia";
-import { IoBarChartOutline } from "react-icons/io5";
+
 import {
   papercup,
   paperbowl,
-  paperlid,
   paperBowlMachineImage,
   paperBagMachineImage,
   paperPlateMachineImage,
@@ -15,16 +12,7 @@ import {
     paperLunchBoxMachine,
     paperbag1,
 } from "../../../../public/assets";
-import KnowYourMachine from "../../../../public/assets/Lottiimages/know_your_machine.json"
-import KnowYouProduct from "../../../../public/assets/Lottiimages/know_your_product.json"
-import KnowYoubusiness from "../../../../public/assets/Lottiimages/know_your_business.json"
 import { StaticImageData } from "next/image";
-import KnowMore from "../../../public/assets/KnowMore1.png";
-import KnowMore1 from "../../../public/assets/KnowMore2.png";
-import NewsFeatureBanner from "../../../public/assets/NewsFeatureBanner.jpg";
-import teamunity from "../../../public/assets/HomeAbout1.png";
-import productbox from "../../../public/assets/HomeAbout2.jpg";
-import factory from "../../../public/assets/HomeAbout3.png";
 interface Images {
   paperBowlMachineImage: StaticImageData;
   paperBagMachineImage: StaticImageData;

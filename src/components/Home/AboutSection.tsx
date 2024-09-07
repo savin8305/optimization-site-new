@@ -6,7 +6,6 @@ import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import AnimatedText from "../ui/AnimatedText";
-import styles from "../ui/AnimatedText.module.css";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -151,14 +150,7 @@ const AboutUs: React.FC<AboutUsProps> = ({
                     href={card.link}
                     className="text-white flex items-end text-base font-regular"
                   >
-                    <div className={styles.container}>
-                      <div className={styles.box}>
-                        <div className={styles.title}>
-                          <span className={styles.block}></span>
-                          <AnimatedText text={`${card.title}`} />
-                        </div>
-                      </div>
-                    </div>
+                    <AnimatedText text={`${card.title}`} />
                   </a>
                   <BsBoxArrowUpRight className="text-2xl text-white font-extrabold text-bold" />
                 </div>

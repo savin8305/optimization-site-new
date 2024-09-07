@@ -8,7 +8,6 @@ import Image from "next/image";
 import homeimg from "../../../public/video/BgHomeimg.webp";
 const Home: React.FC = () => {
   const [isVideoLoaded, setIsVideoLoaded] = useState<boolean>(false);
-  const [isPlaying, setIsPlaying] = useState<boolean>(true);
   const [isLargeScreen, setIsLargeScreen] = useState<boolean>(false);
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -45,16 +44,7 @@ const Home: React.FC = () => {
     };
   }, []);
 
-  const handlePlayPause = () => {
-    if (videoRef.current) {
-      if (isPlaying) {
-        videoRef.current.pause();
-      } else {
-        videoRef.current.play();
-      }
-      setIsPlaying(!isPlaying);
-    }
-  };
+  
 
   const { scrollY } = useScroll();
 

@@ -1,12 +1,9 @@
 import { useState, useEffect } from "react";
 import styles from "../Styles/VideoCarousel.module.css";
-import Image from "next/image";
 
-interface VideoCarouselProps {
-  type?: string;
-}
 
-const VideoCarousel = ({ type }: VideoCarouselProps) => {
+
+const VideoCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const items = [
     {

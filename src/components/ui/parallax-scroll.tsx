@@ -39,7 +39,7 @@ export const ParallaxScroll: React.FC<ParallaxScrollProps> = ({
     const columns = columnRefs.map((ref) => ref.current);
 
     if (container) {
-      const timelines = gsap.context(() => {
+       gsap.context(() => {
         const createTimeline = (column: HTMLDivElement, duration: number) => {
           return gsap
             .timeline({

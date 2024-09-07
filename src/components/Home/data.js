@@ -1,7 +1,6 @@
 import HomeKnowmore2 from "../../../public/assets/HomeKnowmore2.jpg";
 import HomeKnowmore3 from "../../../public/assets/HomeKnowmore3.jpg";
 import HomeKnowmore4 from "../../../public/assets/HomeKnowmore4.jpg";
-import { paperBagMachineImage } from "../../../public/assets";
 import precisionlottie from "../../../public/assets/Lottiimages/precision-manufacturing.json"
 import indusctry from "../../../public/assets/Lottiimages/industry_experty.json"
 export const projects = [

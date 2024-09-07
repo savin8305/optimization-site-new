@@ -191,15 +191,7 @@ const HomeTestimonial = dynamic(
   }
 );
 
-const CanvasRevealEffectDemo = dynamic(
-  () =>
-    import("@/components/Home/CanvasRevealEffectDemo").then(
-      (mod) => mod.default
-    ),
-  {
-    ssr: false,
-  }
-);
+
 
 
 
@@ -270,12 +262,7 @@ export default function Home() {
           <KnowMore />
         </div>
 
-        {/* <div id="iot" className=" lg:flex flex-col hidden" ref={iotRef}>
-          <h4 className="text-xl text-center lg:text-2xl font-poppins lg:leading-tight text-black dark:text-white">
-            IoT <span className="text-red-500 font-bold">System</span>
-          </h4>
-          <IotSection />
-        </div> */}
+        
         <div id="news" className="" ref={newsFeatureRef}>
           <NewsFeature />
         </div>

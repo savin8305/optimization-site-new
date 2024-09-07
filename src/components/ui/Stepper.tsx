@@ -141,9 +141,7 @@ const Stepper: React.FC<{ onStepChange: (index: number) => void }> = ({
 }) => {
   const [activeStep, setActiveStep] = useState(0);
   const stepperRef = useRef<HTMLDivElement>(null);
-  const [canScrollLeft, setCanScrollLeft] = useState(false);
-  const [canScrollRight, setCanScrollRight] = useState(true);
-
+  
   const steps = [
     { name: "All paper Products", icon: <FaRegPaperPlane /> },
     { name: "Paper cup machines", icon: <FaCoffee /> },
@@ -178,23 +176,11 @@ const Stepper: React.FC<{ onStepChange: (index: number) => void }> = ({
 
   const checkScrollability = () => {
     if (stepperRef.current) {
-      const { scrollLeft, scrollWidth, clientWidth } = stepperRef.current;
-      setCanScrollLeft(scrollLeft > 0);
-      setCanScrollRight(scrollLeft < scrollWidth - clientWidth);
-    }
+      }
   };
 
-  const scrollLeft = () => {
-    if (stepperRef.current) {
-      stepperRef.current.scrollBy({ left: -200, behavior: "smooth" });
-    }
-  };
 
-  const scrollRight = () => {
-    if (stepperRef.current) {
-      stepperRef.current.scrollBy({ left: 200, behavior: "smooth" });
-    }
-  };
+
   const [scrolling, setScrolling] = useState(false);
   const navRef = useRef<HTMLDivElement | null>(null);
 

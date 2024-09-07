@@ -54,7 +54,7 @@ export default function MarqueeSection() {
           <div className="bg-white mt-2">
             <div className="flex-grow ">
               <InfiniteMovingCards
-                items={trustedBrands}
+                items={partnerBrands}
                 direction="right"
                 speed="slow"
                 className="w-full"

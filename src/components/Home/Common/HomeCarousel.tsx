@@ -2,11 +2,8 @@ import { useState, useEffect } from "react";
 import styles from "../Styles/Carousel.module.css";
 import Image from "next/image";
 
-interface CarouselProps {
-  type?: string;
-}
 
-const Carousel = ({ type }: CarouselProps) => {
+const Carousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const items = [
     {

@@ -1,7 +1,6 @@
 "use client";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect} from "react";
 import { cn } from "@/lib/utils";
-import dynamic from "next/dynamic";
 import { navbarItems } from "@/components/Constants/Navbar/navbarData";
 import Image from "next/image";
 import Link from "next/link";
@@ -15,7 +14,7 @@ import CountryLayout from "../Layout/CountryLayout";
 import { VscAccount } from "react-icons/vsc";
 import { TfiSearch } from "react-icons/tfi";
 import { IoClose } from "react-icons/io5";
-import { useRouter, usePathname } from "next/navigation";
+import { usePathname } from "next/navigation";
 import ContactForm from "../Contact/Contact";
 
 export default function NavbarDemo() {
@@ -27,32 +26,17 @@ export default function NavbarDemo() {
 }
 
 function Navbar({ className }: { className?: string }) {
-  const [scrolling, setScrolling] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [active, setActive] = useState<string | null>(null);
-  const [profileOpen, setProfileOpen] = useState(false);
   const [expandedItem, setExpandedItem] = useState<string | null>(null);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setScrolling(true);
-      } else {
-        setScrolling(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
-  const toggleItem = (item: string) => {
-    setActive(active === item ? null : item);
-  };
+  
 
   const expandItem = (item: string) => {
     setExpandedItem(expandedItem === item ? null : item);
@@ -68,21 +52,11 @@ function Navbar({ className }: { className?: string }) {
     setSearchValue("");
   };
 
-  const [expandedSearch, setExpandedSearch] = useState(false);
-  const [expandedCountry, setExpandedCountry] = useState(false);
-  const [expandedAccount, setExpandedAccount] = useState(false);
-  const router = useRouter();
-  const pathname = usePathname() || "";
+    const pathname = usePathname() || "";
   const countryCode = pathname.split("/")[3]?.toLowerCase();
   console.log("countryCode,", countryCode);
 
-  // Function to handle expansion
-  const handleExpand = (item: string) => {
-    // Close other expanded items when one is opened
-    setExpandedSearch(item === "search");
-    setExpandedCountry(item === "country");
-    setExpandedAccount(item === "account");
-  };
+
   const [isVisible, setIsVisible] = useState(true);
   const [visibilityState, setVisibilityState] = useState({
     isFlagOpen: false,
@@ -93,7 +67,6 @@ function Navbar({ className }: { className?: string }) {
     const { isFlagOpen } = visibilityState;
     setIsVisible(!isFlagOpen);
   }, [visibilityState]);
-  const searchRef = useRef<HTMLDivElement>(null);
 
   return (
     <div

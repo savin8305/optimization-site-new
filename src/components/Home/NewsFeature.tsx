@@ -103,7 +103,6 @@ import Image from "next/image";
 import { FaCirclePlus } from "react-icons/fa6";
 import { newscardcontent } from "../Constants";
 import Modal from "../ui/Modal";
-import FeatureCaraousel from "./Common/FeatureCaraousel";
 import { FeatureSlider } from "./Common/FeatureSlider";
 import Link from "next/link";
 

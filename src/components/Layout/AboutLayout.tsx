@@ -6,7 +6,7 @@ import { navLeftData, navRightData } from "../Constants/Navbar/about-data";
 import { motion } from "framer-motion";
 import AnimatedContainer from "@/hooks/AnimatedContainer";
 import { IoIosArrowForward } from "react-icons/io";
-import { useRouter, usePathname } from "next/navigation";
+import {usePathname } from "next/navigation";
 
 const IoIosArrowDown = dynamic(() =>
   import("react-icons/io").then((mod) => mod.IoIosArrowDown)
@@ -19,7 +19,6 @@ const Link = dynamic(() => import("next/link"), { ssr: false });
 const AboutLayout = () => {
   const carouselRef = useRef<HTMLDivElement | null>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const router = useRouter();
   const pathname = usePathname() || "";
   const countryCode = pathname.split("/")[1]?.toLowerCase();
 
