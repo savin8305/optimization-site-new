@@ -2,22 +2,10 @@ import React from "react";
 import { InfiniteMovingCardsDemo } from "../ui/HeroSection";
 import { SwipeCarousel } from "./Common/slider";
 import AnimatedText from "../ui/AnimatedText";
+import { textData } from "../Constants";
 
 const HomeTestimonial: React.FC = () => {
-  const textData = {
-    sectionTitle: "Testimonials",
-    desktopHeadings: {
-      line1: "Don’t Just Take",
-      line2: "Our Word for it"
-    },
-    desktopSubHeading: "See What Our Clients Are Saying About Us",
-    mobileSubHeading: "See What Our Clients Are Saying About Us",
-    satisfiedCustomers: {
-      number: "1000",
-      text: "Satisfied Customers",
-      plusSymbol: "+"
-    }
-  };
+ 
 
   return (
     <div className="flex flex-col lg:flex-row py-4 h-screen z-20 max-w-7xl mx-auto relative overflow-hidden">

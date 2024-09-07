@@ -3,12 +3,8 @@ import { motion, useMotionValue } from "framer-motion";
 import { BsBoxArrowUpRight } from "react-icons/bs";
 import { IoClose } from "react-icons/io5";
 import styles from "../Styles/SwipeCarousel.module.css";
+import { videos } from "@/components/Constants";
 
-const videos = [
-  { src: "https://assets.nesscoindustries.com/public/video/bg.mp4", youtubeLink: "https://www.youtube.com/embed/UxPkK8gW0hs?rel=0" },
-  { src: "https://assets.nesscoindustries.com/public/video/Homebg.mp4", youtubeLink: "https://www.youtube.com/embed/UxPkK8gW0hs?rel=0" },
-  { src: "https://assets.nesscoindustries.com/public/video/bg.mp4", youtubeLink: "https://www.youtube.com/embed/UxPkK8gW0hs?rel=0" },
-];
 
 const ONE_SECOND = 1000;
 const AUTO_DELAY = ONE_SECOND * 10;

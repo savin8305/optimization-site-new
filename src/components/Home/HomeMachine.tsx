@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Stepper from "../ui/Stepper";
 import { HomeMachineCarousel } from "./Common/HomeMachineCarousel";
-import { cardsData } from "./Common/HomeMachineCarousel";
+import { cardsData } from "../Constants/product";
 
 const HomeMachine: React.FC = () => {
   const [activeStep, setActiveStep] = useState(0);

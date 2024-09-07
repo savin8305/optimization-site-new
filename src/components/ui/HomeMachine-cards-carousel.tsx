@@ -19,9 +19,9 @@ interface CarouselProps {
 }
 
 type Card = {
-  image: StaticImageData;
+  image: string;
   title: string;
-  icon: StaticImageData;
+  icon: string;
   category: string;
   content?: React.ReactNode;
 };
