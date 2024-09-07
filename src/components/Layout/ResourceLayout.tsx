@@ -9,12 +9,12 @@ import Link from "next/link";
 
 type SupportItem = {
   title: string;
-  image: StaticImageData;
-  bgPic: StaticImageData; // Corrected property name
+  image: string;
+  bgPic: string; // Corrected property name
 };
 type ResourcesMobile = {
   title: string;
-  bgPic: StaticImageData; // Corrected property name
+  bgPic: string; // Corrected property name
 };
 interface ResourceGridProps {
   supporItem: SupportItem[];
@@ -110,7 +110,7 @@ const ResourceGrid: React.FC<ResourceGridProps> = ({ supporItem,ResourcesMobile 
             >
               <div className="relative w-full h-full flex justify-center items-center">
                 <Image
-                  src={item.image.src}
+                  src={item.image}
                   alt={item.title}
                   width={96}
                   height={96}
@@ -166,7 +166,7 @@ const ResourceGrid: React.FC<ResourceGridProps> = ({ supporItem,ResourcesMobile 
                   >
                     <div className="relative w-32 bg-white rounded-xl border-[1px] h-16 flex justify-center items-center">
                       <Image
-                        src={item.image.src}
+                        src={item.image}
                         alt={item.title}
                         width={96}
                         height={96}
@@ -215,6 +215,8 @@ const ResourceGrid: React.FC<ResourceGridProps> = ({ supporItem,ResourcesMobile 
                       <Image
                         className="h-6 w-6"
                         src={item.bgPic}
+                        width={96}
+                        height={96}
                         alt={item.title}
                       />
                     </div>

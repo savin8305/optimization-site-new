@@ -7,7 +7,6 @@ import { motion } from "framer-motion";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa"; // Import the icons
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
 
-
 const Application: React.FC<{
   onHover: (item: itemDataType) => void;
   items: itemDataType[];
@@ -21,7 +20,7 @@ const Application: React.FC<{
   const handleMouseLeave = () => {
     setHoveredIndex(null);
   };
-  
+
   const carouselRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
@@ -150,10 +149,7 @@ const Application: React.FC<{
                         | number
                         | bigint
                         | boolean
-                        | React.ReactElement<
-                            
-                            string 
-                          >
+                        | React.ReactElement<string>
                         | Iterable<React.ReactNode>
                         | Promise<React.AwaitedReactNode>
                         | null
@@ -212,48 +208,17 @@ const Application: React.FC<{
             <FaArrowRight className="text-xl text-gray-500" />
           </button>
         </div>
-        {/* <div className="w-full font-poppins font-semimedium overflow-y-auto h-[45%]">
-          {items.map((item, index) => (
-            <motion.div
-              key={index}
-              className="relative "
-              custom={index}
-              initial="hidden"
-              animate="visible"
-              variants={imageVariants}
-            >
-              <a
-                // href={`/application/${item.name
-                //   .toLowerCase()
-                //   .replace(/ /g, "-")}`}
-                className="flex border-t-[1px] justify-between p-4 flex-row"
-              >
-                <div className="flex flex-row space-x-3">
-                  <div className="h-full w-6 flex items-center">
-                    
-                    <Image
-                      className="h-6 w-6"
-                      src={item.bgpic}
-                      alt={item.name}
-                    />
-                  </div>
-                  <p className="text-base">{item.name}</p>
-                </div>
-
-                <IoIosArrowForward className="text-2xl" />
-              </a>
-            </motion.div>
-          ))}
-        </div> */}
       </div>
     </>
   );
 };
 
 const ApplicationPage: React.FC = () => {
-  const [hoveredItem, setHoveredItem] = useState<itemDataType>(navapplicationData[0]);
+  const [hoveredItem, setHoveredItem] = useState<itemDataType>(
+    navapplicationData[0]
+  );
 
-  const handleHover = (item:itemDataType) => {
+  const handleHover = (item: itemDataType) => {
     setHoveredItem(item);
   };
 
@@ -289,7 +254,7 @@ const ApplicationPage: React.FC = () => {
             >
               <div
                 className="absolute inset-0 bg-cover bg-center h-40 w-40 mt-32 opacity-5 transition-opacity duration-300 ease-in-out ml-40"
-                style={{ backgroundImage: `url(${hoveredItem.bgpic.src})` }}
+                style={{ backgroundImage: `url(${hoveredItem.bgpic})` }}
               ></div>
               <div className="relative z-10 p-4 -mt-14">
                 <h2 className="text-6xl font-poppins font-extrabold text-[#483d73]">

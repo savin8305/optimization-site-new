@@ -5,16 +5,6 @@ import {
   FaRecycle,
 } from "react-icons/fa";
 
-import {
-  missionImage,
-  companyImage,
-  strengthImage,
-  pinkCityImage,
-} from "../../../../public/assets";
-import HomeAbout1 from "../../../../public/assets/HomeAbout1.png";
-import HomeAbout2 from "../../../../public/assets/HomeAbout2.jpg";
-import HomeAbout3 from "../../../../public/assets/HomeAbout3.png";
-
 export const navLeftData = [
   {
     title: "Sustainability",
@@ -50,32 +40,55 @@ export const navLeftData = [
 ];
 
 export const navRightData = [
-  { title: "Mission&Vision", image: missionImage, link: "mission&vision" },
-  { title: "Our Company", image: companyImage, link: "ourcompany" },
-  { title: "Our Strength", image: strengthImage, link: "ourstrength" },
-  { title: "The Pink City", image: pinkCityImage, link: "pinkcity" },
+  {
+    title: "Mission&Vision",
+    image:
+      "https://assets.nesscoindustries.com/public/assets/nav_about/mission_v1.png",
+    link: "mission&vision",
+  },
+  {
+    title: "Our Company",
+    image:
+      "https://assets.nesscoindustries.com/public/assets/nav_about/company_v1.png",
+    link: "ourcompany",
+  },
+  {
+    title: "Our Strength",
+    image:
+      "https://assets.nesscoindustries.com/public/assets/nav_about/strength_v1.png",
+    link: "ourstrength",
+  },
+  {
+    title: "The Pink City",
+    image:
+      "https://assets.nesscoindustries.com/public/assets/nav_about/pinkCity_v1.png",
+    link: "pinkcity",
+  },
 ];
 export const data = {
+  maintitle: "About Us",
   heading: "Leading the Way in Food Packaging Machine Manufacturing",
   description: `At Nessco India, we specialize in manufacturing advanced food packaging machines that set industry standards for quality and innovation. Our state-of-the-art technology ensures efficient and sustainable solutions, meeting the diverse needs of our global clientele. With over 40 years of expertise, we are dedicated to pioneering eco-friendly practices in packaging. Trust us to lead the way in transforming packaging solutions for a greener future.`,
   stats: {
     machinesSold: 30000,
+    machinesSoldText: "Machines Sold",
     readyStockMachines: 3000,
+    readyStockMachinesText: "Ready Stock Machines",
   },
   cards: [
     {
       title: "Vision & Mission",
-      image: HomeAbout1.src,
+      image: "https://assets.nesscoindustries.com/public/assets/HomeAbout1.png",
       link: "#",
     },
     {
       title: "Our Strength",
-      image: HomeAbout2.src,
+      image: "https://assets.nesscoindustries.com/public/assets/HomeAbout2.jpg",
       link: "#",
     },
     {
       title: "People & Culture",
-      image: HomeAbout3.src,
+      image: "https://assets.nesscoindustries.com/public/assets/HomeAbout3.png",
       link: "#",
     },
   ],

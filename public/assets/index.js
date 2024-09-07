@@ -12,7 +12,7 @@ import companyImage from "./nav_about/company_v1.png";
 import pinkCityImage from "./nav_about/pinkCity_v1.png";
 import strengthImage from "./nav_about/strength_v1.png";
 // nav_machine
-import paperBagMachineImage from "./nav_machine/PaperBagMachine .png";
+import paperBagMachineImage from "./nav_machine/PaperBagMachine.png";
 import paperCupMachineImage from "./nav_machine/PaperCupMachine.png";
 import paperPlateMachineImage from "./nav_machine/PaperPlate.png";
 import fullyAutomaticBagMachineImage from "./nav_machine/FullyAutomaticPaperBagMachine.png";

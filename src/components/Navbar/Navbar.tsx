@@ -1,14 +1,11 @@
 "use client";
-import React, { useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { navbarItems } from "@/components/Constants/Navbar/navbarData";
 import Image from "next/image";
 import Link from "next/link";
 import Logo from "../../../public/assets/Logo.png";
-// import RightNavbar from "./RightNavbar";
-// import ProfileLayout from "../Layout/ProfileLayout";
 import { Menu, MenuItem } from "./nav-menue";
-// import { BiMinus } from "react-icons/bi";
 import { HiMiniMinusCircle } from "react-icons/hi2";
 import CountryLayout from "../Layout/CountryLayout";
 import { VscAccount } from "react-icons/vsc";
@@ -16,7 +13,6 @@ import { TfiSearch } from "react-icons/tfi";
 import { IoClose } from "react-icons/io5";
 import { usePathname } from "next/navigation";
 import ContactForm from "../Contact/Contact";
-
 export default function NavbarDemo() {
   return (
     <div className="relative lg:h-auto lg:mt-0  flex items-center justify-between lg:justify-center">
@@ -29,15 +25,9 @@ function Navbar({ className }: { className?: string }) {
   const [isOpen, setIsOpen] = useState(false);
   const [active, setActive] = useState<string | null>(null);
   const [expandedItem, setExpandedItem] = useState<string | null>(null);
-
-  
-
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
-
-  
-
   const expandItem = (item: string) => {
     setExpandedItem(expandedItem === item ? null : item);
   };
@@ -47,16 +37,12 @@ function Navbar({ className }: { className?: string }) {
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchValue(e.target.value);
   };
-
   const handleClearSearch = () => {
     setSearchValue("");
   };
-
-    const pathname = usePathname() || "";
+  const pathname = usePathname() || "";
   const countryCode = pathname.split("/")[3]?.toLowerCase();
   console.log("countryCode,", countryCode);
-
-
   const [isVisible, setIsVisible] = useState(true);
   const [visibilityState, setVisibilityState] = useState({
     isFlagOpen: false,
@@ -83,7 +69,7 @@ function Navbar({ className }: { className?: string }) {
         <div className="w-1/5 flex items-center">
           <Link href="/" className="w-full h-full flex items-center ">
             <Image
-              src={Logo}
+              src="https://assets.nesscoindustries.com/public/assets/Logo.png"
               alt="Logo"
               width={500}
               height={500}

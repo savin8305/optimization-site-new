@@ -190,11 +190,6 @@ const HomeTestimonial = dynamic(
     ssr: true,
   }
 );
-
-
-
-
-
 export default function Home() {
   const aboutUsRef = useRef<HTMLDivElement>(null);
   const infiniteCardsRef = useRef<HTMLDivElement>(null);
@@ -248,6 +243,7 @@ export default function Home() {
         </div>
         <div id="aboutUs" className="" ref={aboutUsRef}>
           <AboutUs
+            title={data.maintitle}
             heading={data.heading}
             description={data.description}
             stats={data.stats}
@@ -262,7 +258,6 @@ export default function Home() {
           <KnowMore />
         </div>
 
-        
         <div id="news" className="" ref={newsFeatureRef}>
           <NewsFeature />
         </div>

@@ -1,77 +1,13 @@
-import {
-  papercup,
-  paperplate2,
-  paperbowl,
-  paperlid,
-  paperstraw,
-  paperbag1,
-  paperBowlMachineImage,
-  paperBagMachineImage,
-  paperPlateMachineImage,
-  paperFlexoMachineImage,
-  fullyAutomaticBagMachineImage,
-  PCM110WithPLC,
-  paperStrawMachine,
-  paperLunchBoxMachine,
-} from "../../../../public/assets";
 
-import { StaticImageData } from "next/image";
-import placeholder from "../../../../public/assets/image.png"; 
-
-interface Images {
-  paperBowlMachineImage: StaticImageData;
-  paperBagMachineImage: StaticImageData;
-  PCM110WithPLC: StaticImageData;
-  paperPlateMachineImage: StaticImageData;
-  paperFlexoMachineImage: StaticImageData;
-  fullyAutomaticBagMachineImage: StaticImageData;
-  paperStrawMachine: StaticImageData;
-  paperLunchBoxMachine: StaticImageData;
-  dieCuttingMachineImage: StaticImageData;
-  flexoPrintingMachineImage: StaticImageData;
-  slittingMachineImage: StaticImageData;
-  coatingMachineImage: StaticImageData;
-  paperBucketMachineImage: StaticImageData;
-  paperLidMachineImage: StaticImageData;
-  insulatedCupMachineImage: StaticImageData;
-  sleeveMakingMachineImage: StaticImageData;
-  corrugationMachineImage: StaticImageData;
-  paperHandleCupMachineImage: StaticImageData;
-  paperCutleryMachineImage: StaticImageData;
-  plasticLidMachineImage: StaticImageData;
-  paperFormingMachineImage: StaticImageData;
-}
-
-export const images: Images = {
-  paperBowlMachineImage: paperBowlMachineImage,
-  paperBagMachineImage: paperBagMachineImage,
-  PCM110WithPLC: PCM110WithPLC,
-  paperPlateMachineImage: paperPlateMachineImage,
-  paperFlexoMachineImage: paperFlexoMachineImage,
-  fullyAutomaticBagMachineImage: fullyAutomaticBagMachineImage,
-  paperStrawMachine: paperStrawMachine,
-  paperLunchBoxMachine: paperLunchBoxMachine,
-  dieCuttingMachineImage: placeholder, // Use placeholder
-  flexoPrintingMachineImage: placeholder, // Use placeholder
-  slittingMachineImage: placeholder, // Use placeholder
-  coatingMachineImage: placeholder, // Use placeholder
-  paperBucketMachineImage: placeholder, // Use placeholder
-  paperLidMachineImage: placeholder, // Use placeholder
-  insulatedCupMachineImage: placeholder, // Use placeholder
-  sleeveMakingMachineImage: placeholder, // Use placeholder
-  corrugationMachineImage: placeholder, // Use placeholder
-  paperHandleCupMachineImage: placeholder, // Use placeholder
-  paperCutleryMachineImage: placeholder, // Use placeholder
-  plasticLidMachineImage: placeholder, // Use placeholder
-  paperFormingMachineImage: placeholder, // Use placeholder
-};
 
 export const Machines = [
   {
     name: "NS-015",
-    image: "PCM110WithPLC",
+    image:
+      "https://assets.nesscoindustries.com/public/assets/nav_machine/PCM110WithPLC.png",
 
-    mimage: PCM110WithPLC,
+    mimage:
+      "https://assets.nesscoindustries.com/public/assets/nav_machine/PCM110WithPLC.png",
     product_heading: "food packaging machine",
     first_name: "first name",
     second_name: "second_name",
@@ -91,8 +27,10 @@ export const Machines = [
   },
   {
     name: "NS-016",
-    image: "PCM110WithPLC",
-    mimage: PCM110WithPLC,
+    image:
+      "https://assets.nesscoindustries.com/public/assets/nav_machine/PCM110WithPLC.png",
+    mimage:
+      "https://assets.nesscoindustries.com/public/assets/nav_machine/PCM110WithPLC.png",
     product_heading: "food packaging machine",
     first_name: "first name",
     second_name: "second_name",
@@ -113,8 +51,10 @@ export const Machines = [
   },
   {
     name: "NS-017",
-    image: "PCM110WithPLC",
-    mimage: PCM110WithPLC,
+    image:
+      "https://assets.nesscoindustries.com/public/assets/nav_machine/PCM110WithPLC.png",
+    mimage:
+      "https://assets.nesscoindustries.com/public/assets/nav_machine/PCM110WithPLC.png",
     product_heading: "food packaging machine",
     first_name: "first name",
     second_name: "second_name",
@@ -135,8 +75,10 @@ export const Machines = [
   },
   {
     name: "NS-018",
-    image: "PCM110WithPLC",
-    mimage: PCM110WithPLC,
+    image:
+      "https://assets.nesscoindustries.com/public/assets/nav_machine/PCM110WithPLC.png",
+    mimage:
+      "https://assets.nesscoindustries.com/public/assets/nav_machine/PCM110WithPLC.png",
     product_heading: "food packaging machine",
     first_name: "first name",
     second_name: "second_name",
@@ -160,8 +102,10 @@ export const Machines = [
   },
   {
     name: "NS-019",
-    image: "PCM110WithPLC",
-    mimage: PCM110WithPLC,
+    image:
+      "https://assets.nesscoindustries.com/public/assets/nav_machine/PCM110WithPLC.png",
+    mimage:
+      "https://assets.nesscoindustries.com/public/assets/nav_machine/PCM110WithPLC.png",
 
     product_heading: "food packaging machine",
     first_name: "first name",
@@ -186,8 +130,10 @@ export const Machines = [
   },
   {
     name: "NS-020",
-    image: "PCM110WithPLC",
-    mimage: PCM110WithPLC,
+    image:
+      "https://assets.nesscoindustries.com/public/assets/nav_machine/PCM110WithPLC.png",
+    mimage:
+      "https://assets.nesscoindustries.com/public/assets/nav_machine/PCM110WithPLC.png",
 
     product_heading: "food packaging machine",
     first_name: "first name",
@@ -212,8 +158,10 @@ export const Machines = [
   },
   {
     name: "NS-021",
-    image: "PCM110WithPLC",
-    mimage: PCM110WithPLC,
+    image:
+      "https://assets.nesscoindustries.com/public/assets/nav_machine/PCM110WithPLC.png",
+    mimage:
+      "https://assets.nesscoindustries.com/public/assets/nav_machine/PCM110WithPLC.png",
 
     product_heading: "food packaging machine",
     first_name: "first name",
@@ -238,8 +186,10 @@ export const Machines = [
   },
   {
     name: "NS-022",
-    image: "PCM110WithPLC",
-    mimage: PCM110WithPLC,
+    image:
+      "https://assets.nesscoindustries.com/public/assets/nav_machine/PCM110WithPLC.png",
+    mimage:
+      "https://assets.nesscoindustries.com/public/assets/nav_machine/PCM110WithPLC.png",
 
     product_heading: "food packaging machine",
     first_name: "first name",
@@ -264,8 +214,10 @@ export const Machines = [
   },
   {
     name: "NS-023",
-    image: "PCM110WithPLC",
-    mimage: PCM110WithPLC,
+    image:
+      "https://assets.nesscoindustries.com/public/assets/nav_machine/PCM110WithPLC.png",
+    mimage:
+      "https://assets.nesscoindustries.com/public/assets/nav_machine/PCM110WithPLC.png",
 
     product_heading: "food packaging machine",
     first_name: "first name",
@@ -290,8 +242,10 @@ export const Machines = [
   },
   {
     name: "Paper Bowl Machine 01",
-    image: "paperBowlMachineImage",
-    mimage: paperBowlMachineImage,
+    image:
+      "https://assets.nesscoindustries.com/public/assets/nav_machine/PaperBowlMachine.webp",
+    mimage:
+      "https://assets.nesscoindustries.com/public/assets/nav_machine/PaperBowlMachine.webp",
     product_heading: "food packaging machine",
     first_name: "first name",
     second_name: "second_name",
@@ -312,12 +266,14 @@ export const Machines = [
   },
   {
     name: "Paper Bowl Machine 02",
-    image: "paperBowlMachineImage",
-    mimage: paperBowlMachineImage,
+    image:
+      "https://assets.nesscoindustries.com/public/assets/nav_machine/PaperBowlMachine.webp",
+    mimage:
+      "https://assets.nesscoindustries.com/public/assets/nav_machine/PaperBowlMachine.webp",
     product_heading: "food packaging machine",
     first_name: "first name",
     second_name: "second_name",
-    category: "Paper Bowl Machine, mimage: paperBowlMachineImage,All Products",
+    category: "Paper Bowl Machine, All Products",
     icon: "paperbowl",
     introduction:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit.",
@@ -337,12 +293,14 @@ export const Machines = [
   },
   {
     name: "Paper Bowl Machine 03",
-    image: "paperBowlMachineImage",
-    mimage: paperBowlMachineImage,
+    image:
+      "https://assets.nesscoindustries.com/public/assets/nav_machine/PaperBowlMachine.webp",
+    mimage:
+      "https://assets.nesscoindustries.com/public/assets/nav_machine/PaperBowlMachine.webp",
     product_heading: "food packaging machine",
     first_name: "first name",
     second_name: "second_name",
-    category: "Paper Bowl Machine, mimage: paperBowlMachineImage,All Products",
+    category: "Paper Bowl Machine,,All Products",
     icon: "paperbowl",
     introduction:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit.",
@@ -362,12 +320,14 @@ export const Machines = [
   },
   {
     name: "Paper Bowl Machine 04",
-    image: "paperBowlMachineImage",
-    mimage: paperBowlMachineImage,
+    image:
+      "https://assets.nesscoindustries.com/public/assets/nav_machine/PaperBowlMachine.webp",
+    mimage:
+      "https://assets.nesscoindustries.com/public/assets/nav_machine/PaperBowlMachine.webp",
     product_heading: "food packaging machine",
     first_name: "first name",
     second_name: "second_name",
-    category: "Paper Bowl Machine, mimage: paperBowlMachineImage,All Products",
+    category: "Paper Bowl Machine,All Products",
     icon: "paperbowl",
     introduction:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit.",
@@ -387,8 +347,10 @@ export const Machines = [
   },
   {
     name: "NS-021",
-    image: "paperPlateMachineImage",
-    mimage: paperPlateMachineImage,
+    image:
+      "https://assets.nesscoindustries.com/public/assets/nav_machine/PaperPlate.png",
+    mimage:
+      " https://assets.nesscoindustries.com/public/assets/nav_machine/PaperPlate.png",
 
     product_heading: "food packaging machine",
     first_name: "first name",
@@ -413,8 +375,10 @@ export const Machines = [
   },
   {
     name: "NS-022",
-    image: "paperPlateMachineImage",
-    mimage: paperPlateMachineImage,
+    image:
+      "https://assets.nesscoindustries.com/public/assets/nav_machine/PaperPlate.png",
+    mimage:
+      " https://assets.nesscoindustries.com/public/assets/nav_machine/PaperPlate.png",
 
     product_heading: "food packaging machine",
     first_name: "first name",
@@ -439,8 +403,10 @@ export const Machines = [
   },
   {
     name: "Cybertruck",
-    image: "paperPlateMachineImage",
-    mimage: paperPlateMachineImage,
+    image:
+      "https://assets.nesscoindustries.com/public/assets/nav_machine/PaperPlate.png",
+    mimage:
+      " https://assets.nesscoindustries.com/public/assets/nav_machine/PaperPlate.png",
 
     product_heading: "food packaging machine",
     first_name: "first name",
@@ -465,8 +431,10 @@ export const Machines = [
   },
   {
     name: "Cybertruck2",
-    image: "paperPlateMachineImage",
-    mimage: paperPlateMachineImage,
+    image:
+      "https://assets.nesscoindustries.com/public/assets/nav_machine/PaperPlate.png",
+    mimage:
+      " https://assets.nesscoindustries.com/public/assets/nav_machine/PaperPlate.png",
 
     product_heading: "food packaging machine",
     first_name: "first name",
@@ -491,8 +459,10 @@ export const Machines = [
   },
   {
     name: "Paper Flexo Machine",
-    image: "paperFlexoMachineImage",
-    mimage: paperFlexoMachineImage,
+    image:
+      "https://assets.nesscoindustries.com/public/assets/nav_machine/FlexoPrintingMachine.png",
+    mimage:
+      "https://assets.nesscoindustries.com/public/assets/nav_machine/FlexoPrintingMachine.png",
     product_heading: "food packaging machine",
     first_name: "first name",
     second_name: "second_name",
@@ -513,8 +483,10 @@ export const Machines = [
   },
   {
     name: "Paper Flexo Machine",
-    image: "paperFlexoMachineImage",
-    mimage: paperFlexoMachineImage,
+    image:
+      "https://assets.nesscoindustries.com/public/assets/nav_machine/FlexoPrintingMachine.png",
+    mimage:
+      "https://assets.nesscoindustries.com/public/assets/nav_machine/FlexoPrintingMachine.png",
     product_heading: "food packaging machine",
     first_name: "first name",
     second_name: "second_name",
@@ -539,8 +511,10 @@ export const Machines = [
 
   {
     name: "Paper Flexo Machine2",
-    image: "paperFlexoMachineImage",
-    mimage: paperFlexoMachineImage,
+    image:
+      "https://assets.nesscoindustries.com/public/assets/nav_machine/FlexoPrintingMachine.png",
+    mimage:
+      "https://assets.nesscoindustries.com/public/assets/nav_machine/FlexoPrintingMachine.png",
     product_heading: "food packaging machine",
     first_name: "first name",
     second_name: "second_name",
@@ -564,8 +538,10 @@ export const Machines = [
   },
   {
     name: "Paper Flexo Machine3",
-    image: "paperFlexoMachineImage",
-    mimage: paperFlexoMachineImage,
+    image:
+      "https://assets.nesscoindustries.com/public/assets/nav_machine/FlexoPrintingMachine.png",
+    mimage:
+      "https://assets.nesscoindustries.com/public/assets/nav_machine/FlexoPrintingMachine.png",
 
     product_heading: "food packaging machine",
     first_name: "first name",
@@ -590,8 +566,10 @@ export const Machines = [
   },
   {
     name: "Paper Bag Machine new",
-    image: "fullyAutomaticBagMachineImage",
-    mimage: fullyAutomaticBagMachineImage,
+    image:
+      " https://assets.nesscoindustries.com/public/assets/nav_machine/PaperBagMachine%20.png",
+    mimage:
+      "https://assets.nesscoindustries.com/public/assets/nav_machine/PaperBagMachine%20.png",
     product_heading: "food packaging machine",
     first_name: "first name",
     second_name: "second_name",
@@ -612,8 +590,10 @@ export const Machines = [
   },
   {
     name: "Paper Bag Machine1",
-    image: "fullyAutomaticBagMachineImage",
-    mimage: fullyAutomaticBagMachineImage,
+    image:
+      " https://assets.nesscoindustries.com/public/assets/nav_machine/PaperBagMachine%20.png",
+    mimage:
+      "https://assets.nesscoindustries.com/public/assets/nav_machine/PaperBagMachine%20.png",
     product_heading: "food packaging machine",
     first_name: "first name",
     second_name: "second_name",
@@ -637,8 +617,10 @@ export const Machines = [
   },
   {
     name: "Paper Bag Machine new2",
-    image: "fullyAutomaticBagMachineImage",
-    mimage: fullyAutomaticBagMachineImage,
+    image:
+      " https://assets.nesscoindustries.com/public/assets/nav_machine/PaperBagMachine%20.png",
+    mimage:
+      "https://assets.nesscoindustries.com/public/assets/nav_machine/PaperBagMachine%20.png",
     product_heading: "food packaging machine",
     first_name: "first name",
     second_name: "second_name",
@@ -662,8 +644,10 @@ export const Machines = [
   },
   {
     name: "Paper Bag Machine new2",
-    image: "fullyAutomaticBagMachineImage",
-    mimage: fullyAutomaticBagMachineImage,
+    image:
+      " https://assets.nesscoindustries.com/public/assets/nav_machine/PaperBagMachine%20.png",
+    mimage:
+      "https://assets.nesscoindustries.com/public/assets/nav_machine/PaperBagMachine%20.png",
     product_heading: "food packaging machine",
     first_name: "first name",
     second_name: "second_name",
@@ -687,8 +671,10 @@ export const Machines = [
   },
   {
     name: "Die Cutting Machine X1",
-    image: "dieCuttingMachineImage",
-    mimage: placeholder,
+    image:
+      "https://assets.nesscoindustries.com/public/assets/nav_machine/PaperLunchBoxMachine.png",
+    mimage:
+      "https://assets.nesscoindustries.com/public/assets/nav_machine/PaperLunchBoxMachine.png",
     product_heading: "food packaging machine",
     first_name: "first name",
     second_name: "second_name",
@@ -708,8 +694,10 @@ export const Machines = [
   },
   {
     name: "Flexo Printing Machine Y1",
-    image: "flexoPrintingMachineImage",
-    mimage: placeholder,
+    image:
+      "https://assets.nesscoindustries.com/public/assets/nav_machine/PaperLunchBoxMachine.png",
+    mimage:
+      "https://assets.nesscoindustries.com/public/assets/nav_machine/PaperLunchBoxMachine.png",
     product_heading: "food packaging machine",
     first_name: "first name",
     second_name: "second_name",
@@ -729,8 +717,10 @@ export const Machines = [
   },
   {
     name: "Slitting Machine Z1",
-    image: "slittingMachineImage",
-    mimage: placeholder,
+    image:
+      "https://assets.nesscoindustries.com/public/assets/nav_machine/PaperStrawMachine.png",
+    mimage:
+      "https://assets.nesscoindustries.com/public/assets/nav_machine/PaperLunchBoxMachine.png",
     product_heading: "food packaging machine",
     first_name: "first name",
     second_name: "second_name",
@@ -750,8 +740,10 @@ export const Machines = [
   },
   {
     name: "Coating Machine A1",
-    image: "coatingMachineImage",
-    mimage: placeholder,
+    image:
+      "https://assets.nesscoindustries.com/public/assets/nav_machine/coatingMachineImage",
+    mimage:
+      "https://assets.nesscoindustries.com/public/assets/nav_machine/PaperLunchBoxMachine.png",
     product_heading: "food packaging machine",
     first_name: "first name",
     second_name: "second_name",
@@ -771,8 +763,10 @@ export const Machines = [
   },
   {
     name: "Paper Bucket Machine B1",
-    image: "paperBucketMachineImage",
-    mimage: placeholder,
+    image:
+      "https://assets.nesscoindustries.com/public/assets/nav_machine/paperBucketMachineImage",
+    mimage:
+      "https://assets.nesscoindustries.com/public/assets/nav_machine/PaperLunchBoxMachine.png",
     product_heading: "food packaging machine",
     first_name: "first name",
     second_name: "second_name",
@@ -792,8 +786,10 @@ export const Machines = [
   },
   {
     name: "Paper Lid Machine C1",
-    image: "paperLidMachineImage",
-    mimage: placeholder,
+    image:
+      "https://assets.nesscoindustries.com/public/assets/nav_machine/paperLidMachineImage",
+    mimage:
+      "https://assets.nesscoindustries.com/public/assets/nav_machine/PaperLunchBoxMachine.png",
     product_heading: "food packaging machine",
     first_name: "first name",
     second_name: "second_name",
@@ -813,8 +809,10 @@ export const Machines = [
   },
   {
     name: "Insulated Cup Machine D1",
-    image: "insulatedCupMachineImage",
-    mimage: placeholder,
+    image:
+      "https://assets.nesscoindustries.com/public/assets/nav_machine/paperLidMachineImage/insulatedCupMachineImage",
+    mimage:
+      "https://assets.nesscoindustries.com/public/assets/nav_machine/PaperLunchBoxMachine.png",
     product_heading: "food packaging machine",
     first_name: "first name",
     second_name: "second_name",
@@ -834,8 +832,10 @@ export const Machines = [
   },
   {
     name: "Sleeve Making Machine E1",
-    image: "sleeveMakingMachineImage",
-    mimage: placeholder,
+    image:
+      "https://assets.nesscoindustries.com/public/assets/nav_machine/paperLidMachineImage/sleeveMakingMachineImage",
+    mimage:
+      "https://assets.nesscoindustries.com/public/assets/nav_machine/PaperLunchBoxMachine.png",
     product_heading: "food packaging machine",
     first_name: "first name",
     second_name: "second_name",
@@ -855,8 +855,10 @@ export const Machines = [
   },
   {
     name: "Corrugation Machine F1",
-    image: "corrugationMachineImage",
-    mimage: placeholder,
+    image:
+      "https://assets.nesscoindustries.com/public/assets/nav_machine/paperLidMachineImage/corrugationMachineImage",
+    mimage:
+      "https://assets.nesscoindustries.com/public/assets/nav_machine/PaperLunchBoxMachine.png",
     product_heading: "food packaging machine",
     first_name: "first name",
     second_name: "second_name",
@@ -876,8 +878,10 @@ export const Machines = [
   },
   {
     name: "Paper Handle Cup Machine G1",
-    image: "paperHandleCupMachineImage",
-    mimage: placeholder,
+    image:
+      "https://assets.nesscoindustries.com/public/assets/nav_machine/paperLidMachineImage/paperHandleCupMachineImage",
+    mimage:
+      "https://assets.nesscoindustries.com/public/assets/nav_machine/PaperLunchBoxMachine.png",
     product_heading: "food packaging machine",
     first_name: "first name",
     second_name: "second_name",
@@ -897,8 +901,10 @@ export const Machines = [
   },
   {
     name: "Paper Cutlery Machine H1",
-    image: "paperCutleryMachineImage",
-    mimage: placeholder,
+    image:
+      "https://assets.nesscoindustries.com/public/assets/nav_machine/paperLidMachineImage/paperCutleryMachineImage",
+    mimage:
+      "https://assets.nesscoindustries.com/public/assets/nav_machine/PaperLunchBoxMachine.png",
     product_heading: "food packaging machine",
     first_name: "first name",
     second_name: "second_name",
@@ -918,8 +924,10 @@ export const Machines = [
   },
   {
     name: "Plastic Lid Machine I1",
-    image: "plasticLidMachineImage",
-    mimage: placeholder,
+    image:
+      "https://assets.nesscoindustries.com/public/assets/nav_machine/paperLidMachineImage/plasticLidMachineImage",
+    mimage:
+      "https://assets.nesscoindustries.com/public/assets/nav_machine/PaperLunchBoxMachine.png",
     product_heading: "food packaging machine",
     first_name: "first name",
     second_name: "second_name",
@@ -940,8 +948,10 @@ export const Machines = [
   },
   {
     name: "Paper Forming Machine J1",
-    image: "paperFormingMachineImage",
-    mimage: placeholder,
+    image:
+      "https://assets.nesscoindustries.com/public/assets/nav_machine/paperLidMachineImage/paperFormingMachineImage",
+    mimage:
+      "https://assets.nesscoindustries.com/public/assets/nav_machine/PaperLunchBoxMachine.png",
     product_heading: "food packaging machine",
     first_name: "first name",
     second_name: "second_name",
@@ -964,101 +974,101 @@ export const SidebarLinks = [
   {
     name: "Paper Cup Machine",
     link: "/Paper Cup Machine",
-    icon: papercup,
+    icon: "https://assets.nesscoindustries.com/public/assets/nav_machine_icon/paperlid.png",
   },
   {
     name: "Paper Bowl Machine",
     link: "/Paper Bowl Machine",
-    icon: paperbowl,
+    icon: "https://assets.nesscoindustries.com/public/assets/nav_machine_icon/paperbag.png",
   },
   {
     name: "Paper Plate Machine",
     link: "/Paper Plate Machine",
-    icon: paperplate2,
+    icon: "https://assets.nesscoindustries.com/public/assets/nav_machine_icon/papercup.png",
   },
   {
     name: "Paper Flexo Machine",
     link: "/Paper Flexo Machine",
-    icon: paperlid,
+    icon: "https://assets.nesscoindustries.com/public/assets/nav_machine_icon/papercup.png",
   },
   {
     name: "Paper Bag Machine",
     link: "/Paper Bag Machine",
-    icon: paperbag1,
+    icon: "https://assets.nesscoindustries.com/public/assets/nav_machine_icon/papercup.png",
   },
   {
     name: "Paper Straw Machine",
     link: "/Paper Straw Machine",
-    icon: paperstraw,
+    icon: "https://assets.nesscoindustries.com/public/assets/nav_machine_icon/papercup.png",
   },
   {
     name: "Paper Lunch Box Machine",
     link: "/Lunch Box Machine",
-    icon: paperbag1,
+    icon: "https://assets.nesscoindustries.com/public/assets/nav_machine_icon/papercup.png",
   },
   {
     name: "Paper Cutting Machine",
     link: "/Paper Cutting Machine",
-    icon: paperbag1,
+    icon: "https://assets.nesscoindustries.com/public/assets/nav_machine_icon/papercup.png",
   },
   {
     name: "Slitting Machine",
     link: "/Slitting Machine",
-    icon: paperbag1,
+    icon: "https://assets.nesscoindustries.com/public/assets/nav_machine_icon/papercup.png",
   },
   {
     name: "Coating Machine",
     link: "/Coating Machine",
-    icon: paperbag1,
+    icon: "https://assets.nesscoindustries.com/public/assets/nav_machine_icon/papercup.png",
   },
   {
     name: "Corrugation Machine",
     link: "/Corrugation Machine",
-    icon: paperbag1,
+    icon: "https://assets.nesscoindustries.com/public/assets/nav_machine_icon/papercup.png",
   },
   {
     name: "Paper Handle Cup Machine",
     link: "/Paper Handle Cup Machine",
-    icon: paperbag1,
+    icon: "https://assets.nesscoindustries.com/public/assets/nav_machine_icon/papercup.png",
   },
   {
     name: "Die Cutting Machine",
     link: "/Die Cutting Machine",
-    icon: paperbag1,
+    icon: "https://assets.nesscoindustries.com/public/assets/nav_machine_icon/papercup.png",
   },
   {
     name: "Insulated Cup Machine",
     link: "/Insulated Cup Machine",
-    icon: paperbag1,
+    icon: "https://assets.nesscoindustries.com/public/assets/nav_machine_icon/papercup.png",
   },
   {
     name: "Sleeve Making Machine",
     link: "/Sleeve Making Machine",
-    icon: paperbag1,
+    icon: "https://assets.nesscoindustries.com/public/assets/nav_machine_icon/papercup.png",
   },
   {
     name: "Paper Cutlery Machine",
     link: "/Paper Cutlery Machine",
-    icon: paperbag1,
+    icon: "https://assets.nesscoindustries.com/public/assets/nav_machine_icon/papercup.png",
   },
   {
     name: "Paper Bucket Machine",
     link: "/Paper Bucket Machine",
-    icon: paperbag1,
+    icon: "https://assets.nesscoindustries.com/public/assets/nav_machine_icon/papercup.png",
   },
   {
     name: "Paper Lid Machine",
     link: "/Paper Lid Machine",
-    icon: paperbag1,
+    icon: "https://assets.nesscoindustries.com/public/assets/nav_machine_icon/papercup.png",
   },
   {
     name: "Carton Erecting Machine",
     link: "/Carton Erecting Machine",
-    icon: paperbag1,
+    icon: "https://assets.nesscoindustries.com/public/assets/nav_machine_icon/papercup.png",
   },
   {
     name: "Rectangular Flat Bottom Bowl Machine",
     link: "/Rectangular Flat Bottom Bowl Machine",
-    icon: paperbag1,
+    icon: "https://assets.nesscoindustries.com/public/assets/nav_machine_icon/papercup.png",
   },
 ];

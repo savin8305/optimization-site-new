@@ -1,7 +1,106 @@
+import {
+  papercup,
+  paperplate2,
+  paperbowl,
+  paperlid,
+  paperstraw,
+  paperbag1,
+
+
+} from "../../../../public/assets";
+
+import placeholder from "../../../../public/assets/image.png"; 
+
+interface Images {
+  paperBagMachineImage:string;
+  paperStrawMachine:string;
+  paperLunchBoxMachine: string;
+  flexoPrintingMachineImage: string;
+  slittingMachineImage: string;
+  coatingMachineImage: string;
+  paperBucketMachineImage: string;
+  paperLidMachineImage: string;
+  insulatedCupMachineImage: string;
+  sleeveMakingMachineImage: string;
+  corrugationMachineImage: string;
+  paperHandleCupMachineImage: string;
+  paperCutleryMachineImage: string;
+  plasticLidMachineImage: string;
+  paperFormingMachineImage: string;
+}
+
+export const images: Images = {
+  paperBagMachineImage: "https://assets.nesscoindustries.com/public/assets/nav_machine/PaperBagMachine%20.png",
+  paperStrawMachine: "https://assets.nesscoindustries.com/public/assets/nav_machine/PaperStrawMachine.png",
+  paperLunchBoxMachine: "https://assets.nesscoindustries.com/public/assets/nav_machine/PaperLunchBoxMachine.png",
+  flexoPrintingMachineImage: "https://assets.nesscoindustries.com/public/assets/nav_machine/FlexoPrintingMachine.png",
+  slittingMachineImage: "https://assets.nesscoindustries.com/public/assets/image.png", // Use placeholder
+  coatingMachineImage: "https://assets.nesscoindustries.com/public/assets/image.png", // Use placeholder
+  paperBucketMachineImage: "https://assets.nesscoindustries.com/public/assets/image.png", // Use placeholder
+  paperLidMachineImage: "https://assets.nesscoindustries.com/public/assets/image.png", // Use placeholder
+  insulatedCupMachineImage: "https://assets.nesscoindustries.com/public/assets/image.png", // Use placeholder
+  sleeveMakingMachineImage: "https://assets.nesscoindustries.com/public/assets/image.png", // Use placeholder
+  corrugationMachineImage: "https://assets.nesscoindustries.com/public/assets/image.png", // Use placeholder
+  paperHandleCupMachineImage: "https://assets.nesscoindustries.com/public/assets/image.png", // Use placeholder
+  paperCutleryMachineImage: "https://assets.nesscoindustries.com/public/assets/image.png", // Use placeholder
+  plasticLidMachineImage: "https://assets.nesscoindustries.com/public/assets/image.png", // Use placeholder
+  paperFormingMachineImage: "https://assets.nesscoindustries.com/public/assets/image.png", // Use placeholder
+};
+
+
+export const Machines = [
+  {
+    name: "NS-015",
+    image: "https://assets.nesscoindustries.com/public/assets/nav_machine/PCM110WithPLC.png",
+
+    mimage: "https://assets.nesscoindustries.com/public/assets/nav_machine/PCM110WithPLC.png",
+    product_heading: "food packaging machine",
+    first_name: "first name",
+    second_name: "second_name",
+    category: "Paper Cup Machine, All Products",
+    icon: "papercup",
+    introduction:
+      "The NS-015 is a high-performance paper cup machine designed for efficient production in medium to large scale enterprises. It combines reliability with speed, capable of producing up to 100 cups per minute.",
+    parameters: "Voltage: 220V, Power: 1500W",
+    application:
+      "Ideal for producing paper cups of various sizes, from 6oz to 16oz, suitable for hot and cold beverages.",
+    product_description:
+      "This machine features a robust stainless steel construction that ensures durability and hygiene standards are met. It includes PLC control for precise operation and minimal wastage.",
+    technical_specification: "Material: Stainless steel, Weight: 500kg",
+    optional_add_ons: "Custom cup size molds available upon request.",
+    faqs: "Q: What is the warranty period? A: 1-year warranty provided for parts and service.",
+    related_product: "NS-016, NS-017",
+  },
+  {
+    name: "NS-016",
+    image: "https://assets.nesscoindustries.com/public/assets/nav_machine/PCM110WithPLC.png",
+    mimage: "https://assets.nesscoindustries.com/public/assets/nav_machine/PCM110WithPLC.png",
+    product_heading: "food packaging machine",
+    first_name: "first name",
+    second_name: "second_name",
+    category: "Paper Cup Machine, All Products",
+    icon: "papercup",
+    introduction:
+      "The NS-016 paper cup machine is designed for versatility and efficiency, catering to small to medium-scale enterprises. It offers reliable performance and ease of operation.",
+    parameters: "Voltage: 220V, Power: 1500W",
+    application:
+      "Suitable for producing a variety of paper cup sizes, ranging from 4oz to 12oz, for both hot and cold beverages.",
+    product_description:
+      "This machine is crafted from lightweight aluminum alloy, making it easy to transport and install. It features a user-friendly interface and low maintenance requirements.",
+    technical_specification: "Material: Aluminum alloy, Weight: 450kg",
+    optional_add_ons:
+      "Automatic cup stacking unit available as an optional accessory.",
+    faqs: "Q: How many cups can it produce per minute? A: This machine can produce up to 80 cups per minute.",
+    related_product: "NS-015, NS-017",
+  },
+]
+see above is my machine data and that is tooo big so i have just share some now why in my site not able to get that machine image
+
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import {
   Machines,
   SidebarLinks,
+  images,
 } from "../Constants/Navbar/product-data";
 import Image, { StaticImageData } from "next/image";
 import {
@@ -43,6 +142,7 @@ const ProductLayout: React.FC<ProductLayoutProps> = ({
     hoveredCategory ? machine.category.includes(hoveredCategory) : false
   ).map((machine) => ({
     ...machine,
+    image: (images as unknown as Images)[machine.image],
   }));
 
   const totalVisible = 6;
@@ -293,165 +393,7 @@ const ProductLayout: React.FC<ProductLayoutProps> = ({
           </div>
         </div>
       </div>
-      {/* Mobile View */}
-      <div className="absolute w-full h-screen p-2 -mt-2 flex lg:hidden flex-col rounded-lg overflow-hidden">
-        <div className="flex flex-col h-full w-full relative">
-          <div className="absolute w-full h-full flex flex-col">
-            <div className="w-full flex justify-start items-start overflow-y-hidden relative">
-              <div className="space-y-4 pb-32 h-full stopscrollProduct overflow-y-auto w-full">
-                {SidebarLinks.slice(sidebarIndex, SidebarLinks.length).map(
-                  (link, index) => (
-                    <motion.div
-                      key={index}
-                      initial={{
-                        height: expandedItem === link.name ? "auto" : "3rem",
-                      }}
-                      animate={{
-                        height: expandedItem === link.name ? "auto" : "3rem",
-                      }}
-                      transition={{ duration: 0 }}
-                      onClick={() => handleCategoryClick(link.name, link.name)}
-                      className="flex flex-col border-b-[1px]  justify-between text-lg transition-colors duration-300 cursor-pointer font-poppins text-[#483d78] font-semimedium overflow-hidden"
-                    >
-                      <div
-                        onClick={() => expandItem(link.name)}
-                        className="flex items-center justify-between"
-                      >
-                        <div className="flex flex-row space-x-3 cursor-pointer">
-                          <div className="flex items-center justify-center">
-                            <BlurImage
-                              className="rounded-full h-6 w-6  ml-1  duration-200 object-cover"
-                              src={link.icon}
-                              alt={link.name}
-                              width={24}
-                              height={24}
-                              loading="lazy"
-                            />
-                          </div>
-                          <p
-                            className={`${
-                              expandedItem === link.name
-                                ? "text-[#483d73]"
-                                : "text-gray-500 "
-                            }`}
-                          >
-                            {link.name}
-                          </p>
-                        </div>
-                        <span
-                          className={`text-gray-500 ${
-                            expandedItem === link.name ? "" : ""
-                          } pr-[0.7rem] text-2xl`}
-                        >
-                          {expandedItem === link.name ? "-" : "+"}
-                        </span>
-                      </div>
-
-                      {expandedItem === link.name && (
-                        <motion.div
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          transition={{ duration: 0.3 }}
-                          className="inset-0 w-full bg-white h-full z-50 flex flex-col overflow-hidden"
-                        >
-                          <div className="py-4 px-2 h-full flex-grow overflow-y-auto">
-                            <div className="text-sm text-gray-700">
-                              <div className=" grid h-[22rem] border-t-[1px] grid-cols-2 py-4 gap-4 w-full">
-                                {filteredMachines.length <= totalVisible - 2
-                                  ? filteredMachines.map((machine, index) => (
-                                      <motion.div
-                                        key={`${machine.name}-${index}`}
-                                        className="text-center h-40 rounded-2xl border-2 p-2"
-                                        custom={index}
-                                        initial="hidden"
-                                        animate="visible"
-                                        variants={imageVariants}
-                                      >
-                                        <Image
-                                          src={machine.image}
-                                          alt={machine.name}
-                                          className="object-contain transform transition-transform duration-200 rounded-xl h-24 bg-white border-[1px] w-full"
-                                          width={200}
-                                          height={150}
-                                        />
-                                        <h3 className="text-sm text-black mt-2 w-full font-bold">
-                                          {machine.name}
-                                        </h3>
-                                      </motion.div>
-                                    ))
-                                  : filteredMachines
-                                      .slice(
-                                        currentIndex,
-                                        currentIndex + (totalVisible - 2)
-                                      )
-                                      .map((machine, index) => (
-                                        <motion.div
-                                          key={`${machine.name}-${index}`}
-                                          className="text-center h-40 rounded-xl p-2 border-2"
-                                          custom={index}
-                                          initial="hidden"
-                                          animate="visible"
-                                          variants={imageVariants}
-                                         
-                                        >
-                                          <BlurImage
-                                            src={machine.image}
-                                            alt={machine.name}
-                                            className="object-contain transform transition-transform duration-200 border-[1px] rounded-xl h-24 w-full"
-                                            width={200}
-                                            height={150}
-                                            loading="lazy"
-                                          />
-                                          <h1 className="text-sm text-black font-bold mt-2">
-                                            {machine.name}
-                                          </h1>
-                                        </motion.div>
-                                      ))}
-                              </div>
-                              <div className="relative w-full space-x-4 flex z-30 h-[5%] justify-center items-center">
-                                {filteredMachines.length > totalVisible - 2 && (
-                                  <button
-                                    onClick={mobilehandlePrev}
-                                    className={`text-black text-3xl transition-all ${
-                                      currentIndex === 0
-                                        ? "opacity-20"
-                                        : "opacity-100"
-                                    }`}
-                                    disabled={currentIndex === 0}
-                                  >
-                                    <FaArrowLeftLong />
-                                  </button>
-                                )}
-                                {filteredMachines.length > totalVisible - 2 && (
-                                  <button
-                                    onClick={mobilehandleNext}
-                                    className={`text-black z-30 text-3xl transition-all ${
-                                      currentIndex + (totalVisible - 2) >=
-                                      filteredMachines.length
-                                        ? "opacity-20"
-                                        : "opacity-100"
-                                    }`}
-                                    disabled={
-                                      currentIndex + (totalVisible - 2) >=
-                                      filteredMachines.length
-                                    }
-                                  >
-                                    <FaArrowRightLong />
-                                  </button>
-                                )}
-                              </div>
-                            </div>
-                          </div>
-                        </motion.div>
-                      )}
-                    </motion.div>
-                  )
-                )}
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      
     </div>
   );
 };

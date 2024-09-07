@@ -2,10 +2,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import PositionAwareButton from "../ui/PositionAwareButton";
-
-
 import Image from "next/image";
-import homeimg from "../../../public/video/BgHomeimg.webp";
 const Home: React.FC = () => {
   const [isVideoLoaded, setIsVideoLoaded] = useState<boolean>(false);
   const [isLargeScreen, setIsLargeScreen] = useState<boolean>(false);
@@ -44,8 +41,6 @@ const Home: React.FC = () => {
     };
   }, []);
 
-  
-
   const { scrollY } = useScroll();
 
   // Always call the hook
@@ -78,18 +73,28 @@ const Home: React.FC = () => {
                 playsInline
                 preload="metadata"
               >
-                <source src="video/BgHome.mp4" type="video/mp4" />
-                <source src="video/bg.webm" type="video/webm" />
-                <source src="video/bg.ogv" type="video/ogg" />
+                <source
+                  src="https://assets.nesscoindustries.com/public/video/BgHome.mp4"
+                  type="video/mp4"
+                />
+                <source
+                  src="https://assets.nesscoindustries.com/public/video/bg.webm"
+                  type="video/webm"
+                />
+                <source
+                  src="https://assets.nesscoindustries.com/public/video/bg.ogv"
+                  type="video/ogg"
+                />
               </video>
               <div className="absolute inset-0 bg-black bg-opacity-30 rounded-2xl lg:rounded-3xl"></div>
-              
             </div>
           ) : (
             <div className="absolute inset-0 flex items-center justify-center">
               <Image
+                height={100}
+                width={100}
                 className="w-full h-full object-cover rounded-2xl lg:rounded-3xl"
-                src={homeimg}
+                src="https://assets.nesscoindustries.com/public/video/home.webp"
                 alt={"home"}
               />
             </div>

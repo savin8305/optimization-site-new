@@ -5,9 +5,9 @@ import { IoClose } from "react-icons/io5";
 import styles from "../Styles/SwipeCarousel.module.css";
 
 const videos = [
-  { src: "/video/bg.mp4", youtubeLink: "https://www.youtube.com/embed/UxPkK8gW0hs?rel=0" },
-  { src: "/video/Homebg.mp4", youtubeLink: "https://www.youtube.com/embed/UxPkK8gW0hs?rel=0" },
-  { src: "/video/iotvideo.mp4", youtubeLink: "https://www.youtube.com/embed/UxPkK8gW0hs?rel=0" },
+  { src: "https://assets.nesscoindustries.com/public/video/bg.mp4", youtubeLink: "https://www.youtube.com/embed/UxPkK8gW0hs?rel=0" },
+  { src: "https://assets.nesscoindustries.com/public/video/Homebg.mp4", youtubeLink: "https://www.youtube.com/embed/UxPkK8gW0hs?rel=0" },
+  { src: "https://assets.nesscoindustries.com/public/video/bg.mp4", youtubeLink: "https://www.youtube.com/embed/UxPkK8gW0hs?rel=0" },
 ];
 
 const ONE_SECOND = 1000;

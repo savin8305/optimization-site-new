@@ -2,6 +2,7 @@
 const nextConfig = {
     images: {
       domains: [
+        'assets.nesscoindustries.com',
         'i.pinimg.com',
         'upload.wikimedia.org',
         'www.ignant.com',

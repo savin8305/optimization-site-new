@@ -8,11 +8,13 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import AnimatedText from "../ui/AnimatedText";
 
 gsap.registerPlugin(ScrollTrigger);
-
 interface Stats {
   machinesSold: number;
+  machinesSoldText: string; // Updated property name
   readyStockMachines: number;
+  readyStockMachinesText: string; // Ensure property names match
 }
+
 
 interface Card {
   image: string;
@@ -21,6 +23,7 @@ interface Card {
 }
 
 interface AboutUsProps {
+  title:string;
   heading: string;
   description: string;
   stats: Stats;
@@ -28,6 +31,7 @@ interface AboutUsProps {
 }
 
 const AboutUs: React.FC<AboutUsProps> = ({
+  title,
   heading,
   description,
   stats,
@@ -63,11 +67,12 @@ const AboutUs: React.FC<AboutUsProps> = ({
     animateCount(machinesSoldRef.current, stats.machinesSold);
     animateCount(readyStockMachinesRef.current, stats.readyStockMachines);
   }, [stats]);
+  const [firstWord, secondWord] = title.split(' ');
 
   return (
     <div className="flex mt-12 h-full max-w-screen-2xl mx-auto flex-col items-center  md:px-6 lg:px-8">
       <h1 className="text-3xl font-regular text-[#483d78]">
-        About <span className="text-red-500 font-semibold">US</span>
+        {firstWord} <span className="text-red-500 font-semibold">{secondWord}</span>
       </h1>
       <h1 className="text-lg lg:text-4xl w-full text-center font-poppins lg:px-72 py-3">
         {heading.split(" ").map((word, index) =>
@@ -93,7 +98,7 @@ const AboutUs: React.FC<AboutUsProps> = ({
               0
             </h2>
             <p className="text-sm lg:text-base font-regular font-poppins">
-              Machines Sold
+              {stats.machinesSoldText}
             </p>
           </div>
           <p className="font-poppins hidden lg:flex text-sm lg:text-base md:px-6 py-4 text-center font-regular w-full md:w-3/5 leading-6">
@@ -107,7 +112,7 @@ const AboutUs: React.FC<AboutUsProps> = ({
               0
             </h2>
             <p className="lg:text-base font-regular  text-sm font-poppins">
-              Ready Stock Machines
+              {stats.readyStockMachinesText}
             </p>
           </div>
         </div>
