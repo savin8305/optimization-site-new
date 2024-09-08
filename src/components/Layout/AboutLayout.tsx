@@ -2,11 +2,11 @@
 import React, { useRef, useEffect, useState, useCallback } from "react";
 import dynamic from "next/dynamic";
 import Image from "next/image";
-import { navLeftData, navRightData } from "../Constants/Navbar/about-data";
 import { motion } from "framer-motion";
 import AnimatedContainer from "@/hooks/AnimatedContainer";
 import { IoIosArrowForward } from "react-icons/io";
-import {usePathname } from "next/navigation";
+import { usePathname } from "next/navigation";
+import data from "../Constants/Navbar/index.json";
 
 const IoIosArrowDown = dynamic(() =>
   import("react-icons/io").then((mod) => mod.IoIosArrowDown)
@@ -22,9 +22,16 @@ const AboutLayout = () => {
   const pathname = usePathname() || "";
   const countryCode = pathname.split("/")[1]?.toLowerCase();
 
+  // Get aboutData, and check if it exists before destructuring
+  const aboutData = data.find(item => item.category === "About")?.data;
+
+  // Provide fallback values if aboutData is undefined
+  const navLeftData = aboutData?.navLeftData || [];
+  const navRightData = aboutData?.navRightData || [];
+
   const scrollDown = useCallback(() => {
     setCurrentIndex((prev) => (prev < navLeftData.length - 2 ? prev + 1 : prev));
-  }, []);
+  }, [navLeftData]);
 
   const scrollUp = useCallback(() => {
     setCurrentIndex((prev) => (prev > 0 ? prev - 1 : prev));
@@ -85,12 +92,12 @@ const AboutLayout = () => {
           {navLeftData.slice(currentIndex, currentIndex + 2).map((item, index) => (
             <a key={index} href={`/${countryCode}/about/${item.title}`}>
               <div
-                className={`${item.color} hidden lg:flex border-t-2 lg:border-none lg:hover:scale-80 transition-transform duration-200 items-center lg:p-4 lg:rounded-3xl lg:mb-2`}
+                className={` hidden lg:flex border-t-2 lg:border-none lg:hover:scale-80 transition-transform duration-200 items-center lg:p-4 lg:rounded-3xl lg:mb-2`}
               >
                 <div
                   className={`h-12 w-12 mr-4 flex justify-center items-center text-2xl ${item.textcolor}`}
                 >
-                  <item.icon />
+                  {/* <item.icon/> */}
                 </div>
                 <div>
                   <h3 className="text-sm  sm:text-md text-black font-semibold mb-0">
@@ -101,27 +108,10 @@ const AboutLayout = () => {
                   </p>
                 </div>
               </div>
-              <div
-                className={`flex lg:hidden border-t-[1px] lg:border-none lg:hover:scale-80 transition-transform duration-200  items-center lg:p-4 lg:rounded-3xl lg:mb-2`}
-              >
-                <div
-                  className={`h-12 w-12 mr-4 flex justify-center items-center text-2xl ${item.textcolor}`}
-                >
-                  <item.icon />
-                </div>
-                <div className="flex flex-row w-full justify-between">
-                  <h3 className="text-sm  sm:text-md text-black font-bold mb-0">
-                    {item.title}
-                  </h3>
-                  <p className="text-xs hidden lg:flex text-black line-clamp-3">
-                    {item.description}
-                  </p>
-                  <IoIosArrowForward className="text-2xl" />
-                </div>
-              </div>
             </a>
           ))}
         </AnimatedContainer>
+        {/* Scroll Buttons */}
         <div className="hidden lg:flex w-full bg-gray-800 justify-center">
           {currentIndex > 0 && (
             <button
@@ -149,12 +139,12 @@ const AboutLayout = () => {
           {navLeftData.slice(currentIndex, currentIndex + 4).map((item, index) => (
             <Link key={index} href={`/${item.title}`} passHref>
               <div
-                className={`${item.color} hidden lg:flex border-t-2 lg:border-none lg:hover:scale-80 transition-transform duration-200 items-center lg:p-4 lg:rounded-3xl lg:mb-2`}
+                className={`hidden lg:flex border-t-2 lg:border-none lg:hover:scale-80 transition-transform duration-200 items-center lg:p-4 lg:rounded-3xl lg:mb-2`}
               >
                 <div
                   className={`h-12 w-12 mr-4 flex justify-center items-center text-2xl ${item.textcolor}`}
                 >
-                  <item.icon />
+                  {/* <item.icon /> */}
                 </div>
                 <div>
                   <h3 className="text-sm  sm:text-md text-black font-bold mb-0">
@@ -165,27 +155,10 @@ const AboutLayout = () => {
                   </p>
                 </div>
               </div>
-              <div
-                className={`flex lg:hidden border-t-[1px] lg:border-none lg:hover:scale-80 transition-transform duration-200  items-center lg:p-4 lg:rounded-3xl lg:mb-2`}
-              >
-                <div
-                  className={`h-12 w-12 mr-4 flex justify-center items-center text-2xl ${item.textcolor}`}
-                >
-                  <item.icon />
-                </div>
-                <div className="flex flex-row w-full justify-between">
-                  <h3 className="text-sm  sm:text-md text-black font-bold mb-0">
-                    {item.title}
-                  </h3>
-                  <p className="text-xs hidden lg:flex text-black line-clamp-3">
-                    {item.description}
-                  </p>
-                  <IoIosArrowForward className="text-2xl" />
-                </div>
-              </div>
             </Link>
           ))}
         </AnimatedContainer>
+        {/* Scroll Buttons */}
         <div className="hidden lg:flex w-full bg-gray-800 justify-center">
           {currentIndex > 0 && (
             <button
