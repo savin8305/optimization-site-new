@@ -166,7 +166,7 @@
     }
   },
   {
-    "category": "Video",
+    "category":"Support",
     "data": {
       "supportItem": [
         {
@@ -185,7 +185,11 @@
           "title": "Machine Warranty",
           "image": "https://assets.nesscoindustries.com/public/assets/nav_support/warantee.json"
         }
-      ]
+      ],
+      "supportMobile": {
+        "mobileFirst": "123-456-7890",
+        "mobileSecond": "098-765-4321"
+      }
     }
   },
   {

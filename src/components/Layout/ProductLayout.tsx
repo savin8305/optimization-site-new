@@ -1,8 +1,7 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
-import {
-  Machines,
-  SidebarLinks,
-} from "../Constants/Navbar/product-data";
+
+import data from "../Constants/Navbar/index.json";
+
 import Image, { StaticImageData } from "next/image";
 import {
   MdKeyboardArrowRight,
@@ -31,15 +30,20 @@ const ProductLayout: React.FC<ProductLayoutProps> = ({
   setHeading,
   setIsVisible,
 }) => {
+  const productData = data.find(item => item.category === "Product")?.data;
+  // Provide fallback values if aboutData is undefined
+  const navLeftData = productData?.Machines || [];
+  const navRightData = productData?.SidebarLinks || [];
+  
   const [hoveredCategory, setHoveredCategory] = useState<string>(
-    SidebarLinks[0].name
+    navRightData[0].name
   );
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const [sidebarIndex, setSidebarIndex] = useState(0);
   const containerRef = useRef<HTMLDivElement | null>(null);
 
-  const filteredMachines = Machines.filter((machine) =>
+  const filteredMachines = navLeftData.filter((machine) =>
     hoveredCategory ? machine.category.includes(hoveredCategory) : false
   ).map((machine) => ({
     ...machine,
@@ -243,7 +247,7 @@ const ProductLayout: React.FC<ProductLayoutProps> = ({
               </button>
             )}
             <div className="space-y-4 pt-6 h-[24rem]">
-              {SidebarLinks.slice(sidebarIndex, sidebarIndex + 8).map(
+              {navRightData.slice(sidebarIndex, sidebarIndex + 8).map(
                 (link, index) => (
                   <motion.div
                     key={link.name}
@@ -282,7 +286,7 @@ const ProductLayout: React.FC<ProductLayoutProps> = ({
                 )
               )}
             </div>
-            {sidebarIndex + 8 < SidebarLinks.length && (
+            {sidebarIndex + 8 < navRightData.length && (
               <button
                 onClick={handleSidebarNext}
                 className="absolute bottom-0 left-1/2 text-4xl text-black"
@@ -299,7 +303,7 @@ const ProductLayout: React.FC<ProductLayoutProps> = ({
           <div className="absolute w-full h-full flex flex-col">
             <div className="w-full flex justify-start items-start overflow-y-hidden relative">
               <div className="space-y-4 pb-32 h-full stopscrollProduct overflow-y-auto w-full">
-                {SidebarLinks.slice(sidebarIndex, SidebarLinks.length).map(
+                {navRightData.slice(sidebarIndex, navRightData.length).map(
                   (link, index) => (
                     <motion.div
                       key={index}

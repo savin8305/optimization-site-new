@@ -1,13 +1,13 @@
-"use client";
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import {usePathname } from "next/navigation";
+import { usePathname } from "next/navigation";
 
 export const Menu = ({ children }: { children: React.ReactNode }) => {
   const [active, setActive] = useState<string | null>(null);
   const [position, setPosition] = useState({ left: 500, width: 0, opacity: 0 });
 
+ 
   return (
     <nav
       onMouseLeave={() => {
@@ -39,59 +39,45 @@ export const MenuItem = ({
   setActive: (item: string) => void;
   active: string | null;
   item: string;
-  link?:string;
-  
-  setPosition: (position: {
-    left: number;
-    width: number;
-    opacity: number;
-  }) => void;
+  link?: string;
+  setPosition: (position: { left: number; width: number; opacity: number }) => void;
   children?: React.ReactNode;
 }) => {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (!ref.current) return;
-
     const handleMouseEnter = () => {
       if (!ref?.current) return;
 
       const { width } = ref.current.getBoundingClientRect();
-
       setPosition({
         left: ref.current.offsetLeft,
         width,
         opacity: 1,
       });
-
       setActive(item);
     };
 
-    const element = ref.current;
-    element.addEventListener("mouseenter", handleMouseEnter);
+    // Add event listener for fast response
+    ref.current?.addEventListener("mouseenter", handleMouseEnter);
 
     return () => {
-      element.removeEventListener("mouseenter", handleMouseEnter);
+      ref.current?.removeEventListener("mouseenter", handleMouseEnter);
     };
-  }, [ref, setActive, setPosition, item]);
+  }, [setActive, setPosition, item]);
+
   const pathname = usePathname() || "";
   const countryCode = pathname.split("/")[1]?.toLowerCase();
 
   return (
-    <div
-      ref={ref}
-      className="z-10 cursor-pointer px-3 font-poppins"
-    >
-      <Link
-        className="invert-0 text-base font-light"
-        href={`/${countryCode}/${link}`}
-      >
+    <div ref={ref} className="z-10 cursor-pointer px-3 font-poppins">
+      <Link className="invert-0 text-base font-light" href={`/${countryCode}/${link}`}>
         {item}
       </Link>
       {active === item && (
-        <motion.div className="absolute  top-[calc(100%_-_1.0rem)] left-0 pt-4">
+        <motion.div className="absolute top-[calc(100%_-_1.0rem)] left-0 pt-4">
           <motion.div
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.2 }} // Reduced duration for fast feedback
             layoutId="active"
             className="bg-white dark:bg-black overflow-hidden border border-black/[0.2] dark:border-white/[0.2] shadow-xl"
           >
@@ -105,11 +91,8 @@ export const MenuItem = ({
   );
 };
 
-const Cursor = ({
-  position,
-}: {
-  position: { left: number; width: number; opacity: number };
-}) => {
+// Cursor Component with fast transitions
+const Cursor = ({ position }: { position: { left: number; width: number; opacity: number } }) => {
   return (
     <motion.div
       animate={{
@@ -119,10 +102,10 @@ const Cursor = ({
       }}
       transition={{
         type: "spring",
-        stiffness: 1000,
-        damping: 50, // Lower damping for less resistance
+        stiffness: 900,  // Increased stiffness for fast movements
+        damping: 40,
       }}
-      className="absolute z-0 h-6 rounded-full bg-[#eaeaea] md:h-6 "
+      className="absolute z-0 h-6 rounded-full bg-[#eaeaea] md:h-6"
     />
   );
 };

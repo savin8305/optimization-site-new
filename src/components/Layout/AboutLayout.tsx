@@ -4,7 +4,6 @@ import dynamic from "next/dynamic";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import AnimatedContainer from "@/hooks/AnimatedContainer";
-import { IoIosArrowForward } from "react-icons/io";
 import { usePathname } from "next/navigation";
 import data from "../Constants/Navbar/index.json";
 

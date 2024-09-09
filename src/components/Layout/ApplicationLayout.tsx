@@ -1,16 +1,28 @@
 import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { itemDataType, navapplicationData } from "../Constants/index";
 import styles from "./application.module.css";
 import PositionAwareButton from "../ui/PositionAwareButton";
 import { motion } from "framer-motion";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa"; // Import the icons
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
-
+import data from "../Constants/Navbar/index.json";
+interface itemDataType {
+  src: string;
+  alt: string;
+  name: string;
+  description: string;
+  bgpic: string;
+}
 const Application: React.FC<{
   onHover: (item: itemDataType) => void;
   items: itemDataType[];
 }> = ({ onHover, items }) => {
+    // Get aboutData, and check if it exists before destructuring
+    const applicationData = data.find(item => item.category === "Application")?.data;
+    // Provide fallback values if aboutData is undefined
+    const applications = applicationData?.item|| [];
+    console.log("application",applications);
+    
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const handleMouseEnter = (index: number, item: itemDataType) => {
     setHoveredIndex(index);
@@ -88,7 +100,7 @@ const Application: React.FC<{
     <>
       <div className="hidden lg:grid grid-cols-3  mx-auto max-w-screen-2xl lg:grid-cols-6 pt-2 gap-4 lg:p-6 rounded">
         {/* desktop view */}
-        {navapplicationData.map((item, index) => (
+        {applications.map((item, index) => (
           <motion.div
             key={index}
             className="relative mt-2 h-24 w-32 rounded-lg"
@@ -214,8 +226,12 @@ const Application: React.FC<{
 };
 
 const ApplicationPage: React.FC = () => {
+  const applicationData = data.find(item => item.category === "Application")?.data;
+  // Provide fallback values if aboutData is undefined
+  const applications = applicationData?.item|| [];
+  console.log("application",applications);
   const [hoveredItem, setHoveredItem] = useState<itemDataType>(
-    navapplicationData[0]
+    applications[0]
   );
 
   const handleHover = (item: itemDataType) => {
@@ -236,12 +252,12 @@ const ApplicationPage: React.FC = () => {
 
   return (
     <>
-      <div className="lg:flex rounded-3xl mx-auto max-w-screen-2xl w-full lg:w-[100vw] h-full hidden justify-start lg:justify-center items-start lg:max-w-screen-2xl">
+      <div className="lg:flex mx-auto max-w-screen-2xl bg-red-700 w-full lg:w-[100vw] h-full hidden justify-start lg:justify-center items-start lg:max-w-screen-2xl">
         {/* desktop view */}
         <div className="overflow-hidden relative">
           <div className="flex">
             <div className="w-full lg:w-[75%] pt-4">
-              <Application onHover={handleHover} items={navapplicationData} />
+              <Application onHover={handleHover} items={applications} />
             </div>
             <div className="hidden lg:flex relative ml-2 p-4 pb-8  items-center">
               <div className="ml-2 hidden lg:flex w-2 h-full  border-l border-gray-300"></div>
@@ -282,7 +298,7 @@ const ApplicationPage: React.FC = () => {
         </div>
       </div>
       <div className="flex w-screen lg:hidden">
-        <Application onHover={handleHover} items={navapplicationData} />
+        <Application onHover={handleHover} items={applications} />
       </div>
     </>
   );

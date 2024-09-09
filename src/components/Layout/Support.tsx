@@ -1,26 +1,29 @@
 import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
-import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
-import { FaPhone } from "react-icons/fa6";
+import { FaArrowLeft, FaArrowRight, FaPhone } from "react-icons/fa";
 import bgPick from "../../../public/assets/nav_support/BgMapImage.png";
 import LottieAnimation from "../ui/LottieAnimation";
+import data from "../Constants/Navbar/index.json";
+
 type SupportItem = {
   title: string;
-  image:object;
+  image: string;
 };
-type supportMobile = {
+type SupportMobile = {
   mobileFirst: string;
   mobileSecond: string;
 };
 interface SupportGridProps {
-  supporItem: SupportItem[];
-  supportMobile: supportMobile;
+  supportItem: SupportItem[];
+  supportMobile: SupportMobile;
 }
 
-const SupportGrid: React.FC<SupportGridProps> = ({
-  supporItem,
-  supportMobile,
-}) => {
+const SupportGrid: React.FC<SupportGridProps> = () => {
+  const supportData = data.find(item => item.category === "Support")?.data;
+  const supportItems: SupportItem[] = supportData?.supportItem || [];
+  const mobileItem: SupportMobile = supportData?.supportMobile || { mobileFirst: "", mobileSecond: "" };
+  console.log("supports",supportItems,mobileItem);
+  
   const carouselRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
@@ -70,15 +73,12 @@ const SupportGrid: React.FC<SupportGridProps> = ({
     }),
   };
 
-  const shouldShowArrows = supporItem.length > 4;
-
+  const shouldShowArrows = supportItems.length > 4;
 
   const chunkItems = (arr: SupportItem[], size: number): SupportItem[][] =>
-    arr.length
-      ? [arr.slice(0, size), ...chunkItems(arr.slice(size), size)]
-      : [];
+    arr.length ? [arr.slice(0, size), ...chunkItems(arr.slice(size), size)] : [];
 
-  const paginatedItems = chunkItems(supporItem, 4);
+  const paginatedItems = chunkItems(supportItems, 4);
 
   return (
     <div className="relative flex flex-row items-center mx-auto max-w-screen-2xl justify-center lg:p-4 w-[100vw]">
@@ -99,7 +99,7 @@ const SupportGrid: React.FC<SupportGridProps> = ({
         ref={carouselRef}
         onScroll={checkScrollability}
       >
-        {supporItem.map((item, index) => (
+        {supportItems.map((item, index) => (
           <div key={index} className="flex flex-col space-y-4">
             <motion.div
               className="flex-shrink-0 w-72 h-40 rounded-3xl p-4 flex flex-col justify-center items-center bg-cover bg-center"
@@ -109,7 +109,10 @@ const SupportGrid: React.FC<SupportGridProps> = ({
               custom={index}
               variants={imageVariants}
             >
-              <LottieAnimation className="h-32 w-56" animationData={item.image}></LottieAnimation>
+              <LottieAnimation
+                className="h-32 w-56"
+                animationData={item.image}
+              ></LottieAnimation>
             </motion.div>
 
             <p className="relative font-poppins text-center mt-4 text-black font-normal hover:text-[#483d78] hover:font-semibold text-base">
@@ -150,9 +153,7 @@ const SupportGrid: React.FC<SupportGridProps> = ({
                     custom={itemIndex}
                     variants={imageVariants}
                   >
-                    <div className="relative w-32 bg-white rounded-xl border-[1px] h-16 flex justify-center items-center">
-                     
-                    </div>
+                    <div className="relative w-32 bg-white rounded-xl border-[1px] h-16 flex justify-center items-center"></div>
                     <p className="relative font-poppins text-center mt-4 text-black font-medium hover:text-[#483d78] hover:font-bold text-16">
                       {item.title}
                     </p>
@@ -190,14 +191,14 @@ const SupportGrid: React.FC<SupportGridProps> = ({
               style={{
                 backgroundImage:
                   "url('https://i.pinimg.com/236x/76/c8/c0/76c8c0172ba662b6fb6d0c095c1158fe.jpg')",
-                backgroundSize: "contain", // Adjust this value as needed
+                backgroundSize: "contain",
                 backgroundRepeat: "no-repeat",
                 backgroundPosition: "center",
-                padding: "5px 10px", // Adjust padding as needed
+                padding: "5px 10px",
               }}
             >
               <FaPhone />
-              {supportMobile.mobileFirst}
+              {mobileItem.mobileFirst}
             </p>
             <div className="w-1 h-20 border-l-2"></div>
             <p
@@ -205,14 +206,14 @@ const SupportGrid: React.FC<SupportGridProps> = ({
               style={{
                 backgroundImage:
                   "url('https://i.pinimg.com/236x/76/c8/c0/76c8c0172ba662b6fb6d0c095c1158fe.jpg')",
-                backgroundSize: "contain", // Adjust this value as needed
+                backgroundSize: "contain",
                 backgroundRepeat: "no-repeat",
                 backgroundPosition: "center",
-                padding: "5px 10px", // Adjust padding as needed
+                padding: "5px 10px",
               }}
             >
               <FaPhone />
-              {supportMobile.mobileSecond}
+              {mobileItem.mobileSecond}
             </p>
           </div>
         </div>

@@ -132,10 +132,7 @@ function Navbar({ className }: { className?: string }) {
                 throw new Error("Function not implemented.");
               }}
             >
-              <SupportGrid
-                supporItem={supporItem}
-                supportMobile={supportMobile}
-              />
+              <SupportGrid/>
             </MenuItem>
 
             <MenuItem
@@ -303,10 +300,7 @@ function Navbar({ className }: { className?: string }) {
                 </span>
               </div>
               {expandedItem === "Support" && (
-                <SupportGrid
-                  supporItem={supporItem}
-                  supportMobile={supportMobile}
-                />
+                <SupportGrid/>
               )}
               <div
                 className="flex justify-between items-center py-2 border-b"
