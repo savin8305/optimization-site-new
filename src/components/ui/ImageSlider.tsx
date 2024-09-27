@@ -34,6 +34,7 @@ export default function ImageSlider() {
           alt={`Slide ${currentIndex + 1}`}
           width={600}
           height={400}
+          loading="lazy"
           className="w-full z-50 h-full object-cover  rounded-2xl"
         />
       </motion.div>
