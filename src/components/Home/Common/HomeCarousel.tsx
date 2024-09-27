@@ -3,7 +3,8 @@ import styles from "../Styles/Carousel.module.css";
 import Image from "next/image";
 
 
-const Carousel = () => {
+
+const Carousel = ( ) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const items = [
     {

@@ -3,10 +3,11 @@
 import Image, { StaticImageData } from "next/image";
 import styles from "../Styles/style.module.css";
 import { useTransform, motion, MotionValue } from "framer-motion";
-import { useRef } from "react";
+import { useRef} from "react";
 import Link from "next/link";
 import AnimatedText from "@/components/ui/AnimatedText";
 import LottieAnimation from "@/components/ui/LottieAnimation";
+import { IconType } from "react-icons"; // Import the IconType
 
 interface KnowMoreCardProps {
   i: number;
@@ -17,9 +18,9 @@ interface KnowMoreCardProps {
   color: string;
   expertiseExperience: string;
   expertiseAbout: string;
-  icon: object; // Lottie animation data is usually an object, use 'object' type here
-  progress: MotionValue<number>; // Make sure progress is of type MotionValue<number>
-  range: number[]; // `range` is an array of numbers
+  icon: IconType | object; // More specific type for Lottie icons
+  progress: MotionValue<number>; // framer-motion's MotionValue for animations
+  range: number[];
   targetScale: number;
 }
 
@@ -39,7 +40,6 @@ const KnowMoreCard: React.FC<KnowMoreCardProps> = ({
 }) => {
   const container = useRef<HTMLDivElement>(null);
   const scale = useTransform(progress, range, [1, targetScale]);
-
   return (
     <div
       ref={container}
@@ -64,8 +64,8 @@ const KnowMoreCard: React.FC<KnowMoreCardProps> = ({
               className={styles.expertiseContainer}
             >
               <LottieAnimation
-                animationData={icon} // Use the object type for animation data
-                className="h-8 w-8 lg:h-20 lg:w-20"
+                animationData={icon}
+                className="h-8 w-8 lg:h-20 lg:w-20" // Example Tailwind CSS classes for size
               />
               <div className={styles.expertiseText}>
                 <div className="font-poppins text-white">
@@ -85,6 +85,7 @@ const KnowMoreCard: React.FC<KnowMoreCardProps> = ({
             <p className="text-sm mt-2 lg:text-base font-regular text-white text-center font-poppins">
               {description}
             </p>
+
             <span className="w-full flex flex-row justify-center items-center">
               <Link
                 className="text-base text-[#483d78] font-poppins font-semibold text-center"
@@ -109,7 +110,7 @@ const KnowMoreCard: React.FC<KnowMoreCardProps> = ({
             >
               <path
                 d="M20 20C20 8.95431 11.0457 0 0 0H20V20Z"
-                fill={color}
+                fill={color} // Use the color prop here
               ></path>
             </svg>
           </div>

@@ -4,31 +4,26 @@
     "data": {
       "navLeftData": [
         {
-          "title": "Sustainability",
-          "description": "Paper industry adopts biodegradable materials and enhances recycling efforts.",
-          "textcolor": "text-green-500"
-        },
-        {
           "title": "Featured Projects",
           "description": "Showcasing innovative projects in paper production and recycling.",
-          "textcolor": "text-yellow-500"
+          "textcolor": "text-yellow-500",
+          "icon": "https://i.pinimg.com/564x/bf/0b/bc/bf0bbc113db9ab88699fa6eab029b35d.jpg",
+          "link": "projects"
         },
+
         {
-          "title": "Innovation",
-          "description": "New technologies in paper manufacturing increase efficiency.",
-          "textcolor": "text-pink-500"
-        },
-        {
-          "title": "Recycling",
-          "description": "Recycling initiatives in the paper industry have grown significantly.",
-          "textcolor": "text-blue-500"
+          "title": "Sustainability",
+          "description": "Paper industry adopts biodegradable materials and enhances recycling efforts.",
+          "textcolor": "text-green-500",
+          "icon": "https://i.pinimg.com/564x/39/e4/26/39e426741c29f67274c8d23734f19aea.jpg",
+          "link": "sustainibility"
         }
       ],
       "navRightData": [
         {
           "title": "Mission & Vision",
           "image": "https://assets.nesscoindustries.com/public/assets/nav_about/mission_v1.png",
-          "link": "mission-vision"
+          "link": "vision"
         },
         {
           "title": "Our Company",
@@ -55,19 +50,147 @@
         {
           "name": "NS-015",
           "image": "https://assets.nesscoindustries.com/public/assets/nav_machine/PCM110WithPLC.png",
-          "product_heading": "food packaging machine",
-          "first_name": "first name",
-          "second_name": "second name",
-          "category": "Paper Cup Machine, All Products",
-          "icon": "papercup",
-          "introduction": "The NS-015 is a high-performance paper cup machine designed for efficient production in medium to large scale enterprises. It combines reliability with speed, capable of producing up to 100 cups per minute.",
-          "parameters": "Voltage: 220V, Power: 1500W",
-          "application": "Ideal for producing paper cups of various sizes, from 6oz to 16oz, suitable for hot and cold beverages.",
-          "product_description": "This machine features a robust stainless steel construction that ensures durability and hygiene standards are met. It includes PLC control for precise operation and minimal wastage.",
-          "technical_specification": "Material: Stainless steel, Weight: 500kg",
-          "optional_add_ons": "Custom cup size molds available upon request.",
-          "faqs": "Q: What is the warranty period? A: 1-year warranty provided for parts and service.",
-          "related_product": "NS-016, NS-017"
+          "mimage": "https://assets.nesscoindustries.com/public/assets/nav_machine/PCM110WithPLC.png",
+          "category": "Paper Cup Machine, All Products"
+        },
+
+        {
+          "name": "NS-016",
+          "image": "https://assets.nesscoindustries.com/public/assets/nav_machine/PCM110WithPLC.png",
+          "mimage": "https://assets.nesscoindustries.com/public/assets/nav_machine/PCM110WithPLC.png",
+
+          "category": "Paper Cup Machine, All Products"
+        },
+        {
+          "name": "NS-017",
+          "image": "https://assets.nesscoindustries.com/public/assets/nav_machine/PCM110WithPLC.png",
+          "mimage": "https://assets.nesscoindustries.com/public/assets/nav_machine/PCM110WithPLC.png",
+
+          "category": "Paper Cup Machine, All Products"
+        },
+        {
+          "name": "NS-018",
+          "image": "https://assets.nesscoindustries.com/public/assets/nav_machine/PCM110WithPLC.png",
+          "mimage": "https://assets.nesscoindustries.com/public/assets/nav_machine/PCM110WithPLC.png",
+
+          "category": "Paper Cup Machine, All Products"
+        },
+        {
+          "name": "NS-019",
+          "image": "https://assets.nesscoindustries.com/public/assets/nav_machine/PCM110WithPLC.png",
+          "mimage": "https://assets.nesscoindustries.com/public/assets/nav_machine/PCM110WithPLC.png",
+
+          "category": "Paper Cup Machine, All Products"
+        },
+        {
+          "name": "NS-020",
+          "image": "https://assets.nesscoindustries.com/public/assets/nav_machine/PCM110WithPLC.png",
+          "mimage": "https://assets.nesscoindustries.com/public/assets/nav_machine/PCM110WithPLC.png",
+
+          "category": "Paper Cup Machine, All Products"
+        },
+        {
+          "name": "NS-021",
+          "image": "https://assets.nesscoindustries.com/public/assets/nav_machine/PCM110WithPLC.png",
+          "mimage": "https://assets.nesscoindustries.com/public/assets/nav_machine/PCM110WithPLC.png",
+
+          "category": "Paper Cup Machine, All Products"
+        },
+        {
+          "name": "NS-022",
+          "image": "https://assets.nesscoindustries.com/public/assets/nav_machine/PCM110WithPLC.png",
+          "mimage": "https://assets.nesscoindustries.com/public/assets/nav_machine/PCM110WithPLC.png",
+
+          "category": "Paper Cup Machine, All Products"
+        },
+        {
+          "name": "NS-023",
+          "image": "https://assets.nesscoindustries.com/public/assets/nav_machine/PCM110WithPLC.png",
+          "mimage": "https://assets.nesscoindustries.com/public/assets/nav_machine/PCM110WithPLC.png",
+
+          "category": "Paper Cup Machine, All Products"
+        },
+        {
+          "name": "Paper Bowl Machine 01",
+          "image": "https://assets.nesscoindustries.com/public/assets/nav_machine/PaperBowlMachine.webp",
+          "mimage": "https://assets.nesscoindustries.com/public/assets/nav_machine/PaperBowlMachine.webp",
+
+          "category": "Paper Bowl Machine, All Products"
+        },
+        {
+          "name": "Paper Bowl Machine 02",
+          "image": "https://assets.nesscoindustries.com/public/assets/nav_machine/PaperBowlMachine.webp",
+          "mimage": "https://assets.nesscoindustries.com/public/assets/nav_machine/PaperBowlMachine.webp",
+
+          "category": "Paper Bowl Machine, All Products"
+        },
+        {
+          "name": "Paper Bowl Machine 03",
+          "image": "https://assets.nesscoindustries.com/public/assets/nav_machine/PaperBowlMachine.webp",
+          "mimage": "https://assets.nesscoindustries.com/public/assets/nav_machine/PaperBowlMachine.webp",
+
+          "category": "Paper Bowl Machine, All Products"
+        },
+        {
+          "name": "Paper Bowl Machine 04",
+          "image": "https://assets.nesscoindustries.com/public/assets/nav_machine/PaperBowlMachine.webp",
+          "mimage": "https://assets.nesscoindustries.com/public/assets/nav_machine/PaperBowlMachine.webp",
+
+          "category": "Paper Bowl Machine, All Products"
+        },
+        {
+          "name": "NS-021",
+          "image": "https://assets.nesscoindustries.com/public/assets/nav_machine/PaperPlate.png",
+          "mimage": "https://assets.nesscoindustries.com/public/assets/nav_machine/PaperPlate.png",
+          "category": "Paper Plate Machine, All Products"
+        },
+        {
+          "name": "NS-022",
+          "image": "https://assets.nesscoindustries.com/public/assets/nav_machine/PaperPlate.png",
+          "mimage": "https://assets.nesscoindustries.com/public/assets/nav_machine/PaperPlate.png",
+
+          "category": "Paper Plate Machine, All Products"
+        },
+        {
+          "name": "Cybertruck",
+          "image": "https://assets.nesscoindustries.com/public/assets/nav_machine/PaperPlate.png",
+          "mimage": "https://assets.nesscoindustries.com/public/assets/nav_machine/PaperPlate.png",
+
+          "category": "Paper Plate Machine, All Products"
+        },
+        {
+          "name": "Cybertruck2",
+          "image": "https://assets.nesscoindustries.com/public/assets/nav_machine/PaperPlate.png",
+          "mimage": "https://assets.nesscoindustries.com/public/assets/nav_machine/PaperPlate.png",
+          "category": "Paper Plate Machine, All Products"
+        },
+        {
+          "name": "Paper Flexo Machine",
+          "image": "https://assets.nesscoindustries.com/public/assets/nav_machine/FlexoPrintingMachine.png",
+          "mimage": "https://assets.nesscoindustries.com/public/assets/nav_machine/FlexoPrintingMachine.png",
+
+          "category": "Paper Flexo Machine, All Products"
+        },
+        {
+          "name": "Paper Flexo Machine",
+          "image": "https://assets.nesscoindustries.com/public/assets/nav_machine/FlexoPrintingMachine.png",
+          "mimage": "https://assets.nesscoindustries.com/public/assets/nav_machine/FlexoPrintingMachine.png",
+
+          "category": "Paper Flexo Machine, All Products"
+        },
+        {
+          "name": "Paper Flexo Machine2",
+          "image": "https://assets.nesscoindustries.com/public/assets/nav_machine/FlexoPrintingMachine.png",
+          "mimage": "https://assets.nesscoindustries.com/public/assets/nav_machine/FlexoPrintingMachine.png",
+
+          "category": "Paper Flexo Machine, All Products"
+        },
+        {
+          "name": "Paper Flexo Machine3",
+          "image": "https://assets.nesscoindustries.com/public/assets/nav_machine/FlexoPrintingMachine.png",
+          "mimage": "https://assets.nesscoindustries.com/public/assets/nav_machine/FlexoPrintingMachine.png",
+
+          "category": "Paper Flexo Machine, All Products"
         }
       ],
       "SidebarLinks": [
@@ -161,28 +284,158 @@
           "name": "Paper Cups",
           "description": "Set up your paper cup plant with our high-speed machines for efficient, eco-friendly production. Enjoy rapid manufacturing with reduced energy consumption and operational costs.",
           "bgpic": "https://i.pinimg.com/236x/89/09/12/890912f6a1ab514810a94ba215e34d61.jpg"
+        },
+        {
+          "src": "https://i.pinimg.com/236x/89/09/12/890912f6a1ab514810a94ba215e34d61.jpg",
+          "alt": "Cups",
+          "name": "Paper Bowl",
+          "description": "Paper cups are disposable containers made from paper and often lined with plastic or wax to prevent liquid leakage. They are widely used in the beverage and food industry.",
+          "bgpic": "https://i.pinimg.com/236x/89/09/12/890912f6a1ab514810a94ba215e34d61.jpg"
+        },
+        {
+          "src": "https://i.pinimg.com/564x/f6/4a/e0/f64ae07dac3856af2eab7cc4377fe316.jpg",
+          "alt": "Item 2",
+          "name": "Paper Cups",
+          "description": "Set up your paper cup plant with our high-speed machines for efficient, eco-friendly production. Enjoy rapid manufacturing with reduced energy consumption and operational costs.",
+          "bgpic": "https://i.pinimg.com/236x/89/09/12/890912f6a1ab514810a94ba215e34d61.jpg"
+        },
+        {
+          "src": "https://i.pinimg.com/236x/89/09/12/890912f6a1ab514810a94ba215e34d61.jpg",
+          "alt": "Cups",
+          "name": "Paper Bowl",
+          "description": "Paper cups are disposable containers made from paper and often lined with plastic or wax to prevent liquid leakage. They are widely used in the beverage and food industry.",
+          "bgpic": "https://i.pinimg.com/236x/89/09/12/890912f6a1ab514810a94ba215e34d61.jpg"
+        },
+        {
+          "src": "https://i.pinimg.com/564x/f6/4a/e0/f64ae07dac3856af2eab7cc4377fe316.jpg",
+          "alt": "Item 2",
+          "name": "Paper Cups",
+          "description": "Set up your paper cup plant with our high-speed machines for efficient, eco-friendly production. Enjoy rapid manufacturing with reduced energy consumption and operational costs.",
+          "bgpic": "https://i.pinimg.com/236x/89/09/12/890912f6a1ab514810a94ba215e34d61.jpg"
+        },
+        {
+          "src": "https://i.pinimg.com/236x/89/09/12/890912f6a1ab514810a94ba215e34d61.jpg",
+          "alt": "Cups",
+          "name": "Paper Bowl",
+          "description": "Paper cups are disposable containers made from paper and often lined with plastic or wax to prevent liquid leakage. They are widely used in the beverage and food industry.",
+          "bgpic": "https://i.pinimg.com/236x/89/09/12/890912f6a1ab514810a94ba215e34d61.jpg"
+        },
+        {
+          "src": "https://i.pinimg.com/564x/f6/4a/e0/f64ae07dac3856af2eab7cc4377fe316.jpg",
+          "alt": "Item 2",
+          "name": "Paper Cups",
+          "description": "Set up your paper cup plant with our high-speed machines for efficient, eco-friendly production. Enjoy rapid manufacturing with reduced energy consumption and operational costs.",
+          "bgpic": "https://i.pinimg.com/236x/89/09/12/890912f6a1ab514810a94ba215e34d61.jpg"
+        },
+        {
+          "src": "https://i.pinimg.com/236x/89/09/12/890912f6a1ab514810a94ba215e34d61.jpg",
+          "alt": "Cups",
+          "name": "Paper Bowl",
+          "description": "Paper cups are disposable containers made from paper and often lined with plastic or wax to prevent liquid leakage. They are widely used in the beverage and food industry.",
+          "bgpic": "https://i.pinimg.com/236x/89/09/12/890912f6a1ab514810a94ba215e34d61.jpg"
+        },
+        {
+          "src": "https://i.pinimg.com/564x/f6/4a/e0/f64ae07dac3856af2eab7cc4377fe316.jpg",
+          "alt": "Item 2",
+          "name": "Paper Cups",
+          "description": "Set up your paper cup plant with our high-speed machines for efficient, eco-friendly production. Enjoy rapid manufacturing with reduced energy consumption and operational costs.",
+          "bgpic": "https://i.pinimg.com/236x/89/09/12/890912f6a1ab514810a94ba215e34d61.jpg"
+        },
+        {
+          "src": "https://i.pinimg.com/236x/89/09/12/890912f6a1ab514810a94ba215e34d61.jpg",
+          "alt": "Cups",
+          "name": "Paper Bowl",
+          "description": "Paper cups are disposable containers made from paper and often lined with plastic or wax to prevent liquid leakage. They are widely used in the beverage and food industry.",
+          "bgpic": "https://i.pinimg.com/236x/89/09/12/890912f6a1ab514810a94ba215e34d61.jpg"
+        },
+        {
+          "src": "https://i.pinimg.com/564x/f6/4a/e0/f64ae07dac3856af2eab7cc4377fe316.jpg",
+          "alt": "Item 2",
+          "name": "Paper Cups",
+          "description": "Set up your paper cup plant with our high-speed machines for efficient, eco-friendly production. Enjoy rapid manufacturing with reduced energy consumption and operational costs.",
+          "bgpic": "https://i.pinimg.com/236x/89/09/12/890912f6a1ab514810a94ba215e34d61.jpg"
+        },
+        {
+          "src": "https://i.pinimg.com/236x/89/09/12/890912f6a1ab514810a94ba215e34d61.jpg",
+          "alt": "Cups",
+          "name": "Paper Bowl",
+          "description": "Paper cups are disposable containers made from paper and often lined with plastic or wax to prevent liquid leakage. They are widely used in the beverage and food industry.",
+          "bgpic": "https://i.pinimg.com/236x/89/09/12/890912f6a1ab514810a94ba215e34d61.jpg"
+        },
+        {
+          "src": "https://i.pinimg.com/564x/f6/4a/e0/f64ae07dac3856af2eab7cc4377fe316.jpg",
+          "alt": "Item 2",
+          "name": "Paper Cups",
+          "description": "Set up your paper cup plant with our high-speed machines for efficient, eco-friendly production. Enjoy rapid manufacturing with reduced energy consumption and operational costs.",
+          "bgpic": "https://i.pinimg.com/236x/89/09/12/890912f6a1ab514810a94ba215e34d61.jpg"
+        },
+        {
+          "src": "https://i.pinimg.com/236x/89/09/12/890912f6a1ab514810a94ba215e34d61.jpg",
+          "alt": "Cups",
+          "name": "Paper Bowl",
+          "description": "Paper cups are disposable containers made from paper and often lined with plastic or wax to prevent liquid leakage. They are widely used in the beverage and food industry.",
+          "bgpic": "https://i.pinimg.com/236x/89/09/12/890912f6a1ab514810a94ba215e34d61.jpg"
+        },
+        {
+          "src": "https://i.pinimg.com/564x/f6/4a/e0/f64ae07dac3856af2eab7cc4377fe316.jpg",
+          "alt": "Item 2",
+          "name": "Paper Cups",
+          "description": "Set up your paper cup plant with our high-speed machines for efficient, eco-friendly production. Enjoy rapid manufacturing with reduced energy consumption and operational costs.",
+          "bgpic": "https://i.pinimg.com/236x/89/09/12/890912f6a1ab514810a94ba215e34d61.jpg"
+        },
+        {
+          "src": "https://i.pinimg.com/236x/89/09/12/890912f6a1ab514810a94ba215e34d61.jpg",
+          "alt": "Cups",
+          "name": "Paper Bowl",
+          "description": "Paper cups are disposable containers made from paper and often lined with plastic or wax to prevent liquid leakage. They are widely used in the beverage and food industry.",
+          "bgpic": "https://i.pinimg.com/236x/89/09/12/890912f6a1ab514810a94ba215e34d61.jpg"
+        },
+        {
+          "src": "https://i.pinimg.com/564x/f6/4a/e0/f64ae07dac3856af2eab7cc4377fe316.jpg",
+          "alt": "Item 2",
+          "name": "Paper Cups",
+          "description": "Set up your paper cup plant with our high-speed machines for efficient, eco-friendly production. Enjoy rapid manufacturing with reduced energy consumption and operational costs.",
+          "bgpic": "https://i.pinimg.com/236x/89/09/12/890912f6a1ab514810a94ba215e34d61.jpg"
+        },
+        {
+          "src": "https://i.pinimg.com/236x/89/09/12/890912f6a1ab514810a94ba215e34d61.jpg",
+          "alt": "Cups",
+          "name": "Paper Bowl",
+          "description": "Paper cups are disposable containers made from paper and often lined with plastic or wax to prevent liquid leakage. They are widely used in the beverage and food industry.",
+          "bgpic": "https://i.pinimg.com/236x/89/09/12/890912f6a1ab514810a94ba215e34d61.jpg"
+        },
+        {
+          "src": "https://i.pinimg.com/564x/f6/4a/e0/f64ae07dac3856af2eab7cc4377fe316.jpg",
+          "alt": "Item 2",
+          "name": "Paper Cups",
+          "description": "Set up your paper cup plant with our high-speed machines for efficient, eco-friendly production. Enjoy rapid manufacturing with reduced energy consumption and operational costs.",
+          "bgpic": "https://i.pinimg.com/236x/89/09/12/890912f6a1ab514810a94ba215e34d61.jpg"
         }
       ]
     }
   },
   {
-    "category":"Support",
+    "category": "Support",
     "data": {
       "supportItem": [
         {
           "title": "Book a Service",
+          "link": "services",
           "image": "https://assets.nesscoindustries.com/public/assets/nav_support/user-guide.json"
         },
         {
           "title": "Genuine Parts",
+          "link": "genuine-parts",
           "image": "https://assets.nesscoindustries.com/public/assets/nav_support/geniune-animation.json"
         },
         {
           "title": "User Guide",
+          "link": "user-guide",
           "image": "https://assets.nesscoindustries.com/public/assets/nav_support/user-guide.json"
         },
         {
           "title": "Machine Warranty",
+          "link": "warranty",
           "image": "https://assets.nesscoindustries.com/public/assets/nav_support/warantee.json"
         }
       ],
@@ -190,6 +443,90 @@
         "mobileFirst": "123-456-7890",
         "mobileSecond": "098-765-4321"
       }
+    }
+  },
+  {
+    "category": "Resources",
+    "data": {
+      "DataBankItem": [
+        {
+          "title": "FAQ",
+          "link": "faq",
+          "image": "https://res.cloudinary.com/dlavoml67/image/upload/v1726729266/tp1roenkfl9i7oqa8jbn.png",
+          "bgPic": "https://res.cloudinary.com/dlavoml67/image/upload/v1726729997/ulprlkuweecmrindl9jd.png"
+        },
+        {
+          "title": "knowledge Center",
+          "link": "knowledge-Center",
+          "image": "https://res.cloudinary.com/dlavoml67/image/upload/v1726729266/hzyjkxanmoewqydiqrhf.png",
+          "bgPic": "https://res.cloudinary.com/dlavoml67/image/upload/v1726729997/ulprlkuweecmrindl9jd.png"
+        },
+        {
+          "title": "Media Rooms",
+          "link": "media-rooms",
+          "image": "https://res.cloudinary.com/dlavoml67/image/upload/v1726729266/gbtsuvpwuzhz6jnqcpea.png",
+          "bgPic": "https://res.cloudinary.com/dlavoml67/image/upload/v1726729997/ulprlkuweecmrindl9jd.png"
+        },
+        {
+          "title": "Blogs",
+          "link": "blogs",
+          "image": "https://res.cloudinary.com/dlavoml67/image/upload/v1726729266/nvfu0wu7vm2z2vfhiie2.png",
+          "bgPic": "https://res.cloudinary.com/dlavoml67/image/upload/v1726729997/ulprlkuweecmrindl9jd.png"
+        },
+        {
+          "title": "clientel",
+          "link": "clientele",
+          "image": "https://res.cloudinary.com/dlavoml67/image/upload/v1726729266/snifsvmdtl5pjmv7lwyf.png",
+          "bgPic": "https://res.cloudinary.com/dlavoml67/image/upload/v1726729997/ulprlkuweecmrindl9jd.png"
+        }
+      ]
+    }
+  },
+  {
+    "category": "Video",
+    "data": {
+      "videoDataItem": [
+        {
+          "title": "Paper Cup Machine",
+          "image": "https://assets.nesscoindustries.com/public/video/home.webp",
+          "bgPic": "https://res.cloudinary.com/dlavoml67/image/upload/v1726729997/ulprlkuweecmrindl9jd.png"
+        },
+        {
+          "title": "Paper Bowl Machine",
+          "image": "https://assets.nesscoindustries.com/public/video/home.webp",
+          "bgPic": "https://res.cloudinary.com/dlavoml67/image/upload/v1726729997/ulprlkuweecmrindl9jd.png"
+        },
+        {
+          "title": "Paper Bag Machine",
+          "image": "https://assets.nesscoindustries.com/public/video/home.webp",
+          "bgPic": "https://res.cloudinary.com/dlavoml67/image/upload/v1726729997/ulprlkuweecmrindl9jd.png"
+        },
+        {
+          "title": "Paper Plate Machine",
+          "image": "https://assets.nesscoindustries.com/public/video/home.webp",
+          "bgPic": "https://res.cloudinary.com/dlavoml67/image/upload/v1726729997/ulprlkuweecmrindl9jd.png"
+        },
+        {
+          "title": "Paper Lid Machine",
+          "image": "https://assets.nesscoindustries.com/public/video/home.webp",
+          "bgPic": "https://res.cloudinary.com/dlavoml67/image/upload/v1726729997/ulprlkuweecmrindl9jd.png"
+        },
+        {
+          "title": "Paper Flexo Machine",
+          "image": "https://assets.nesscoindustries.com/public/video/home.webp",
+          "bgPic": "https://res.cloudinary.com/dlavoml67/image/upload/v1726729997/ulprlkuweecmrindl9jd.png"
+        },
+        {
+          "title": "Paper Spoon Machine",
+          "image": "https://assets.nesscoindustries.com/public/video/home.webp",
+          "bgPic": "https://res.cloudinary.com/dlavoml67/image/upload/v1726729997/ulprlkuweecmrindl9jd.png"
+        },
+        {
+          "title": "Flexo Pringting Machine",
+          "image": "https://assets.nesscoindustries.com/public/video/home.webp",
+          "bgPic": "https://res.cloudinary.com/dlavoml67/image/upload/v1726729997/ulprlkuweecmrindl9jd.png"
+        }
+      ]
     }
   },
   {

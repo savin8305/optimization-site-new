@@ -4,24 +4,24 @@ import React, {
   useRef,
   useState,
   createContext,
+  useContext,
 } from "react";
-import {
-  IconArrowNarrowLeft,
-  IconArrowNarrowRight,
-  IconX,
-} from "@tabler/icons-react";
+
 import { cn } from "@/lib/utils";
-import {StaticImageData } from "next/image";
+import { StaticImageData } from "next/image";
+import { useOutsideClick } from "@/hooks/use-outside-click";
 import { BlurImage } from "./BlurImage";
+import { ArrowLeft, ArrowRight } from "lucide-react";
+import { BiCross } from "react-icons/bi";
 interface CarouselProps {
   items: JSX.Element[];
   initialScroll?: number;
 }
 
 type Card = {
-  image: string;
+  image: StaticImageData | string;
   title: string;
-  icon: string;
+  icon: StaticImageData | string;
   category: string;
   content?: React.ReactNode;
 };
@@ -111,7 +111,7 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
 
                 <div
                   className={cn(
-                    "flex flex-row  gap-4 pl-4",
+                    "flex flex-row  gap-4 pl-[5%]",
                     "max-w-7xl mx-auto"
                   )}
                 >
@@ -125,7 +125,7 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
                     .map((item, index) => (
                       <div
                         key={"card" + index}
-                        className="last:pr-[5%] md:last:pr-[0%] rounded-3xl"
+                        className="last:pr-[5%] md:last:pr-[4%] rounded-3xl"
                       >
                         {item}
                       </div>
@@ -141,7 +141,7 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
 
                 <div
                   className={cn(
-                    "flex flex-row mt-4  gap-4 pl-4",
+                    "flex flex-row mt-4  gap-4 pl-[5%]",
                     "max-w-7xl mx-auto"
                   )}
                 >
@@ -150,7 +150,7 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
                     .map((item, index) => (
                       <div
                         key={"card" + index}
-                        className="last:pr-[5%] md:last:pr-[0%]  rounded-3xl"
+                        className="last:pr-[5%] md:last:pr-[4%]  rounded-3xl"
                       >
                         {item}
                       </div>
@@ -173,14 +173,14 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
 
                 <div
                   className={cn(
-                    "flex flex-row  gap-4 pl-4",
+                    "flex flex-row  gap-4 pl-[5%]",
                     "max-w-7xl mx-auto"
                   )}
                 >
                   {items.slice(0, items.length).map((item, index) => (
                     <div
                       key={"card" + index}
-                      className="last:pr-[5%] md:last:pr-[0%] rounded-3xl"
+                      className="last:pr-[5%] md:last:pr-[4%] rounded-3xl"
                     >
                       {item}
                     </div>
@@ -208,14 +208,14 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
 
                   <div
                     className={cn(
-                      "flex flex-row  gap-4 pl-4",
+                      "flex flex-row  gap-4 pl-[5%]",
                       "max-w-7xl mx-auto"
                     )}
                   >
                     {items.slice(0, items.length / 2).map((item, index) => (
                       <div
                         key={"card" + index}
-                        className="last:pr-[5%] md:last:pr-[0%]  rounded-3xl"
+                        className="last:pr-[5%] md:last:pr-[4%]  rounded-3xl"
                       >
                         {item}
                       </div>
@@ -231,7 +231,7 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
 
                   <div
                     className={cn(
-                      "flex flex-row mt-4  gap-4 pl-4",
+                      "flex flex-row mt-4  gap-4 pl-[5%]",
                       "max-w-7xl mx-auto"
                     )}
                   >
@@ -240,7 +240,7 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
                       .map((item, index) => (
                         <div
                           key={"card" + index}
-                          className="last:pr-[5%] md:last:pr-[0%]  rounded-3xl"
+                          className="last:pr-[5%] md:last:pr-[10%]  rounded-3xl"
                         >
                           {item}
                         </div>
@@ -256,14 +256,14 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
               onClick={scrollLeft}
               disabled={!canScrollLeft}
             >
-              <IconArrowNarrowLeft className="h-6 w-6 text-gray-500" />
+              <ArrowLeft className="h-6 w-6 text-gray-500" />
             </button>
             <button
               className="relative z-20 h-10 w-10 rounded-full bg-gray-100 flex items-center justify-center disabled:opacity-50"
               onClick={scrollRight}
               disabled={!canScrollRight}
             >
-              <IconArrowNarrowRight className="h-6 w-6 text-gray-500" />
+              <ArrowRight className="h-6 w-6 text-gray-500" />
             </button>
           </div>
         </>
@@ -274,6 +274,7 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
 
 export const Card = ({
   card,
+  index,
 }: {
   card: Card;
   index: number;
@@ -281,6 +282,7 @@ export const Card = ({
 }) => {
   const [open, setOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
+  const { onCardClose} = useContext(CarouselContext);
 
   useEffect(() => {
     function onKeyDown(event: KeyboardEvent) {
@@ -292,12 +294,15 @@ export const Card = ({
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [open]);
 
+  useOutsideClick(containerRef, () => handleClose());
+
   const handleOpen = () => {
     setOpen(true);
   };
 
   const handleClose = () => {
     setOpen(false);
+    onCardClose(index);
   };
 
   return (
@@ -313,7 +318,7 @@ export const Card = ({
               className="sticky z-50 top-0 h-8 w-8 right-0 -mr-32 -mt-6 ml-auto bg-black dark:bg-white rounded-full flex items-center justify-center"
               onClick={handleClose}
             >
-              <IconX className="h-6 w-6 text-neutral-100 dark:text-neutral-900" />
+              <BiCross className="h-6 w-6 text-neutral-100 dark:text-neutral-900" />
             </button>
             <div className="py-0">{card.content}</div>
           </div>
@@ -322,7 +327,7 @@ export const Card = ({
 
       <button
         onClick={handleOpen}
-        className=" h-48 rounded-3xl bg-white font-poppins p-1 lg:p-2  w-40 lg:h-[16rem] md:w-56 overflow-hidden flex flex-col items-start justify-start relative z-10"
+        className=" h-48 rounded-3xl bg-white font-poppins p-1 lg:p-2   w-40 lg:h-[16rem] md:w-56  overflow-hidden flex flex-col items-start justify-start relative z-10"
       >
         <div className="relative p-2 h-full w-full">
           <div className="absolute flex bg-white h-14 lg:h-16 w-24 lg:w-32  flex-row  top-0 space-x-2 -mr-4 right-0 z-40 rounded-bl-xl">
@@ -336,7 +341,7 @@ export const Card = ({
               >
                 <path
                   d="M20 20C20 8.95431 11.0457 0 0 0H20V20Z"
-                 fill="white" // Use the color prop here
+                  fill="white" // Use the color prop here
                 ></path>
               </svg>
             </div>
@@ -372,7 +377,7 @@ export const Card = ({
               >
                 <path
                   d="M20 20C20 8.95431 11.0457 0 0 0H20V20Z"
-                 fill="white" // Use the color prop here
+                  fill="white" // Use the color prop here
                 ></path>
               </svg>
             </div>

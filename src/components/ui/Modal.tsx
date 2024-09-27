@@ -7,7 +7,7 @@ import Breadcrumb from "./Breadcrumb";
 import PositionAwareButton from "./PositionAwareButton";
 
 interface ModalProps {
-  image: string;
+  image: StaticImageData;
   title?: string; // Optional
   firstname?: string; // Optional
   secondname?: string; // Optional

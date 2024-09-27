@@ -8,43 +8,64 @@ import Link from "next/link";
 interface ContactFormProps {
   isContactFormVisible: boolean;
   setContactFormVisible: (visible: boolean) => void;
-  isVisible: boolean;
   setIsFlagOpen: (flag: boolean) => void;
-
 }
 
 const ContactForm: React.FC<ContactFormProps> = ({
   isContactFormVisible,
   setContactFormVisible,
   setIsFlagOpen,
-
 }) => {
   const contactRef = useRef<HTMLDivElement>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
 
-  const handleClickOutside = (event: MouseEvent) => {
+  const pathname = usePathname() || "";
+  const countryCode = pathname.split("/")[1]?.toLowerCase();
+
+  // Show form when mouse enters the button or the form itself
+  const handleMouseEnter = () => {
+    setContactFormVisible(true);
+    setIsFlagOpen(false);
+  };
+
+  // Hide form when the mouse leaves both the button and the form
+  const handleMouseLeave = (event: React.MouseEvent) => {
     if (
       contactRef.current &&
-      !contactRef.current.contains(event.target as Node)
+      !contactRef.current.contains(event.relatedTarget as Node) &&
+      buttonRef.current &&
+      !buttonRef.current.contains(event.relatedTarget as Node)
     ) {
       setContactFormVisible(false);
     }
   };
 
   useEffect(() => {
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
+    const contactElement = contactRef.current;
+    const buttonElement = buttonRef.current;
+
+    // Native event listeners require a DOM-compatible event handler
+    const handleMouseLeaveNative = (event: MouseEvent) => {
+      if (
+        contactRef.current &&
+        !contactRef.current.contains(event.relatedTarget as Node) &&
+        buttonRef.current &&
+        !buttonRef.current.contains(event.relatedTarget as Node)
+      ) {
+        setContactFormVisible(false);
+      }
     };
-  }, []); // Ensure effect cleanup
 
-  const pathname = usePathname() || "";
-  const countryCode = pathname.split("/")[1]?.toLowerCase();
+    // Add event listeners for mouse leave
+    contactElement?.addEventListener("mouseleave", handleMouseLeaveNative);
+    buttonElement?.addEventListener("mouseleave", handleMouseLeaveNative);
 
-  const handleMouseEnter = () => {
-    setContactFormVisible(true);
-    setIsFlagOpen(false);
-
-  };
+    // Cleanup event listeners
+    return () => {
+      contactElement?.removeEventListener("mouseleave", handleMouseLeaveNative);
+      buttonElement?.removeEventListener("mouseleave", handleMouseLeaveNative);
+    };
+  }, []);
 
   const transition = {
     type: "spring",
@@ -56,26 +77,28 @@ const ContactForm: React.FC<ContactFormProps> = ({
   };
 
   return (
-    <div>
+    <div className="">
       <button
+        ref={buttonRef}
         type="button"
         className="cursor-pointer font-poppins text-sm font-regular rounded-full py-1 px-4 text-white bg-[#483d78]"
-        onMouseEnter={handleMouseEnter} // Open on hover
+        onMouseEnter={handleMouseEnter} // Show form on mouse enter
         onFocus={handleMouseEnter} // Open on focus for accessibility
       >
-        <Link className="" href={`/${countryCode}/contact`}>
-          Enquire
-        </Link>
+        <Link href={`/${countryCode}/contact`}>Enquire</Link>
       </button>
+
       <AnimatePresence>
         {isContactFormVisible && (
           <motion.div
             ref={contactRef}
-            className="fixed top-14 right-0 z-50 mr-8 mt-0 w-[200px] md:w-[300px] lg:w-[400px] xl:w-[500px] bg-white  rounded-lg overflow-hidden"
+            className="fixed top-14 right-0 z-50 mr-8 mt-0 w-[200px] md:w-[300px] lg:w-[400px] xl:w-[500px] bg-white rounded-lg overflow-hidden"
             initial={{ y: "-100%", height: 0, opacity: 0 }}
             animate={{ y: 0, height: "35rem", opacity: 1 }}
             exit={{ y: "-100%", height: 0, opacity: 0 }}
             transition={transition}
+            onMouseEnter={handleMouseEnter} // Keep form visible when entering it
+            onMouseLeave={handleMouseLeave} // Hide form when leaving it
           >
             {/* Header with text and close icon */}
             <div className="flex justify-between items-center p-4">

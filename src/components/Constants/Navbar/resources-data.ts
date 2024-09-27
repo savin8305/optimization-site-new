@@ -1,44 +1,59 @@
+import {
+  paperBowlMachineImage,
+  paperBagMachineImage,
+  paperPlateMachineImage,
+  paperFlexoMachineImage,
+  fullyAutomaticBagMachineImage,
+  PCM110WithPLC,
+  paperStrawMachine,
+  BookServiceImage,
+  paperLunchBoxMachine,
+  paperbowl,
+  papercup,
+} from "../../../../public/assets";
+
+import { StaticImageData } from "next/image";
+
+interface Images {
+  paperBowlMachineImage: StaticImageData;
+  paperBagMachineImage: StaticImageData;
+  PCM110WithPLC: StaticImageData;
+  paperPlateMachineImage: StaticImageData;
+  paperFlexoMachineImage: StaticImageData;
+  fullyAutomaticBagMachineImage: StaticImageData;
+  paperStrawMachine: StaticImageData;
+  paperLunchBoxMachine: StaticImageData;
+}
+
+export const images: Images = {
+  paperBowlMachineImage: paperBowlMachineImage,
+  paperBagMachineImage: paperBagMachineImage,
+  PCM110WithPLC: PCM110WithPLC,
+  paperPlateMachineImage: paperPlateMachineImage,
+  paperFlexoMachineImage: paperFlexoMachineImage,
+  fullyAutomaticBagMachineImage: fullyAutomaticBagMachineImage,
+  paperStrawMachine: paperStrawMachine,
+  paperLunchBoxMachine: paperLunchBoxMachine,
+};
 
 export const DataBankItem = [
-  {
-    title: "Paper Cup Machine",
-    image:
-      "https://assets.nesscoindustries.com/public/assets/nav_machine/PaperBowlMachine.webp",
-    bgPic: "https://assets.nesscoindustries.com/public/assets/bowl.png",
-  },
+  { title: "Paper Cup Machine", image: paperBagMachineImage, bgPic: paperbowl },
   {
     title: "Paper Bowl Machine",
-    image:
-      "https://assets.nesscoindustries.com/public/assets/nav_machine/PaperBowlMachine.webp",
-      bgPic: "https://assets.nesscoindustries.com/public/assets/bowl.png",
-    },
-  {
-    title: "Paper Straw Machine",
-    image:"https://assets.nesscoindustries.com/public/assets/nav_machine/PaperBowlMachine.webp",
-    bgPic: "https://assets.nesscoindustries.com/public/assets/bowl.png",
+    image: paperBowlMachineImage,
+    bgPic: papercup,
   },
   {
-    title: "Paper Bucket Machine",
-    image:
-      "https://assets.nesscoindustries.com/public/assets/nav_machine/PaperBowlMachine.webp",
-      bgPic: "https://assets.nesscoindustries.com/public/assets/bowl.png",
-    },
-  {
-    title: "Additional Item 4",
-    image:
-      "https://assets.nesscoindustries.com/public/assets/nav_machine/PaperBowlMachine.webp",
-      bgPic: "https://assets.nesscoindustries.com/public/assets/bowl.png",
-    },
-  {
-    title: "Additional Item 5",
-    image:
-      "https://assets.nesscoindustries.com/public/assets/nav_machine/PaperBowlMachine.webp",
-      bgPic: "https://assets.nesscoindustries.com/public/assets/bowl.png",
-    },
+    title: "Paper Straw Machine",
+    image: paperPlateMachineImage,
+    bgPic: paperbowl,
+  },
+  { title: "Paper Bucket Machine", image: paperStrawMachine, bgPic: papercup },
+  { title: "Additional Item 4", image: BookServiceImage, bgPic: paperbowl },
 ];
 export const ResourcesMobile = [
-  { title: "knowledge Center", bgPic:"https://assets.nesscoindustries.com/public/assets/nav_machine/PaperBowlMachine.webp", },
-  { title: "Media Rooms", bgPic:"https://assets.nesscoindustries.com/public/assets/nav_machine/PaperBowlMachine.webp" },
-  { title: "Blogs", bgPic:"https://assets.nesscoindustries.com/public/assets/nav_machine/PaperBowlMachine.webp"},
-  { title: "clientel", bgPic:"https://assets.nesscoindustries.com/public/assets/nav_machine/PaperBowlMachine.webp" },
+  { title: "knowledge Center", bgPic: paperbowl },
+  { title: "Media Rooms", bgPic: paperbowl },
+  { title: "Blogs", bgPic: paperbowl },
+  { title: "clientel", bgPic: paperbowl },
 ];

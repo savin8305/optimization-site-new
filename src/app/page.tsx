@@ -1,168 +1,15 @@
-// "use client";
-// import React, { useRef } from "react";
-// import dynamic from "next/dynamic";
-// import Hero from "@/components/Home/Home";
-// import NavLinksDemo from "@/components/Home/NavLinks";
-// import { data } from "@/components/Constants/Navbar/about-data";
-// import { AppleCardsCarouselDemo } from "@/components/AppleCardsCarouselDemo";
-// import ContactIcons from "@/components/Contact/ContactIcon";
-// import KnowMachine from "@/components/Home/CanvasRevealEffectDemo";
-
-// const AboutUs = dynamic(() => import("@/components/Home/AboutSection"), {
-//   ssr: true,
-// });
-
-// const MarqueeSection = dynamic(
-//   () => import("@/components/Home/MarqueeSection"),
-//   {
-//     ssr: true,
-//   }
-// );
-
-// const KnowMore = dynamic(() => import("@/components/Home/KnowMore"), {
-//   ssr: true,
-// });
-
-// const HomeMachine = dynamic(() => import("@/components/Home/HomeMachine"), {
-//   ssr: true,
-// });
-
-// const NewsFeature = dynamic(() => import("@/components/Home/NewsFeature"), {
-//   ssr: true,
-// });
-
-// const HomeTestimonial = dynamic(
-//   () => import("@/components/Home/TestimonialsSection"),
-//   {
-//     ssr: true,
-//   }
-// );
-
-// const CanvasRevealEffectDemo = dynamic(
-//   () =>
-//     import("@/components/Home/CanvasRevealEffectDemo").then(
-//       (mod) => mod.default
-//     ),
-//   {
-//     ssr: false,
-//   }
-// );
-
-// const IotSection = dynamic(
-//   () => import("@/components/Home/IotSection").then((mod) => mod.default),
-//   {
-//     ssr: false,
-//   }
-// );
-
-// export default function Home() {
-//   const aboutUsRef = useRef<HTMLDivElement>(null);
-//   const infiniteCardsRef = useRef<HTMLDivElement>(null);
-//   const knowMoreRef = useRef<HTMLDivElement>(null);
-//   const homeMachineRef = useRef<HTMLDivElement>(null);
-//   const newsFeatureRef = useRef<HTMLDivElement>(null);
-//   const knowMachineRef = useRef<HTMLDivElement>(null);
-//   const homeTestimonialRef = useRef<HTMLDivElement>(null);
-//   const iotRef = useRef<HTMLDivElement>(null);
-
-//   const navItems = [
-//     { text: "Machines", ref: homeMachineRef },
-//     { text: "About Us", ref: aboutUsRef },
-//     { text: "Clientele", ref: infiniteCardsRef },
-//     { text: "KnowMore", ref: knowMoreRef },
-//     { text: "IoT", ref: iotRef },
-//     { text: "News", ref: newsFeatureRef },
-//     { text: "Testimonials", ref: homeTestimonialRef },
-//   ];
-
-//   return (
-//     <main className="bg-[#f2f2f2]">
-//       <div className=" mt-[4.5rem] lg:mt-4 ">
-//         <Hero />
-//       </div>
-//       <ContactIcons />
-//       <NavLinksDemo navItems={navItems} />
-//       <div className="h-full">
-//         <div id="machines" className="flex flex-col justify-center items-center mt-32" ref={homeMachineRef}>
-//           <h1 className="text-2xl lg:text-3xl font-semibold text-[#483d78] text-center">
-//             Our <span className="text-red-500">Products</span>
-//           </h1>
-//           <p className="text-sm w-full px-2 lg:w-[50%] lg:text-base pt-4 text-center font-poppins font-medium">
-//             We are known for manufacturing and globally exporting various paper
-//             packaging machines including Cups, Glass, Straws and Plate Machines.
-//           </p>
-//           <HomeMachine />
-//         </div>
-//         <div className="lg:mx-4 mt-8">
-//           <AppleCardsCarouselDemo />
-//         </div>
-//         <div id="aboutUs" className="mx-4 mt-32" ref={aboutUsRef}>
-//           <AboutUs
-//             heading={data.heading}
-//             description={data.description}
-//             stats={data.stats}
-//             cards={data.cards}
-//           />
-//         </div>
-
-//         <div
-//           id="clientele"
-//           className="ml-2 lg:mx-4 mt-[45rem] lg:mt-32"
-//           ref={infiniteCardsRef}
-//         >
-//           <MarqueeSection />
-//         </div>
-//         <div id="knowMore" className="mx-1 lg:mx-4 mt-32" ref={knowMoreRef}>
-//           <KnowMore />
-//         </div>
-
-//         <div
-//           id="iot"
-//           className="mx-6 lg:flex flex-col hidden mt-32"
-//           ref={iotRef}
-//         >
-//           <h4 className="text-xl text-center lg:text-2xl font-poppins lg:leading-tight text-black dark:text-white">
-//             IoT <span className="text-red-500 font-bold">System</span>
-//           </h4>
-//           <IotSection />
-//         </div>
-//         <div
-//           id="news"
-//           className="lg:mx-4 flex  mt-32"
-//           ref={newsFeatureRef}
-//         >
-//           <NewsFeature />
-//         </div>
-//         <div id="knowMachine" className="lg:mt-32" ref={knowMachineRef}>
-//           {/* <CanvasRevealEffectDemo /> */}
-//           <KnowMachine />
-//         </div>
-//         <div
-//           id="testimonials"
-//           className="relative mt-32 bg-gradient-to-l via-purple-200 to-transparent h-screen overflow-hidden"
-//           ref={homeTestimonialRef}
-//         >
-//           <div className="absolute"></div>
-//           <div className="relative lg:mx-8 z-20">
-//             <HomeTestimonial />
-//           </div>
-//         </div>
-//       </div>
-//     </main>
-//   );
-// }
 "use client";
 import React, { useRef } from "react";
 import dynamic from "next/dynamic";
 import Hero from "@/components/Home/Home";
 import NavLinksDemo from "@/components/Home/NavLinks";
 import { data } from "@/components/Constants/Navbar/about-data";
-import { AppleCardsCarouselDemo } from "@/components/AppleCardsCarouselDemo";
 import ContactIcons from "@/components/Contact/ContactIcon";
-import KnowMachine from "@/components/Home/CanvasRevealEffectDemo";
+import FeatureNews from "@/components/Home/FeatureNews";
+import { AnnouncementSection } from "@/components/Home/AnnouncementSection";
 
 const AboutUs = dynamic(() => import("@/components/Home/AboutSection"), {
-  ssr: true,
+  ssr: false,
 });
 
 const MarqueeSection = dynamic(
@@ -180,23 +27,19 @@ const HomeMachine = dynamic(() => import("@/components/Home/HomeMachine"), {
   ssr: true,
 });
 
-const NewsFeature = dynamic(() => import("@/components/Home/NewsFeature"), {
-  ssr: true,
-});
-
 const HomeTestimonial = dynamic(
   () => import("@/components/Home/TestimonialsSection"),
   {
     ssr: true,
   }
 );
+
 export default function Home() {
   const aboutUsRef = useRef<HTMLDivElement>(null);
   const infiniteCardsRef = useRef<HTMLDivElement>(null);
   const knowMoreRef = useRef<HTMLDivElement>(null);
   const homeMachineRef = useRef<HTMLDivElement>(null);
   const newsFeatureRef = useRef<HTMLDivElement>(null);
-  const knowMachineRef = useRef<HTMLDivElement>(null);
   const homeTestimonialRef = useRef<HTMLDivElement>(null);
   const iotRef = useRef<HTMLDivElement>(null);
 
@@ -211,7 +54,7 @@ export default function Home() {
   ];
 
   return (
-    <main className="relative bg-[rgb(242,242,242)]  top-14 h-full">
+    <main className="relative  bg-[#f2f2f2] top-14 gap-2 h-full">
       <div className="top-2 relative">
         <Hero />
       </div>
@@ -238,12 +81,11 @@ export default function Home() {
           </div>
           <HomeMachine />
         </div>
-        <div className="h-auto lg:py-8">
-          <AppleCardsCarouselDemo />
+        <div className="h-auto max-w-screen-2xl mx-auto lg:py-8">
+          <AnnouncementSection />
         </div>
         <div id="aboutUs" className="" ref={aboutUsRef}>
           <AboutUs
-            title={data.maintitle}
             heading={data.heading}
             description={data.description}
             stats={data.stats}
@@ -251,7 +93,11 @@ export default function Home() {
           />
         </div>
 
-        <div id="clientele" className="" ref={infiniteCardsRef}>
+        <div
+          id="clientele"
+          className="max-w-screen-2xl mx-auto"
+          ref={infiniteCardsRef}
+        >
           <MarqueeSection />
         </div>
         <div id="knowMore" className="h-auto" ref={knowMoreRef}>
@@ -259,12 +105,10 @@ export default function Home() {
         </div>
 
         <div id="news" className="" ref={newsFeatureRef}>
-          <NewsFeature />
+          {/* <NewsFeature /> */}
+          <FeatureNews />
         </div>
-        <div id="knowMachine" className="" ref={knowMachineRef}>
-          {/* <CanvasRevealEffectDemo /> */}
-          <KnowMachine />
-        </div>
+
         <div
           id="testimonials"
           className="relative  bg-gradient-to-l via-purple-200 to-transparent h-screen overflow-hidden"
