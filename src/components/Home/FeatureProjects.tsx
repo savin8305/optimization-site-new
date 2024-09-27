@@ -94,18 +94,19 @@ const FeatureProjects: React.FC<Page4Props> = ({ page4product }) => {
               <button
                 className="text-[#cccaca] absolute left-16 bottom-2  lg:text-[1.5rem] text-[1.8rem]  hover:text-black"
                 onClick={scrollbarLeft}
+                aria-label="LeftScroll"
               >
                 <IoIosArrowDropleftCircle />
               </button>
               <button
                 className="text-[#cccaca] absolute right-16 bottom-2  lg:text-[1.5rem] text-[1.8rem]  hover:text-black"
                 onClick={scrollbarRight}
+                aria-label="RightScroll"
               >
                 <IoIosArrowDroprightCircle />
               </button>
             </div>
           </div>
-
           {/* Main Carousel Container */}
           <div className="w-full  h-[28vh] flex items-center overflow-hidden">
             <div
@@ -140,18 +141,12 @@ const FeatureProjects: React.FC<Page4Props> = ({ page4product }) => {
                         </div>
                       </div>
                     </div>
-
                     {/* Title */}
                     <div className="p-2 font-poppins">
                       <h2 className="lg:text-xs font-semimedium w-[65%]">
-                      {item.h1}
+                        {item.h1}
                       </h2>
-                      {/* <h3 className="lg:text-xs font-semimedium">{item.h2}</h3>
-                      <p className="lg:text-[0.6rem] font-regular w-[70%] text-[0.8rem] text-gray-600">
-                        {item.h3}
-                      </p> */}
                     </div>
-
                     {/* Image */}
                     <div className="flex justify-center items-center">
                       <div className="w-full px-2 hover:px-0 transition-all duration-300 lg:h-[14vh] mt-1 flex justify-center items-center">

@@ -72,6 +72,7 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
           <button
             className="relative z-20 h-12 w-12 lg:h-14 lg:w-24 rounded-full flex items-center justify-center disabled:opacity-50"
             onClick={scrollLeft}
+            aria-label="scrollLeft"
             disabled={!canScrollLeft}
           >
             <FaArrowLeft className="text-xl lg:text-2xl text-gray-500" />
@@ -80,6 +81,7 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
             className="relative z-20 h-12 w-12 lg:h-14 lg:w-24 rounded-full flex items-center justify-center disabled:opacity-50"
             onClick={scrollRight}
             disabled={!canScrollRight}
+            aria-label="scrollRight"
           >
             <FaArrowRight className="text-xl lg:text-2xl text-gray-500" />
           </button>
