@@ -15,7 +15,7 @@ const Home: React.FC = () => {
           </motion.div>
         </div>
         <div className="absolute h-auto w-[80%] lg:w-auto  left-8 top-1/3 lg:top-[38%] lg:left-28 flex-col text-7xl text-white font-alexBrush">
-          <p className="text-3xl text-center lg:text-justify mx-4 md:text-2xl lg:text-5xl font-poppins font-thin">
+          <p className="text-3xl text-center lg:text-start mx-2 md:text-2xl lg:text-5xl font-poppins font-light">
             Quality Food Packaging
           </p>
           <div className="lg:ml-2  text-center lg:text-justify">

@@ -12,10 +12,7 @@ export const BlurImage = ({
 }: ImageProps) => {
   return (
     <Image
-      className={cn(
-        "transition duration-300",
-        className
-      )}
+      className={cn("transition duration-300", className)}
       src={src}
       width={width}
       height={height}

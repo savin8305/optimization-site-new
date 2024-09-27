@@ -80,7 +80,7 @@ const Stepper: React.FC<{ onStepChange: (index: number) => void }> = ({
               <React.Fragment key={index}>
                 <motion.div
                   className={`flex flex-col pt-1 last:pr-[6%]  first:pl-[4%] items-center justify-center relative cursor-pointer ${
-                    index === activeStep ? "text-black" : "text-gray-500"
+                    index === activeStep ? "text-black" : "text-black"
                   }`}
                   onClick={() => handleClick(index)}
                 >
@@ -96,7 +96,7 @@ const Stepper: React.FC<{ onStepChange: (index: number) => void }> = ({
                   >
                     {step.icon}
                   </motion.div>
-                  <span className="text-xs lg:text-xs font-regular mt-2 font-poppins text-center w-20 lg:w-20">
+                  <span className="text-xs text-black lg:text-xs font-regular  mt-2 font-poppins text-center w-20 lg:w-20">
                     {step.name}
                   </span>
                 </motion.div>

@@ -339,7 +339,7 @@ const CountryLayout: React.FC = () => {
             ))}
             {visibleCount < filteredCountries.length && (
               <p
-                className="text-red-500 cursor-pointer pl-4 p-2"
+                className="text-[#dc0e2a] cursor-pointer pl-4 p-2"
                 onClick={handleShowMore}
               >
                 more...

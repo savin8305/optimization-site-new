@@ -3,15 +3,13 @@
 import { useState } from "react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { motion} from "framer-motion";
-
+import { motion } from "framer-motion";
 const images: string[] = [
   "https://assets.nesscoindustries.com/public/video/home.webp",
   "https://assets.nesscoindustries.com/public/video/home.webp",
   "https://assets.nesscoindustries.com/public/home.webp",
   "https://assets.nesscoindustries.com/public/video/home.webp",
 ];
-
 export default function ImageSlider() {
   const [currentIndex, setCurrentIndex] = useState<number>(0);
 
@@ -34,7 +32,6 @@ export default function ImageSlider() {
           alt={`Slide ${currentIndex + 1}`}
           width={600}
           height={400}
-          loading="lazy"
           className="w-full z-50 h-full object-cover  rounded-2xl"
         />
       </motion.div>

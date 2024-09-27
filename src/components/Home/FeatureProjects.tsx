@@ -80,14 +80,14 @@ const FeatureProjects: React.FC<Page4Props> = ({ page4product }) => {
         <div className="flex flex-row rounded-2xl lg:my-[1vh] bg-white p-2 ">
           <div className=" flex w-[20%] pt-2 flex-col relative items-center">
             <div className="lg:text-2xl text-center  text-[1.8rem]">
-              <h2 className="text-[#9e9c9c] font-medium">
+              <h2 className="text-[#483d73] font-medium">
                 {related_product?.title.trim().replace(/\s+\S+$/, "")}
               </h2>{" "}
               <h2 className="text-[#dc0e2a] font-semibold">
                 {related_product?.title.trim().match(/\S+$/)}
               </h2>
             </div>
-            <p className="text-center text-[0.6rem] pt-2 font-regular w-[60%]">
+            <p className="text-center text-[0.7rem] font-medium pt-2  w-[60%]">
               {related_product?.description}
             </p>
             <div className="flex flex-row justify-between">
@@ -128,7 +128,7 @@ const FeatureProjects: React.FC<Page4Props> = ({ page4product }) => {
                       <div className="w-12 h-12  rounded-full flex items-center justify-center relative group">
                         <Image
                           src={item.image}
-                          alt=""
+                          alt="asdfghjkl"
                           width={400}
                           height={400}
                           className="hover:scale-90 transition-all duration-300 "
