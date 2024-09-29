@@ -8,9 +8,11 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import AnimatedText from "../ui/AnimatedText";
 import styles from "../ui/AnimatedText.module.css";
 import { usePathname } from "next/navigation";
+import data from "../Constants/hero.json";
 
 gsap.registerPlugin(ScrollTrigger);
 
+// Define interfaces for the expected props
 interface Stats {
   machinesSold: number;
   readyStockMachines: number;
@@ -29,63 +31,64 @@ interface AboutUsProps {
   cards: Card[];
 }
 
-const AboutUs: React.FC<AboutUsProps> = ({
-  heading,
-  description,
-  stats,
-  cards,
-}) => {
+const AboutUs: React.FC = () => {
+  // Correctly type aboutData using the AboutUsProps interface
+  const aboutData: AboutUsProps | undefined = data.find(
+    (item) => item.category === "homeaboutsection"
+  )?.data as AboutUsProps;
+
   const machinesSoldRef = useRef<HTMLHeadingElement>(null);
   const readyStockMachinesRef = useRef<HTMLHeadingElement>(null);
 
   useEffect(() => {
-    const animateCount = (
-      target: HTMLHeadingElement | null,
-      endValue: number
-    ) => {
-      if (target) {
-        gsap.fromTo(
-          target,
-          { innerText: "0" },
-          {
-            innerText: endValue,
-            duration: 1.5,
-            ease: "power3.out",
-            snap: { innerText: 1 },
-            scrollTrigger: {
-              trigger: target,
-              start: "top 80%",
-              once: true,
-            },
-          }
-        );
-      }
-    };
+    if (aboutData) {
+      const animateCount = (
+        target: HTMLHeadingElement | null,
+        endValue: number
+      ) => {
+        if (target) {
+          gsap.fromTo(
+            target,
+            { innerText: "0" },
+            {
+              innerText: endValue,
+              duration: 1.5,
+              ease: "power3.out",
+              snap: { innerText: 1 },
+              scrollTrigger: {
+                trigger: target,
+                start: "top 80%",
+                once: true,
+              },
+            }
+          );
+        }
+      };
 
-    animateCount(machinesSoldRef.current, stats.machinesSold);
-    animateCount(readyStockMachinesRef.current, stats.readyStockMachines);
-  }, [stats]);
+      // Trigger the animations with correct data
+      animateCount(machinesSoldRef.current, aboutData.stats.machinesSold);
+      animateCount(readyStockMachinesRef.current, aboutData.stats.readyStockMachines);
+    }
+  }, [aboutData]);
+
   const pathname = usePathname() || "";
   const countryCode = pathname.split("/")[1]?.toLowerCase();
-  return (
+
+  return aboutData ? (
     <div className="flex mt-12 h-full max-w-screen-2xl mx-auto flex-col items-center  md:px-6 lg:px-8">
       <h1 className="text-3xl font-medium text-[#483d78]">
         About <span className="text-[#dc0e2a] font-semibold">US</span>
       </h1>
       <h1 className="text-lg lg:text-4xl w-full text-center font-poppins lg:px-72 py-3">
-        {heading.split(" ").map((word, index) =>
-          word === "Machine" ? (
-            <span key={index} className="text-[#483d78] cursor-pointer">
-              {word}{" "}
-            </span>
-          ) : (
-            word + " "
-          )
-        )}
+        {aboutData.heading.split(" ").map((word, index) => (
+          <span key={index} className={word === "Machine" ? "text-[#483d78] cursor-pointer" : ""}>
+            {word}{" "}
+          </span>
+        ))}
       </h1>
       <div className="text-center flex flex-col w-full lg:max-w-6xl">
         <p className="font-poppins flex lg:hidden text-sm lg:text-base  font-light py-4 text-center w-full lg:w-3/5 leading-6">
-          {description}
+          {aboutData.description}
         </p>
         <div className="flex  flex-row justify-between items-center w-full mt-4">
           <div className="lg:text-center w-[50%] lg:w-1/5  md:mb-0">
@@ -100,7 +103,7 @@ const AboutUs: React.FC<AboutUsProps> = ({
             </p>
           </div>
           <p className="font-poppins hidden lg:flex text-sm lg:text-sm md:px-6 py-4 text-center font-regular w-full md:w-3/5 leading-6">
-            {description}
+            {aboutData.description}
           </p>
           <div className="lg:text-center flex flex-col justify-end w-[50%] lg:w-1/5  md:mt-0">
             <h2
@@ -117,37 +120,27 @@ const AboutUs: React.FC<AboutUsProps> = ({
 
         <Link
           href={`/${countryCode}/about`}
-          className="text-[#483d73] text-center font-poppins text-base hover:font-semibold mt-4 "
+          className="text-[#483d73] text-center font-poppins text-base hover:font-semibold mt-4"
         >
           Read more
         </Link>
       </div>
 
       <div className="flex flex-col md:flex-row w-full items-end gap-4 mt-8">
-        {cards.map((card, index) => (
+        {aboutData.cards.map((card, index) => (
           <Link
             key={index}
-            className={`relative w-full lg:w-1/3 group flex flex-col items-center ${
-              index === 1 ? "z-10 lg:w-[40%]" : ""
-            }`}
+            className={`relative w-full lg:w-1/3 group flex flex-col items-center ${index === 1 ? "z-10 lg:w-[40%]" : ""}`}
             href={`/${countryCode}/about/${card.link}`}
           >
             <div className="w-full">
-              <div
-                className={`relative overflow-hidden rounded-md transition-transform transform group-hover:scale-80 ${
-                  index === 1 ? "h-58" : "h-52"
-                }`}
-              >
+              <div className={`relative overflow-hidden rounded-md transition-transform transform group-hover:scale-80 ${index === 1 ? "h-58" : "h-52"}`}>
                 <Image
                   src={card.image}
                   alt={card.title}
                   width={600}
                   height={250}
-                  className={`w-full rounded-2xl border-2 object-cover ${
-                    index === 1
-                      ? "h-[15rem] lg:w-full w-full md:w-full"
-                      : "h-52"
-                  }`}
+                  className={`w-full rounded-2xl border-2 object-cover ${index === 1 ? "h-[15rem] lg:w-full w-full md:w-full" : "h-52"}`}
                 />
                 <div className="absolute bottom-0 left-0 p-4 flex justify-between items-end w-full">
                   <Link
@@ -171,7 +164,7 @@ const AboutUs: React.FC<AboutUsProps> = ({
         ))}
       </div>
     </div>
-  );
+  ) : null;
 };
 
 export default AboutUs;

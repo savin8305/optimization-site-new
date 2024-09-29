@@ -5,6 +5,7 @@ import PositionAwareButton from "../ui/PositionAwareButton";
 import ImageSlider from "../ui/ImageSlider";
 import relatedProductData from "./Feature.json";
 import FeatureProducts from "./FeatureProjects";
+
 const Home: React.FC = () => {
   return (
     <>

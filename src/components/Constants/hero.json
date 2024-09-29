@@ -1,8 +1,32 @@
 [
   {
+    "homeSeoData": {
+      "title": "Paper Cup Machine Manufacturer and Supplier - Nessco India",
+      "description": "Trusted Paper Cup Machine Manufacturer since 1978. Nessco offers a wide range of paper cup making machine pairing with the latest technology. Enquire now!",
+      "keywords": "Nessco India",
+      "openGraph": {
+        "title": "Paper Cup Machine Manufacturer and Supplier - Nessco India",
+        "description": "Trusted Paper Cup Machine Manufacturer since 1978. Nessco offers a wide range of paper cup making machine pairing with the latest technology. Enquire now!",
+        "images": [
+          {
+            "url": "https://www.nesscoindia.com/Assets/images/resource/fully-automatic-paper-cup-making-machine.webp",
+            "alt": "Fully Automatic Paper Cup Making Machine"
+          }
+        ]
+      },
+      "robots": "index, follow",
+      "authors": [
+        {
+          "name": "Nessco India"
+        }
+      ],
+      "publisher": "Nessco India",
+      "alternates": {
+        "canonical": "https://www.nesscoindia.com"
+      }
+    },
     "homeMachineSection": {
-      "heading_first": "Our",
-      "heading_second": "Products",
+      "title": "Our products",
       "subheading": "We are known for manufacturing and globally exporting various paper packaging machines including Cups, Glass, Straws and Plate Machines."
     },
     "navItems": [
@@ -33,14 +57,19 @@
             "type": "video/ogg"
           }
         ],
+        "images": [
+          "https://assets.nesscoindustries.com/public/video/home.webp",
+          "https://assets.nesscoindustries.com/public/video/home.webp",
+          "https://assets.nesscoindustries.com/public/home.webp",
+          "https://assets.nesscoindustries.com/public/video/home.webp"
+        ],
         "poster": "https://assets.nesscoindustries.com/public/video/home.webp"
       },
       "textOverlay": {
         "headline": "Quality Food Packaging",
         "subheadline": {
           "text": "Machinery & Solutions",
-          "highlight": "Solutions",
-          "highlightColor": "#df1f27"
+          "highlight": "Solutions"
         }
       }
     }
@@ -57,17 +86,17 @@
       "cards": [
         {
           "title": "Vision & Mission",
-          "image": "HomeAbout1.src",
+          "image": "https://assets.nesscoindustries.com/public/assets/HomeAbout1.png",
           "link": "vission"
         },
         {
           "title": "Our Strength",
-          "image": "HomeAbout2.src",
+          "image": "https://assets.nesscoindustries.com/public/assets/HomeAbout2.jpg",
           "link": "our-strength"
         },
         {
           "title": "People & Culture",
-          "image": "HomeAbout3.src",
+          "image": "https://assets.nesscoindustries.com/public/assets/HomeAbout3.png",
           "link": "culture"
         }
       ]
