@@ -39,7 +39,6 @@ const AboutLayout: React.FC<AboutData> = () => {
 
   const aboutData = data.find((item) => item.category === "About")?.data;
 
-  console.log("ABOUTDATA", aboutData);
 
   const navLeftData = aboutData?.navLeftData || [];
   const navRightData = aboutData?.navRightData || [];

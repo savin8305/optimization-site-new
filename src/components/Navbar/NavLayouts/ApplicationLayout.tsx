@@ -12,9 +12,8 @@ import PaperRoll from "../../Icons/PaperRoll";
 import PaperStraw from "../../Icons/PaperStraw";
 import PopcornTub from "../../Icons/PopcornTub";
 import PositionAwareButton from "../../ui/PositionAwareButton";
+import { Button } from "../../ui/button";
 import { ArrowRightIcon } from "lucide-react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
 
 interface Product {
   id: string;
@@ -106,7 +105,7 @@ const products: Product[] = [
   },
   {
     id: "12",
-    name: "Hand Burger Box",
+    name: "Ham Burger Box",
     description:
       "Eco-friendly paper boxes designed specifically for burgers. Ideal for takeout and food delivery services, keeping burgers fresh and intact.",
   },
@@ -114,36 +113,36 @@ const products: Product[] = [
 
 export default function ApplicationLayout() {
   const [activeProduct, setActiveProduct] = useState<Product>(products[0]);
-  const pathname = usePathname() || "";
-  const countryCode = pathname.split("/")[1]?.toLowerCase();
+
   return (
     <div className="flex flex-col md:flex-row w-full h-full p-4">
       <div className="relative md:w-[70%] grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-5 gap-4 mb-4 md:mb-0 md:mr-4">
         {products.map((product, index) => {
           const IconComponent = componentList[index];
           return (
-            <Link
+            <div
               key={product.id}
-              className="flex flex-col items-center justify-center p-2 invert-0  transition-shadow duration-300 cursor-pointer"
+              className="flex flex-col items-center justify-center p-2 invert-0 cursor-pointer"
               onMouseEnter={() => setActiveProduct(product)}
-              href={`/${countryCode}/application/${product.name}`}
             >
-              <IconComponent />{" "}
+              <div className=" h-20 w-20 flex items-center justify-center">
+                <IconComponent/>
+              </div>
               <span className="text-xs text-center invert-0">
                 {product.name}
               </span>
-            </Link>
+            </div>
           );
         })}
 
-        <Link className="absolute bottom-4 right-4" href={`/${countryCode}/application`}>
-          <button className="rounded-full flex items-center bg-primary text-primary-foreground hover:bg-primary/90 px-1 py-2 text-base font-regular group">
+        <div className="absolute bottom-4 right-4">
+          <Button className="rounded-full flex items-center bg-primary text-primary-foreground hover:bg-white hover:text-black border border-black px-1 py-2 text-base font-regular group">
             <span className="flex-grow ml-2 text-center">View All</span>
             <span className="ml-2 bg-white rounded-full p-1 transition-colors duration-200 group-hover:bg-black">
               <ArrowRightIcon className="h-5 w-5 text-primary transition-colors duration-200 group-hover:text-white" />
             </span>
-          </button>
-        </Link>
+          </Button>
+        </div>
       </div>
 
       <div className="md:w-[30%] border-l p-6 flex flex-col  relative">

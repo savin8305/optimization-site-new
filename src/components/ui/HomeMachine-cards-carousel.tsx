@@ -13,13 +13,18 @@ import { useOutsideClick } from "@/hooks/use-outside-click";
 import { BlurImage } from "./BlurImage";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { BiCross } from "react-icons/bi";
+import ProductModal from "./ProductModal";
 interface CarouselProps {
   items: JSX.Element[];
   initialScroll?: number;
 }
 
 type Card = {
-  image: StaticImageData | string;
+  description: string;
+  items: { className: string; text: string; }[];
+  firstname: string;
+  secondname: string;
+  image: string;
   title: string;
   icon: StaticImageData | string;
   category: string;
@@ -282,7 +287,7 @@ export const Card = ({
 }) => {
   const [open, setOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
-  const { onCardClose} = useContext(CarouselContext);
+  const { onCardClose } = useContext(CarouselContext);
 
   useEffect(() => {
     function onKeyDown(event: KeyboardEvent) {
@@ -320,7 +325,17 @@ export const Card = ({
             >
               <BiCross className="h-6 w-6 text-neutral-100 dark:text-neutral-900" />
             </button>
-            <div className="py-0">{card.content}</div>
+            <div className="py-0">
+              <ProductModal
+                image={card.image}
+                title={card.title}
+                description={card.description}
+                buttons={[{ text: "Know Machine", icon: true }]} // Customize buttons if needed
+                items={card.items}
+                firstname={card.firstname}
+                secondname={card.secondname}
+              />
+            </div>
           </div>
         </div>
       )}
@@ -382,14 +397,12 @@ export const Card = ({
               </svg>
             </div>
           </div>
-
           <BlurImage
             src={card.image}
             alt={card.title}
             fill
-            className="object-contain border-2 bg-[#f2f2f2]  rounded-[1.5rem] absolute z-10 inset-0"
+            className="object-contain h-36 border-2 bg-[#f2f2f2]  rounded-[1.5rem] absolute z-10 inset-0"
           />
-
           <div className="absolute -mb-2 font-poppins left-0 right-0 bottom-0 z-40 p-4">
             <p className="text-black font-poppins text-sm md:text-base font-regular text-left">
               {card.title}

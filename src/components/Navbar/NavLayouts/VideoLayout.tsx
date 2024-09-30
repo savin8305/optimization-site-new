@@ -13,7 +13,6 @@ type SupportItem = {
   bgPic: string; // Corrected property name
 };
 
-
 const VideoGrid: React.FC = ({}) => {
   const videoData = data.find((item) => item.category === "Video")?.data;
   console.log("videoData", videoData);
@@ -69,7 +68,6 @@ const VideoGrid: React.FC = ({}) => {
   };
 
   const shouldShowArrows = videoDataItem.length > 5;
-
 
   const chunkItems = (arr: SupportItem[], size: number): SupportItem[][] =>
     arr.length

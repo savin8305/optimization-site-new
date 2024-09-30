@@ -75,7 +75,6 @@ export const MenuItem = ({
     };
   }, [ref, setActive, setPosition, item]);
   const pathname = usePathname() || "";
-  const countryCode = pathname.split("/")[1]?.toLowerCase();
   const componentCode = pathname.split("/")[2]?.toLowerCase();
   const componentCodeourCompany = pathname.split("/")[3]?.toLowerCase();
 
@@ -83,7 +82,7 @@ export const MenuItem = ({
     <div ref={ref} className="z-10 cursor-pointer px-3 font-poppins">
       <Link
         className="invert-0 text-base font-light"
-        href={`/${countryCode}/${link}`}
+        href={`/${link}`}
       >
         {item}
       </Link>

@@ -1,6 +1,6 @@
 "use client";
 
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 import styles from "../Styles/style.module.css";
 import { useTransform, motion, MotionValue } from "framer-motion";
 import { useRef} from "react";
@@ -13,7 +13,7 @@ interface KnowMoreCardProps {
   i: number;
   title: string;
   description: string;
-  src: StaticImageData;
+  src: string;
   url: string;
   color: string;
   expertiseExperience: string;

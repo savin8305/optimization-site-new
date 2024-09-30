@@ -1,9 +1,8 @@
 "use client";
-import React, { useState} from "react";
+import React, { useState } from "react";
 import { navbarItems } from "@/components/Constants/Navbar/navbarData";
 import Image from "next/image";
 import Link from "next/link";
-import Logo from "../../../public/assets/Logo.png";
 import { Menu, MenuItem } from "./nav-menue";
 import { HiMiniMinusCircle } from "react-icons/hi2";
 import { VscAccount } from "react-icons/vsc";
@@ -40,7 +39,6 @@ function Navbar({ className }: { className?: string }) {
     setSearchValue(e.target.value);
   const handleClearSearch = () => setSearchValue("");
 
- 
   return (
     <div
       className={`fixed flex w-full ${
@@ -55,7 +53,7 @@ function Navbar({ className }: { className?: string }) {
         <div className="w-1/5  flex items-center">
           <Link href="/" className="w-full h-full flex items-center">
             <Image
-              src={Logo}
+              src="https://assets.nesscoindustries.com/public/assets/Logo.png"
               alt="Logo"
               width={500}
               height={500}
@@ -110,7 +108,7 @@ function Navbar({ className }: { className?: string }) {
         <div className="lg:hidden w-full flex justify-between items-center -ml-2 p-4">
           <Link href="/" className="h-6 flex items-center">
             <Image
-              src={Logo}
+              src="https://assets.nesscoindustries.com/public/assets/Logo.png"
               alt="Logo"
               width={500}
               height={500}
