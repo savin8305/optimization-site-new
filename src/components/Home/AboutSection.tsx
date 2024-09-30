@@ -67,7 +67,10 @@ const AboutUs: React.FC = () => {
 
       // Trigger the animations with correct data
       animateCount(machinesSoldRef.current, aboutData.stats.machinesSold);
-      animateCount(readyStockMachinesRef.current, aboutData.stats.readyStockMachines);
+      animateCount(
+        readyStockMachinesRef.current,
+        aboutData.stats.readyStockMachines
+      );
     }
   }, [aboutData]);
 
@@ -81,7 +84,12 @@ const AboutUs: React.FC = () => {
       </h1>
       <h1 className="text-lg lg:text-4xl w-full text-center font-poppins lg:px-72 py-3">
         {aboutData.heading.split(" ").map((word, index) => (
-          <span key={index} className={word === "Machine" ? "text-[#483d78] cursor-pointer" : ""}>
+          <span
+            key={index}
+            className={
+              word === "Machine" ? "text-[#483d78] cursor-pointer" : ""
+            }
+          >
             {word}{" "}
           </span>
         ))}
@@ -130,17 +138,27 @@ const AboutUs: React.FC = () => {
         {aboutData.cards.map((card, index) => (
           <Link
             key={index}
-            className={`relative w-full lg:w-1/3 group flex flex-col items-center ${index === 1 ? "z-10 lg:w-[40%]" : ""}`}
+            className={`relative w-full lg:w-1/3 group flex flex-col items-center ${
+              index === 1 ? "z-10 lg:w-[40%]" : ""
+            }`}
             href={`/${countryCode}/about/${card.link}`}
           >
             <div className="w-full">
-              <div className={`relative overflow-hidden rounded-md transition-transform transform group-hover:scale-80 ${index === 1 ? "h-58" : "h-52"}`}>
+              <div
+                className={`relative overflow-hidden rounded-md transition-transform transform group-hover:scale-80 ${
+                  index === 1 ? "h-58" : "h-52"
+                }`}
+              >
                 <Image
                   src={card.image}
                   alt={card.title}
                   width={600}
                   height={250}
-                  className={`w-full rounded-2xl border-2 object-cover ${index === 1 ? "h-[15rem] lg:w-full w-full md:w-full" : "h-52"}`}
+                  className={`w-full rounded-2xl border-2 object-cover ${
+                    index === 1
+                      ? "h-[15rem] lg:w-full w-full md:w-full"
+                      : "h-52"
+                  }`}
                 />
                 <div className="absolute bottom-0 left-0 p-4 flex justify-between items-end w-full">
                   <Link

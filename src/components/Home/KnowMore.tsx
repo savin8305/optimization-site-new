@@ -5,6 +5,7 @@ import KnowMoreCard from "./Common/KnowMoreCard";
 import { useScroll } from "framer-motion";
 import { useEffect, useRef } from "react";
 import Lenis from "@studio-freight/lenis";
+import data from "../Constants/hero.json";
 
 export default function KnowMore() {
   const container = useRef<HTMLDivElement>(null);
@@ -24,11 +25,19 @@ export default function KnowMore() {
     requestAnimationFrame(raf);
   }, []);
 
+  // Ensure knowmoreData is not undefined
+  const knowmoreData = data.find((item) => item.category === "knowmoresection")?.data?.knowmore;
+
+  // If knowmoreData is undefined, return null to avoid rendering errors
+  if (!knowmoreData) {
+    return null;
+  }
+
   return (
     <main ref={container} className="h-full cursor-pointer">
-      {projects.map((project, i) => {
+      {knowmoreData.map((project, i) => {
         const targetScale =
-          i < projects.length - 1 ? 1 - (projects.length - i) * 0.1 : 1;
+          i < knowmoreData.length - 1 ? 1 - (knowmoreData.length - i) * 0.1 : 1;
         return (
           <KnowMoreCard
             url={""}
@@ -38,6 +47,8 @@ export default function KnowMore() {
             progress={scrollYProgress}
             range={[i * 0.25, 1]}
             targetScale={targetScale}
+            // Adjust icon type or ensure proper type handling
+            icon={typeof project.icon === 'string' ? { name: project.icon } : project.icon}
           />
         );
       })}

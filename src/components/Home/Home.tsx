@@ -3,10 +3,11 @@ import React from "react";
 import { motion } from "framer-motion";
 import PositionAwareButton from "../ui/PositionAwareButton";
 import ImageSlider from "../ui/ImageSlider";
-import relatedProductData from "./Feature.json";
 import FeatureProducts from "./FeatureProjects";
-
+import data from "../Constants/hero.json";
 const Home: React.FC = () => {
+  const homeData = data.find((item) => item.category === "HeroSection")?.data;
+
   return (
     <>
       <div className="relative  h-full p-0   flex flex-col items-center overflow-hidden  w-screen">
@@ -17,15 +18,14 @@ const Home: React.FC = () => {
         </div>
         <div className="absolute h-auto w-[80%] lg:w-auto  left-8 top-1/3 lg:top-[38%] lg:left-28 flex-col text-7xl text-white font-alexBrush">
           <p className="text-3xl text-center lg:text-start mx-2 md:text-2xl lg:text-5xl font-poppins font-light">
-            Quality Food Packaging
+            {homeData?.textOverlay?.headline}
           </p>
           <div className="lg:ml-2  text-center lg:text-justify">
             <span className="text-3xl  lg:text-6xl text-[#f2f2f2] font-poppins font-semibold ">
-              Machinery & <span className="">Solutions</span>
+              {homeData?.textOverlay?.subheadline}
             </span>
           </div>
         </div>
-
         <div className="absolute flex flex-col w-1/2  lg:w-[20rem] lg:h-[5rem] lg:rounded-tl-[2rem] rounded-tl-[1.5rem] right-0 bg-[#f5f5f5] lg:bottom-0 bottom-0 text-3xl font-poppins text-white text-center">
           <motion.div className="-mt-4 lg:-mt-6 flex mr-2 lg:mr-8 justify-end">
             <svg
@@ -85,11 +85,9 @@ const Home: React.FC = () => {
           </div>
         </div>
       </div>
-      <FeatureProducts page4product={relatedProductData.related_product} />
+      <FeatureProducts />
     </>
   );
 };
-
 Home.displayName = "Hero";
-
 export default React.memo(Home);

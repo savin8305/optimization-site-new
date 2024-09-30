@@ -2,7 +2,7 @@ import React from "react";
 import { SwipeCarousel } from "./Common/slider";
 import AnimatedText from "../ui/AnimatedText";
 import { TestiNomialAnimation } from "../ui/testinomialAnimation";
-
+import data from "../Constants/hero.json"
 const testimonials = [
   {
     src: "https://i.pinimg.com/236x/36/a2/e2/36a2e242bfe3ac039e0618fbaaef7596.jpg",
@@ -119,36 +119,36 @@ const testimonials = [
 ];
 
 const HomeTestimonial: React.FC = () => {
+  const testinomialData=data.findLast((item)=>item.category==="testinomial")?.data;
   return (
     <div className="flex flex-col lg:flex-row py-4 h-screen z-20 max-w-7xl mx-auto relative overflow-hidden">
       <div className="px-2 w-full h-[45%] lg:h-full lg:w-1/3 lg:flex lg:flex-col lg:items-end lg:justify-end  flex flex-col">
         <h6 className="text-xl text-[#dc0e2a] text-center lg:text-justify border-white pb-3 lg:pb-0 border-b-[1px] lg:border-none lg:ml-6 lg:text-2xl font-montserrat lg:leading-tight font-bold">
-          Testimonials
+          {testinomialData?.heading}
         </h6>
         <div className="hidden lg:flex flex-col">
           <h2 className="lg:text-5xl font-bold ml-4 mt-20">
-            Don&lsquo;t Just Take
+           {testinomialData?.subheading}
           </h2>
           <h2 className="text-5xl flex flex-row font-bold ml-4 mt-6">
-            Our
+            {testinomialData?.secondsubheading?.substring(0,3)}
             <span className="relative ml-1 ">
               <AnimatedText
                 blockClassName="h-full rounded-lg bg-gradient-to-r from-indigo-300 to-purple-300 dark:from-indigo-500 dark:to-purple-500"
                 className="text-5xl text-black font-bold"
-                text={"Word for it"}
+                text={`${testinomialData?.secondsubheading?.substring(4)}`}
               />
             </span>
           </h2>
           <h4 className="mt-20 text-lg text-center font-poppins">
-            See What Our Clients Are Saying About Us
+            {testinomialData?.description}
           </h4>
         </div>
         <div className="flex w-full mt-2 justify-between lg:hidden flex-row">
           <h4 className="text-sm w-1/2 text-center font-poppins">
-            See What Our Clients Are Saying About Us
+          {testinomialData?.description}
           </h4>
           <div className="h-12 border-white w-1 border-l-[1px]"></div>
-
           <div className="flex text-center text-sm w-1/2 flex-col ">
             <div className="flex text-[#483d78] text-lg items-center justify-center flex-row">
               {" "}
