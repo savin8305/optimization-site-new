@@ -1,37 +1,16 @@
 "use client";
 import React, { useRef } from "react";
-import dynamic from "next/dynamic";
 import Hero from "@/components/Home/Home";
 import NavLinksDemo from "@/components/Home/NavLinks";
 import ContactIcons from "@/components/Contact/ContactIcon";
 import FeatureNews from "@/components/Home/FeatureNews";
 import { AnnouncementSection } from "@/components/Home/AnnouncementSection";
 import data from "../Constants/hero.json";
-const AboutUs = dynamic(() => import("@/components/Home/AboutSection"), {
-  ssr: false,
-});
-
-const MarqueeSection = dynamic(
-  () => import("@/components/Home/MarqueeSection"),
-  {
-    ssr: true,
-  }
-);
-
-const KnowMore = dynamic(() => import("@/components/Home/KnowMore"), {
-  ssr: true,
-});
-
-const HomeMachine = dynamic(() => import("@/components/Home/HomeMachine"), {
-  ssr: true,
-});
-
-const HomeTestimonial = dynamic(
-  () => import("@/components/Home/TestimonialsSection"),
-  {
-    ssr: true,
-  }
-);
+import AboutUs from "@/components/Home/AboutSection";
+import MarqueeSection from "@/components/Home/MarqueeSection";
+import KnowMore from "@/components/Home/KnowMore";
+import HomeMachine from "@/components/Home/HomeMachine";
+import HomeTestimonial from "@/components/Home/TestimonialsSection";
 
 export default function MainLayout() {
   const aboutUsRef = useRef<HTMLDivElement>(null);
@@ -53,18 +32,14 @@ export default function MainLayout() {
   ];
 
   return (
-    <main className="relative  bg-[#f2f2f2] top-14 gap-2 h-full">
+    <main className="relative bg-[#f2f2f2] top-14 gap-2 h-full">
       <div className="top-2 relative">
         <Hero />
       </div>
       <ContactIcons />
       <NavLinksDemo navItems={navItems} />
       <div className="h-full font-poppins py-20">
-        <div
-          id="machines"
-          className="flex space-y-6 flex-col"
-          ref={homeMachineRef}
-        >
+        <div id="machines" className="flex space-y-6 flex-col" ref={homeMachineRef}>
           <div className="flex justify-center text-3xl items-center space-x-2">
             <h2 className="text-[#483d73] font-medium">
               {data[0].homeMachineSection?.title.trim().replace(/\s+\S+$/, "")}
@@ -84,32 +59,19 @@ export default function MainLayout() {
           <AnnouncementSection />
         </div>
         <div id="aboutUs" className="" ref={aboutUsRef}>
-          <AboutUs
-            
-          />
+          <AboutUs />
         </div>
-
-        <div
-          id="clientele"
-          className="max-w-screen-2xl mx-auto"
-          ref={infiniteCardsRef}
-        >
+        <div id="clientele" className="max-w-screen-2xl mx-auto" ref={infiniteCardsRef}>
           <MarqueeSection />
         </div>
         <div id="knowMore" className="h-auto" ref={knowMoreRef}>
           <KnowMore />
         </div>
-
         <div id="news" className="" ref={newsFeatureRef}>
           {/* <NewsFeature /> */}
           <FeatureNews />
         </div>
-
-        <div
-          id="testimonials"
-          className="relative  bg-gradient-to-l via-purple-200 to-transparent h-screen overflow-hidden"
-          ref={homeTestimonialRef}
-        >
+        <div id="testimonials" className="relative bg-gradient-to-l via-purple-200 to-transparent h-screen overflow-hidden" ref={homeTestimonialRef}>
           <HomeTestimonial />
         </div>
       </div>
