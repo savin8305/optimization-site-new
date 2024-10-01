@@ -4,13 +4,13 @@ import dynamic from "next/dynamic";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import AnimatedContainer from "@/hooks/AnimatedContainer";
-import { usePathname } from "next/navigation";
 import data from "../../Constants/Navbar/index.json";
 
 interface NavItem {
   title: string;
   link?: string;
   image?: string;
+  alt?: string;
   icon?: string;
   textcolor?: string;
   description?: string;
@@ -34,11 +34,8 @@ const IoIosArrowUp = dynamic(() =>
 const AboutLayout: React.FC<AboutData> = () => {
   const carouselRef = useRef<HTMLDivElement | null>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const pathname = usePathname() || "";
-  const countryCode = pathname.split("/")[1]?.toLowerCase();
 
   const aboutData = data.find((item) => item.category === "About")?.data;
-
 
   const navLeftData = aboutData?.navLeftData || [];
   const navRightData = aboutData?.navRightData || [];
@@ -89,10 +86,10 @@ const AboutLayout: React.FC<AboutData> = () => {
             transition={{ duration: 0.5, delay: index * 0.1 }}
             className="border-2 p-2 rounded-3xl lg:rounded-none lg:p-0 lg:border-none flex flex-col justify-start items-center lg:mt-4"
           >
-            <a href={`/${countryCode}/about/${item.link}`}>
+            <a href={`/about/${item.link}`}>
               <Image
                 src={item.image || "/path/to/fallback-image.jpg"} // Add a fallback image if `item.image` is undefined
-                alt={item.title}
+                alt={item.link || "Fallback alt text"} // Provide a fallback alt text if `item.alt` is undefined
                 className="rounded-xl cursor-pointer w-44 h-32 lg:w-56 lg:h-56 object-cover transform lg:hover:scale-80 transition-transform duration-200"
                 width={224}
                 height={224}
@@ -113,7 +110,7 @@ const AboutLayout: React.FC<AboutData> = () => {
           {navLeftData
             .slice(currentIndex, currentIndex + 2)
             .map((item: NavItem, index: number) => (
-              <a key={index} href={`/${countryCode}/about/${item.link}`}>
+              <a key={index} href={`/about/${item.link}`}>
                 <div
                   className={`hidden lg:flex border-t-2 h-[6.5rem] lg:border-none lg:hover:scale-80 transition-transform duration-200 items-center lg:p-4 lg:rounded-3xl lg:mb-2 ${
                     bgColors[index % bgColors.length]

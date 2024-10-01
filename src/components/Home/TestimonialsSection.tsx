@@ -13,9 +13,9 @@ const HomeTestimonial: React.FC = () => {
   return (
     <div className="flex flex-col lg:flex-row py-4 h-screen z-20 max-w-7xl mx-auto relative overflow-hidden">
       <div className="px-2 w-full h-[45%] lg:h-full lg:w-1/3 lg:flex lg:flex-col lg:items-end lg:justify-end flex flex-col">
-        <h6 className="text-xl text-[#dc0e2a] text-center lg:text-justify border-white pb-3 lg:pb-0 border-b-[1px] lg:border-none lg:ml-6 lg:text-2xl font-montserrat lg:leading-tight font-bold">
+        <h1 className="text-xl text-[#dc0e2a] text-center lg:text-justify border-white pb-3 lg:pb-0 border-b-[1px] lg:border-none lg:ml-6 lg:text-2xl font-montserrat lg:leading-tight font-bold">
           {testinomialData?.heading}
-        </h6>
+        </h1>
         <div className="hidden lg:flex flex-col">
           <h2 className="lg:text-5xl font-bold ml-4 mt-20">
             {testinomialData?.subheading}

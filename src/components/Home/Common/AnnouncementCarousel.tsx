@@ -131,7 +131,7 @@ export const Card = ({ src, title, category, date }: CardProps) => {
         <Image src={src} alt={title} fill className="object-fill" />
       </div>
       <div className="flex flex-col font-poppins h-16 md:h-16">
-        <h3 className="text-black text-base  font-medium">{title}</h3>
+        <h1 className="text-black text-base  font-medium">{title}</h1>
         <p className="text-gray-600 font-light text-sm  ">{category}</p>
         <p className="text-gray-500 font-light text-sm ">{date}</p>
       </div>
