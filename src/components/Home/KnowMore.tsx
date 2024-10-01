@@ -46,8 +46,6 @@ export default function KnowMore() {
             progress={scrollYProgress}
             range={[i * 0.25, 1]}
             targetScale={targetScale}
-            // Adjust icon type or ensure proper type handling
-            icon={typeof project.icon === 'string' ? { name: project.icon } : project.icon}
           />
         );
       })}

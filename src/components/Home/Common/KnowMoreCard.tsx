@@ -8,6 +8,11 @@ import Link from "next/link";
 import AnimatedText from "@/components/ui/AnimatedText";
 import LottieAnimation from "@/components/ui/LottieAnimation";
 import { IconType } from "react-icons"; // Import the IconType
+import lottiicon1 from "../../../../public/assets/Lottiimages/industry_experty.json"
+import lottiicon2 from "../../../../public/assets/Lottiimages/know_your_business.json"
+import lottiicon3 from "../../../../public/assets/Lottiimages/know_your_machine.json"
+import lottiicon4 from "../../../../public/assets/Lottiimages/know_your_product.json"
+import lottiicon5 from "../../../../public/assets/Lottiimages/precision-manufacturing.json"
 
 interface KnowMoreCardProps {
   i: number;
@@ -18,12 +23,17 @@ interface KnowMoreCardProps {
   color: string;
   expertiseExperience: string;
   expertiseAbout: string;
-  icon: IconType | object; // More specific type for Lottie icons
   progress: MotionValue<number>; // framer-motion's MotionValue for animations
   range: number[];
   targetScale: number;
 }
-
+const lottiicons=[
+  lottiicon1,
+  lottiicon2,
+  lottiicon3,
+  lottiicon4,
+  lottiicon5,  
+]
 const KnowMoreCard: React.FC<KnowMoreCardProps> = ({
   i,
   title,
@@ -31,7 +41,6 @@ const KnowMoreCard: React.FC<KnowMoreCardProps> = ({
   src,
   url,
   color,
-  icon,
   expertiseExperience,
   expertiseAbout,
   progress,
@@ -64,7 +73,7 @@ const KnowMoreCard: React.FC<KnowMoreCardProps> = ({
               className={styles.expertiseContainer}
             >
               <LottieAnimation
-                animationData={icon}
+                animationData={lottiicons[i]}
                 className="h-8 w-8 lg:h-20 lg:w-20" // Example Tailwind CSS classes for size
               />
               <div className={styles.expertiseText}>

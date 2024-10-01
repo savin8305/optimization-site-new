@@ -24,25 +24,25 @@
           "title": "Mission & Vision",
           "image": "https://assets.nesscoindustries.com/public/assets/nav_about/mission_v1.png",
           "link": "vision",
-          "alt": "mission_v1"
+          "alt": "mission"
         },
         {
           "title": "Our Company",
           "image": "https://assets.nesscoindustries.com/public/assets/nav_about/company_v1.png",
           "link": "our-company",
-          "alt": "company_v1"
+          "alt": "company"
         },
         {
           "title": "Our Strength",
           "image": "https://assets.nesscoindustries.com/public/assets/nav_about/strength_v1.png",
           "link": "our-strength",
-          "alt": "strength_v1"
+          "alt": "strength"
         },
         {
           "title": "The Pink City",
           "image": "https://assets.nesscoindustries.com/public/assets/nav_about/pinkCity_v1.png",
           "link": "the-pink-city",
-          "alt": "pinkCity_v1"
+          "alt": "pinkCity"
         }
       ]
     }
