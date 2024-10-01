@@ -100,7 +100,7 @@ export const SwipeCarousel: React.FC = () => {
       {isModalOpen && (
         <div className={styles.modalOverlay}>
           <div className={styles.modalContent}>
-            <button onClick={closeModal} className={styles.closeButton}>
+            <button aria-label="CloseModal" onClick={closeModal} className={styles.closeButton}>
               <IoClose size={24} />
             </button>
             <div className={styles.iframeWrapper}>
@@ -129,6 +129,7 @@ const Dots: React.FC<DotsProps> = ({ videoIndex, setVideoIndex }) => {
     <div className={styles.indicators}>
       {testimonialItems.map((_, idx) => (
         <button
+          aria-label="Dots"
           key={idx}
           onClick={() => setVideoIndex(idx)}
           className={`${styles.indicator} ${

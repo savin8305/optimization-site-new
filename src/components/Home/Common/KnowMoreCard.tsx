@@ -73,7 +73,7 @@ const KnowMoreCard: React.FC<KnowMoreCardProps> = ({
                 </div>
                 <div className="text-white font-bold font-poppins">
                   <AnimatedText
-                    className="text-[#dc0e2a]"
+                    className="text-white"
                     text={`${expertiseAbout}`}
                   />
                 </div>

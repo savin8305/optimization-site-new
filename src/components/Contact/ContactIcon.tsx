@@ -10,24 +10,28 @@ const ContactIcons = () => {
       {/* Container for larger screens */}
       <div className="bg-white hidden md:flex flex-col z-[9999] rounded-xl p-1 fixed right-0 top-1/2 transform -translate-y-1/2 space-y-4">
         <a
+          aria-label="phone"
           href="sms:+123456789"
           className="flex items-center justify-center h-8 w-10 text-black hover:bg-opacity-90 transition duration-300 pb-2 border-b border-gray-300"
         >
           <FaPhoneAlt className="h-6 w-6" />
         </a>
         <a
+          aria-label="message"
           href="mailto:info@example.com"
           className="flex items-center justify-center h-8 w-10 text-black hover:bg-opacity-90 transition duration-300 pb-2 border-b border-gray-300"
         >
           <BsMessenger className="h-8 w-8 font-extrabold" />
         </a>
         <a
+          aria-label="newmessage"
           href="mailto:info@example.com"
           className="flex items-center justify-center h-8 w-10 text-black hover:bg-opacity-90 transition duration-300 pb-2 border-b border-gray-300"
         >
           <BsMessenger className="h-8 w-8 font-extrabold" />
         </a>
         <a
+          aria-label="iosmail"
           href="mailto:info@example.com"
           className="flex items-center justify-center h-8 w-10 text-black hover:bg-opacity-90 transition duration-300 pb-2"
         >
@@ -45,12 +49,14 @@ const ContactIcons = () => {
       {/* Container for smaller screens */}
       <div className="bg-white md:hidden flex flex-row justify-between items-center z-[9999] fixed bottom-0 w-full pb-4 p-2">
         <a
+          aria-label="phone"
           href="sms:+123456789"
           className="flex items-center justify-center h-8 w-10 text-black hover:bg-opacity-90 transition duration-300"
         >
           <FaPhoneAlt className="h-6 w-6" />
         </a>
         <a
+          aria-label="message"
           href="mailto:info@example.com"
           className="flex items-center justify-center h-8 w-10 text-black hover:bg-opacity-90 transition duration-300"
         >
@@ -63,12 +69,14 @@ const ContactIcons = () => {
           </div>
         </div>
         <a
+          aria-label="iosmail"
           href="mailto:info@example.com"
           className="flex items-center justify-center h-8 w-10 text-black hover:bg-opacity-90 transition duration-300"
         >
           <IoIosMail className="h-8 w-8 font-extrabold" />
         </a>
         <a
+          aria-label="bsmessenger"
           href="mailto:info@example.com"
           className="flex items-center justify-center h-8 w-10 text-black hover:bg-opacity-90 transition duration-300"
         >
