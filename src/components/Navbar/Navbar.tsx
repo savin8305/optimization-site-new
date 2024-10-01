@@ -18,7 +18,6 @@ export default function NavbarDemo() {
     </div>
   );
 }
-
 function Navbar({ className }: { className?: string }) {
   const [isOpen, setIsOpen] = useState(false);
   const [active, setActive] = useState("");
@@ -31,14 +30,12 @@ function Navbar({ className }: { className?: string }) {
     isFlagOpen: false,
     isContactFormVisible: false,
   });
-
   const toggleMenu = () => setIsOpen(!isOpen);
   const expandItem = (item: string) =>
     setExpandedItem(expandedItem === item ? null : item);
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) =>
     setSearchValue(e.target.value);
   const handleClearSearch = () => setSearchValue("");
-
   return (
     <div
       className={`fixed flex w-full ${

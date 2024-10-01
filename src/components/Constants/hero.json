@@ -28,7 +28,7 @@
     }
   },
     "homeMachineSection": {
-      "title": "Our products",
+      "title": "Our Products",
       "subheading": "We are known for manufacturing and globally exporting various paper packaging machines including Cups, Glass, Straws and Plate Machines."
     },
     "navItems": [
@@ -96,7 +96,7 @@
     }
   },
   {
-    "category": "ProductSection",
+    "category":"ProductSection",
     "data": {
       "products": [
         {

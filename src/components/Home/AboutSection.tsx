@@ -81,10 +81,10 @@ const AboutUs: React.FC = () => {
   return aboutData ? (
     <div className="flex mt-12 h-full max-w-screen-2xl mx-auto flex-col items-center  md:px-6 lg:px-8">
       <h2 className="text-3xl font-medium text-[#483d78] flex justify-center">
-        <span className="lg:text-2xl text-[1.8rem] bg-gradient-to-r from-[#483d73] to-red-700 bg-clip-text text-transparent font-medium">
+        <span className="lg:text-3xl text-[1.8rem] bg-gradient-to-r from-[#483d73] to-red-700 bg-clip-text text-transparent font-medium">
           {aboutData?.title?.trim().replace(/\s+\S+$/, "") || "Default Title"}
         </span>
-        <span className="lg:text-2xl text-[1.8rem] bg-gradient-to-r from-[#483d73] to-red-700 bg-clip-text text-transparent font-semibold ml-2">
+        <span className="lg:text-3xl text-[1.8rem] bg-gradient-to-r from-[#483d73] to-red-700 bg-clip-text text-transparent font-semibold ml-2">
           {aboutData?.title?.trim().match(/\S+$/) || "Default Subtitle"}
         </span>
       </h2>

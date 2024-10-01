@@ -19,7 +19,7 @@ const Home: React.FC = () => {
         <div className="absolute h-auto w-[80%] lg:w-auto  left-8 top-1/3 lg:top-[38%] lg:left-28 flex-col text-7xl text-white font-alexBrush">
           <h1 className="text-3xl text-center lg:text-start mx-2 md:text-2xl lg:text-5xl font-poppins font-light">
             {homeData?.textOverlay?.headline}
-            <div className="text-3xl  lg:text-6xl text-[#f2f2f2] font-poppins font-semibold ">
+            <div className="text-3xl pt-2 lg:text-6xl text-[#f2f2f2] font-poppins font-semibold ">
               {homeData?.textOverlay?.subheadline}
             </div>
           </h1>

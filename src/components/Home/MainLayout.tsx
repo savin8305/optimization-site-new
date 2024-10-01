@@ -66,9 +66,9 @@ export default function MainLayout() {
           ref={homeMachineRef}
         >
           <div className="flex justify-center text-3xl items-center space-x-2">
-            <h2 className="bg-gradient-to-r from-[#483d73] to-red-700  bg-clip-text text-transparent font-medium">
+            <h2 className="bg-gradient-to-r text-3xl from-[#483d73] to-red-700  bg-clip-text text-transparent font-medium">
               {data[0].homeMachineSection?.title.trim().replace(/\s+\S+$/, "")}
-              <span className="font-semibold">
+              <span className="font-semibold ml-1">
                 {data[0].homeMachineSection?.title.trim().match(/\S+$/)}
               </span>
             </h2>
