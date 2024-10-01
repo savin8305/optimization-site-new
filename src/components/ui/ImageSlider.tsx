@@ -40,6 +40,7 @@ const ImageSlider: React.FC = () => {
           alt={`HomeSlide ${currentIndex + 1}`}
           width={600}
           height={400}
+          loading="eager"
           className="w-full z-50 h-full object-cover rounded-2xl"
         />
       </motion.div>

@@ -51,7 +51,7 @@ const Home: React.FC = () => {
               width="230px"
               fontSize="22px"
               borderRadius="100px"
-              text={"Get a Quote"}
+              text={homeData?.buttonText ||"Get a quote"}
             />
           </div>
           <div className=" lg:hidden mt-2 -ml-2 items-center flex justify-center">
@@ -64,7 +64,7 @@ const Home: React.FC = () => {
               width="150px"
               fontSize="16px"
               borderRadius="100px"
-              text={"Get a Quote"}
+              text={homeData?.buttonText || "Get a quote"}
             />
           </div>
           <div className=" z-50 -mt-[0.95rem] ">
