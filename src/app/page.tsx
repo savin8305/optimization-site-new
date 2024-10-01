@@ -13,9 +13,7 @@ interface HomeSeoData {
     description: string;
     images: { url: string; alt: string }[];
   };
-  robots: string;
-  authors: { name: string }[];
-  publisher: string;
+  robots: string; 
   alternates: {
     canonical: string;
   };
@@ -47,8 +45,6 @@ export async function generateMetadata(): Promise<Metadata> {
         ],
       },
       robots: "index, follow",
-      authors: [{ name: "Default Author" }],
-      publisher: "Default Publisher",
       alternates: {
         canonical: "https://www.default.com",
       },
@@ -80,10 +76,7 @@ export async function generateMetadata(): Promise<Metadata> {
       })),
     },
     robots: metadata.robots,
-    authors: metadata.authors.map((author) => ({
-      name: author.name,
-    })),
-    publisher: metadata.publisher,
+   
     alternates: {
       canonical: metadata.alternates.canonical,
     },

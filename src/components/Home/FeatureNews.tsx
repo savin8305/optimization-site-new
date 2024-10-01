@@ -3,17 +3,16 @@ import { FaCirclePlus } from "react-icons/fa6";
 import data from "../Constants/hero.json"
 export default function FeatureNews() {
   const newsfData=data.find((item)=>item.category==="newsFeature")?.data;
-  console.log(newsfData);
   if(!newsfData || !newsfData.newsData){
     return null;
   }
   return (
     <div className="h-full lg:px-10 max-w-screen-2xl mx-auto p-4 mb-[20vh] font-poppins font-regular">
       <div className="flex justify-center">
-        <h1 className="text-3xl mb-8 bg-gradient-to-r from-[#483d73] to-red-700  bg-clip-text text-transparent ">
+        <h2 className="text-3xl mb-8 bg-gradient-to-r from-[#483d73] to-red-700  bg-clip-text text-transparent ">
           <span className="font-medium">{newsfData?.heading}</span>{" "}
           <span className="font-semibold">{newsfData?.subheading}</span>
-        </h1>
+        </h2>
       </div>
       <div className="h-[20rem] grid grid-cols-1 md:grid-cols-2 gap-2">
         {/* Left side big article */}

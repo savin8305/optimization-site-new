@@ -115,10 +115,8 @@ const NavLinksDemo: React.FC<NavLinksDemoProps> = ({ type, navItems }) => {
       const navTop = navRef.current?.getBoundingClientRect().top || 0;
       if (navTop <= 56) {
         setScrolling(true);
-        console.log(navTop);
       } else {
         setScrolling(false);
-        console.log(navTop);
       }
     };
 

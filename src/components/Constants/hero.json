@@ -1,37 +1,32 @@
 [
   {
     "homeSeoData": {
+    "title": "Paper Cup Machine Manufacturer and Supplier - Nessco India",
+    "description": "Trusted Paper Cup Machine Manufacturer since 1978. Nessco offers a wide range of paper cup making machine pairing with the latest technology. Enquire now!",
+    "keywords": "Nessco India",
+    "openGraph": {
       "title": "Paper Cup Machine Manufacturer and Supplier - Nessco India",
       "description": "Trusted Paper Cup Machine Manufacturer since 1978. Nessco offers a wide range of paper cup making machine pairing with the latest technology. Enquire now!",
-      "keywords": "Nessco India",
-      "openGraph": {
-        "title": "Paper Cup Machine Manufacturer and Supplier - Nessco India",
-        "description": "Trusted Paper Cup Machine Manufacturer since 1978. Nessco offers a wide range of paper cup making machine pairing with the latest technology. Enquire now!",
-        "images": [
-          {
-            "url": "https://www.nesscoindia.com/Assets/images/resource/fully-automatic-paper-cup-making-machine.webp",
-            "alt": "Fully Automatic Paper Cup Making Machine"
-          }
-        ]
-      },
-      "robots": "index, follow",
-      "authors": [
+      "images": [
         {
-          "name": "Nessco India"
+          "url": "https://www.nesscoindia.com/Assets/images/resource/fully-automatic-paper-cup-making-machine.webp",
+          "alt": "Fully Automatic Paper Cup Making Machine"
         }
-      ],
-      "publisher": "Nessco India",
-      "alternates": {
-        "canonical": "https://www.nesscoindia.com"
-      },
-      "twitter": {
-        "card": "summary_large_image",
-        "site": "@NesscoIndia",
-        "title": "Paper Cup Machine Manufacturer - Nessco India",
-        "description": "Nessco India provides top-quality paper cup making machines paired with the latest technology. Enquire today!",
-        "image": "https://www.nesscoindia.com/Assets/images/resource/fully-automatic-paper-cup-making-machine.webp"
-      }
+      ]
     },
+    "robots": "index, follow",
+    
+    "alternates": {
+      "canonical": "https://www.nesscoindia.com"
+    },
+    "twitter": {
+      "card": "summary_large_image",
+      "site": "@NesscoIndia",
+      "title": "Paper Cup Machine Manufacturer - Nessco India",
+      "description": "Nessco India provides top-quality paper cup making machines paired with the latest technology. Enquire today!",
+      "image": "https://www.nesscoindia.com/Assets/images/resource/fully-automatic-paper-cup-making-machine.webp"
+    }
+  },
     "homeMachineSection": {
       "title": "Our products",
       "subheading": "We are known for manufacturing and globally exporting various paper packaging machines including Cups, Glass, Straws and Plate Machines."
@@ -164,6 +159,7 @@
   {
     "category": "homeaboutsection",
     "data": {
+      "title":"About US",
       "heading": "Leading the Way in Food Packaging Machine Manufacturing",
       "description": "At Nessco India, we specialize in manufacturing advanced food packaging machines that set industry standards for quality and innovation. Our state-of-the-art technology ensures efficient and sustainable solutions, meeting the diverse needs of our global clientele. With over 40 years of expertise, we are dedicated to pioneering eco-friendly practices in packaging. Trust us to lead the way in transforming packaging solutions for a greener future.",
       "stats": {

@@ -256,11 +256,11 @@ const ProductLayout: React.FC<ProductLayoutProps> = ({
             </button>
           )}
         </div>
-        <div className="w-full lg:w-80 h-full flex flex-col items-center relative">
+        <div className="w-full border-l lg:w-80 h-full flex flex-col items-center relative">
           <div className="w-full h-full">
             {sidebarIndex > 0 && (
               <button
-                className="absolute top-0 left-0 right-0 mx-auto z-10 text-2xl rounded-full border-2 hover:border-gray-500 p-0 transition-all transform hover:scale-125 hover:bg-gray-300"
+                className="absolute top-0 left-0 right-0 mx-auto z-10 text-2xl rounded-full  p-0 transition-all transform hover:scale-125 "
                 style={{ width: "40px", height: "40px" }}
                 onClick={handleSidebarPrev}
               >
@@ -276,7 +276,7 @@ const ProductLayout: React.FC<ProductLayoutProps> = ({
 
             {sidebarIndex + 8 < navRightData.length && (
               <button
-                className="absolute left-0 right-0 mx-auto bottom-0 text-2xl rounded-full border-2 hover:border-gray-500 p-0 transition-all transform hover:scale-125 hover:bg-gray-300"
+                className="absolute left-0 right-0 mx-auto bottom-0 text-2xl rounded-full  p-0 transition-all transform hover:scale-125 "
                 style={{ width: "40px", height: "40px" }}
                 onClick={handleSidebarNext}
               >
@@ -392,9 +392,9 @@ const ProductLayout: React.FC<ProductLayoutProps> = ({
                                             height={150}
                                             loading="lazy"
                                           />
-                                          <h1 className="text-sm invert-0 font-bold mt-2">
+                                          <h2 className="text-sm invert-0 font-bold mt-2">
                                             {machine.name}
-                                          </h1>
+                                          </h2>
                                         </motion.div>
                                       ))}
                               </div>

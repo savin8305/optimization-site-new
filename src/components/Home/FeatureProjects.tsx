@@ -3,7 +3,10 @@ import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { IoIosArrowDropleftCircle, IoIosArrowDroprightCircle } from "react-icons/io";
+import {
+  IoIosArrowDropleftCircle,
+  IoIosArrowDroprightCircle,
+} from "react-icons/io";
 import { FaArrowCircleRight } from "react-icons/fa";
 import data from "../Constants/hero.json"; // Assuming this holds the 'homefeaturedata'
 
@@ -14,7 +17,9 @@ const FeatureProjects: React.FC = () => {
   const borderRef = useRef<HTMLDivElement | null>(null);
   const [hoveredCardIndex, setHoveredCardIndex] = useState<number | null>(null);
 
-  const relatedProduct = data.find((item) => item.category === "homefeaturedata")?.data;
+  const relatedProduct = data.find(
+    (item) => item.category === "homefeaturedata"
+  )?.data;
 
   const scrollLeft = () => {
     if (carouselRef.current) {
@@ -55,17 +60,22 @@ const FeatureProjects: React.FC = () => {
 
   return (
     <div className="w-full h-[35vh] px-10 font-poppins max-w-screen-2xl mx-auto">
-      <div ref={borderRef} className="border-t-[0.1rem] border-solid border-[#f2f2f2] w-[10%] lg:mx-[2rem] mx-[1rem]" />
+      <div
+        ref={borderRef}
+        className="border-t-[0.1rem] border-solid border-[#f2f2f2] w-[10%] lg:mx-[2rem] mx-[1rem]"
+      />
 
       <div className="flex flex-row rounded-2xl lg:my-[1vh] bg-white p-2">
         {/* Left Section with Title and Buttons */}
         <div className="flex w-[20%] pt-2 flex-col relative items-center">
           <div className="lg:text-2xl text-center text-[1.8rem]">
-            <h2 className="text-[#483d73] font-medium">
-              {relatedProduct?.title?.trim().replace(/\s+\S+$/, "") || "Default Title"}
+            <h2 className="lg:text-2xl text-center  text-[1.8rem] bg-gradient-to-r from-[#483d73] to-red-700  bg-clip-text text-transparent font-medium">
+              {relatedProduct?.title?.trim().replace(/\s+\S+$/, "") ||
+                "Default Title"}
             </h2>
-            <h2 className="text-[#dc0e2a] font-semibold">
-              {relatedProduct?.title?.trim().match(/\S+$/) || "Default Subtitle"}
+            <h2 className="lg:text-2xl text-center  text-[1.8rem] bg-gradient-to-r from-[#483d73] to-red-700  bg-clip-text text-transparent font-semibold">
+              {relatedProduct?.title?.trim().match(/\S+$/) ||
+                "Default Subtitle"}
             </h2>
           </div>
           <p className="text-center text-[0.7rem] font-medium pt-2 w-[60%]">
@@ -96,7 +106,9 @@ const FeatureProjects: React.FC = () => {
               {relatedProduct?.imageWithDescription?.map((item, idx) => (
                 <div
                   key={idx}
-                  className={`relative h-[28vh] lg:w-[13vw] w-[70vw] bg-gradient-to-b from-[#f5f5f5] to-[#f2f2f2] rounded-lg transition-all duration-300 ${hoveredCardIndex === idx ? "bg-[#f0f0f0]" : ""}`}
+                  className={`relative h-[28vh] lg:w-[13vw] w-[70vw] bg-gradient-to-b from-[#f5f5f5] to-[#f2f2f2] rounded-lg transition-all duration-300 ${
+                    hoveredCardIndex === idx ? "bg-[#f0f0f0]" : ""
+                  }`}
                   onMouseEnter={() => setHoveredCardIndex(idx)}
                   onMouseLeave={() => setHoveredCardIndex(null)}
                 >
@@ -111,14 +123,18 @@ const FeatureProjects: React.FC = () => {
                         className="hover:scale-90 transition-all duration-300"
                       />
                       <div className="hidden group-hover:flex absolute top-10 left-5 bg-white border border-gray-300 rounded-md shadow-md px-2 py-1 z-20">
-                        <p className="lg:text-[0.7rem] text-[0.7rem] text-black">{item.information}</p>
+                        <p className="lg:text-[0.7rem] text-[0.7rem] text-black">
+                          {item.information}
+                        </p>
                       </div>
                     </div>
                   </div>
 
                   {/* Title */}
                   <div className="p-2 font-poppins">
-                    <h2 className="lg:text-xs font-semibold w-[65%]">{item.h1}</h2>
+                    <h3 className="lg:text-xs font-semibold w-[65%]">
+                      {item.h1}
+                    </h3>
                   </div>
 
                   {/* Product Image */}
@@ -137,7 +153,9 @@ const FeatureProjects: React.FC = () => {
                   {/* View Machine Button */}
                   {hoveredCardIndex === idx && (
                     <div className="flex w-full items-center justify-center absolute bottom-[5%]">
-                      <button className="text-[0.6rem] font-medium mr-1">View Machine</button>
+                      <button className="text-[0.6rem] font-medium mr-1">
+                        View Machine
+                      </button>
                       <FaArrowCircleRight className="text-xs" />
                     </div>
                   )}

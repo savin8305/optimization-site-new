@@ -404,9 +404,9 @@ export const Card = ({
             className="object-contain h-36 border-2 bg-[#f2f2f2]  rounded-[1.5rem] absolute z-10 inset-0"
           />
           <div className="absolute -mb-2 font-poppins left-0 right-0 bottom-0 z-40 p-4">
-            <p className="text-black font-poppins text-sm md:text-base font-regular text-left">
+            <h3 className="text-black font-poppins text-sm md:text-base font-regular text-left">
               {card.title}
-            </p>
+            </h3>
           </div>
         </div>
       </button>

@@ -78,14 +78,20 @@ const ContactForm: React.FC<ContactFormProps> = ({
 
   return (
     <div className="">
-      <button
-        ref={buttonRef}
+       <button
         type="button"
-        className="cursor-pointer font-poppins text-sm font-regular rounded-full py-1 px-4 text-white bg-[#483d78]"
-        onMouseEnter={handleMouseEnter} // Show form on mouse enter
+        className="cursor-pointer font-poppins text-sm font-regular rounded-full  bg-clip-padding  custom-gradient-border overflow-hidden transition-all duration-300 group"
+        onMouseEnter={handleMouseEnter} // Open on hover
         onFocus={handleMouseEnter} // Open on focus for accessibility
       >
-        <Link href={`/${countryCode}/contact`}>Enquire</Link>
+        <div className="bg-gradient-to-r from-[#483d73] to-red-700 group-hover:bg-gradient-r group-hover:from-white w-20 group-hover:to-white py-1">
+          <Link
+            className="text-white group-hover:bg-gradient-to-r group-hover:from-[#483d73] group-hover:to-red-700 group-hover:text-transparent group-hover:bg-clip-text  w-full group-hover:font-semibold"
+            href={`/${countryCode}/contact`}
+          >
+            Enquire
+          </Link>
+        </div>
       </button>
 
       <AnimatePresence>

@@ -69,9 +69,9 @@ const AnimatedText: React.FC<AnimatedTextProps> = ({ text, className, blockClass
         {/* The animated block with customizable background class */}
         <span className={`block absolute ${blockClassName ? blockClassName : 'bg-white h-full'}`}></span>
         {/* The heading text with customizable class */}
-        <h1 className={`${className ? className : 'text-base font-regular'}`}>
+        <h2 className={`${className ? className : 'text-base font-regular'}`}>
           {text}
-        </h1>
+        </h2>
       </div>
     </div>
   );

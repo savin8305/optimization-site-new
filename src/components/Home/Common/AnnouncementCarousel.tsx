@@ -61,9 +61,9 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
     <div className="relative flex flex-col lg:flex-row w-full items-center">
       <div className="flex flex-col  h-[6rem] lg:h-[5rem] w-full lg:w-[20%] gap-1 px-2 lg:px-0">
         <div className="flex flex-col items-center">
-          <h1 className="text-2xl lg:text-2xl font-semibold text-[#dc0e2a] text-center">
+          <h2 className="text-2xl lg:text-2xl font-semibold bg-gradient-to-r from-[#483d73] to-red-700  bg-clip-text text-transparent text-center">
             Announcements
-          </h1>
+          </h2>
           <p className="text-lg lg:text-lg text-center text-black font-poppins font-medium">
             Our Latest Events
           </p>
@@ -131,7 +131,7 @@ export const Card = ({ src, title, category, date }: CardProps) => {
         <Image src={src} alt={title} fill className="object-fill" />
       </div>
       <div className="flex flex-col font-poppins h-16 md:h-16">
-        <h1 className="text-black text-base  font-medium">{title}</h1>
+        <h3 className="text-black text-base  font-medium">{title}</h3>
         <p className="text-gray-600 font-light text-sm  ">{category}</p>
         <p className="text-gray-500 font-light text-sm ">{date}</p>
       </div>

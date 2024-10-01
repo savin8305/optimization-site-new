@@ -89,7 +89,7 @@ const AboutLayout: React.FC<AboutData> = () => {
             <a href={`/about/${item.link}`}>
               <Image
                 src={item.image || "/path/to/fallback-image.jpg"} // Add a fallback image if `item.image` is undefined
-                alt={item.link || "Fallback alt text"} // Provide a fallback alt text if `item.alt` is undefined
+                alt={item.alt || "Fallback alt text"} // Provide a fallback alt text if `item.alt` is undefined
                 className="rounded-xl cursor-pointer w-44 h-32 lg:w-56 lg:h-56 object-cover transform lg:hover:scale-80 transition-transform duration-200"
                 width={224}
                 height={224}

@@ -66,11 +66,11 @@ export default function MainLayout() {
           ref={homeMachineRef}
         >
           <div className="flex justify-center text-3xl items-center space-x-2">
-            <h2 className="text-[#483d73] font-medium">
+            <h2 className="bg-gradient-to-r from-[#483d73] to-red-700  bg-clip-text text-transparent font-medium">
               {data[0].homeMachineSection?.title.trim().replace(/\s+\S+$/, "")}
-            </h2>
-            <h2 className="text-[#dc0e2a] font-semibold">
-              {data[0].homeMachineSection?.title.trim().match(/\S+$/)}
+              <span className="font-semibold">
+                {data[0].homeMachineSection?.title.trim().match(/\S+$/)}
+              </span>
             </h2>
           </div>
           <div className="text-sm w-full lg:w-full flex items-center justify-center">
@@ -84,9 +84,7 @@ export default function MainLayout() {
           <AnnouncementSection />
         </div>
         <div id="aboutUs" className="" ref={aboutUsRef}>
-          <AboutUs
-            
-          />
+          <AboutUs />
         </div>
 
         <div

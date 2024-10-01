@@ -51,9 +51,9 @@ const ContactForm: React.FC = () => {
             <p className="text-3xl font-poppins font-medium text-black mt-3">
               {contactContent.heading}
             </p>
-            <h1 className="text-3xl text-black font-poppins font-regular mt-3">
+            <h2 className="text-3xl text-black font-poppins font-regular mt-3">
               {contactContent.subheading}
-            </h1>
+            </h2>
             <div className="mt-8">
               <div className="flex items-start mb-6">
                 <Image

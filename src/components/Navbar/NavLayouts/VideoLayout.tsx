@@ -15,7 +15,6 @@ type SupportItem = {
 
 const VideoGrid: React.FC = ({}) => {
   const videoData = data.find((item) => item.category === "Video")?.data;
-  console.log("videoData", videoData);
   const videoDataItem = videoData?.videoDataItem || [];
 
   const carouselRef = useRef<HTMLDivElement>(null);

@@ -61,10 +61,10 @@ const ProductModal: React.FC<ProductModalProps> = ({
                 </div>
               </div>
               <div>
-                <h1 className="text-xl lg:text-3xl font-semibold lg:font-bold mb-4">
+                <h2 className="text-xl lg:text-3xl font-semibold lg:font-bold mb-4">
                   <span className="text-red-600">{firstname}</span>
                   <span className="text-[#483d78] ml-2">{secondname}</span>
-                </h1>
+                </h2>
                 <p className="text-gray-700 text-sm font-regular mb-4">
                   {description}
                 </p>

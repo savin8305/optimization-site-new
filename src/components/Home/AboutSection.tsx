@@ -25,6 +25,7 @@ interface Card {
 }
 
 interface AboutUsProps {
+  title: string;
   heading: string;
   description: string;
   stats: Stats;
@@ -79,10 +80,16 @@ const AboutUs: React.FC = () => {
 
   return aboutData ? (
     <div className="flex mt-12 h-full max-w-screen-2xl mx-auto flex-col items-center  md:px-6 lg:px-8">
-      <h1 className="text-3xl font-medium text-[#483d78]">
-        About <span className="text-[#dc0e2a] font-semibold">US</span>
-      </h1>
-      <h1 className="text-lg lg:text-4xl w-full text-center font-poppins lg:px-72 py-3">
+      <h2 className="text-3xl font-medium text-[#483d78] flex justify-center">
+        <span className="lg:text-2xl text-[1.8rem] bg-gradient-to-r from-[#483d73] to-red-700 bg-clip-text text-transparent font-medium">
+          {aboutData?.title?.trim().replace(/\s+\S+$/, "") || "Default Title"}
+        </span>
+        <span className="lg:text-2xl text-[1.8rem] bg-gradient-to-r from-[#483d73] to-red-700 bg-clip-text text-transparent font-semibold ml-2">
+          {aboutData?.title?.trim().match(/\S+$/) || "Default Subtitle"}
+        </span>
+      </h2>
+
+      <h2 className="text-lg lg:text-4xl w-full text-center font-poppins lg:px-72 py-3">
         {aboutData.heading.split(" ").map((word, index) => (
           <span
             key={index}
@@ -93,7 +100,7 @@ const AboutUs: React.FC = () => {
             {word}{" "}
           </span>
         ))}
-      </h1>
+      </h2>
       <div className="text-center flex flex-col w-full lg:max-w-6xl">
         <p className="font-poppins flex lg:hidden text-sm lg:text-base  font-light py-4 text-center w-full lg:w-3/5 leading-6">
           {aboutData.description}
