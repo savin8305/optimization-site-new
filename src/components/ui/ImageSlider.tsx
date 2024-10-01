@@ -1,19 +1,14 @@
 "use client";
-
 import { useState } from "react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { motion } from "framer-motion";
 import data from "../Constants/hero.json";
-
 const ImageSlider: React.FC = () => {
   // Extract the HeroSection data
   const homeData = data.find((item) => item.category === "HeroSection")?.data;
   const images = homeData?.images || [];
-
   const [currentIndex, setCurrentIndex] = useState<number>(0);
-
-  // Function to navigate to the previous slide
   const prevSlide = (): void => {
     const isFirstSlide = currentIndex === 0;
     const newIndex = isFirstSlide ? images.length - 1 : currentIndex - 1;
@@ -34,13 +29,12 @@ const ImageSlider: React.FC = () => {
   return (
     <div className="relative w-full mx-auto h-full group">
       <motion.div className="w-full h-full bg-white rounded-3xl bg-center">
-        {/* Use Image from next/image to optimize image loading */}
         <Image
+          priority
           src={images[currentIndex]}
-          alt={`HomeSlide ${currentIndex + 1}`}
+          alt={`HomeSlide${currentIndex + 1}`}
           width={600}
           height={400}
-          loading="eager"
           className="w-full z-50 h-full object-cover rounded-2xl"
         />
       </motion.div>
