@@ -166,6 +166,9 @@
         "machinesSold": 30000,
         "readyStockMachines": 3000
       },
+      "leftstats":"Machines Sold",
+      "rightstats":"Ready Stock Machines",
+      "readmore":"Read more",
       "cards": [
         {
           "title": "Vision & Mission",

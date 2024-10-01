@@ -7,7 +7,6 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import AnimatedText from "../ui/AnimatedText";
 import styles from "../ui/AnimatedText.module.css";
-import { usePathname } from "next/navigation";
 import data from "../Constants/hero.json";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -29,6 +28,9 @@ interface AboutUsProps {
   heading: string;
   description: string;
   stats: Stats;
+  leftstats:string;
+  rightstats:string;
+  readmore:string;
   cards: Card[];
 }
 
@@ -75,8 +77,6 @@ const AboutUs: React.FC = () => {
     }
   }, [aboutData]);
 
-  const pathname = usePathname() || "";
-  const countryCode = pathname.split("/")[1]?.toLowerCase();
 
   return aboutData ? (
     <div className="flex mt-12 h-full max-w-screen-2xl mx-auto flex-col items-center  md:px-6 lg:px-8">
@@ -114,7 +114,7 @@ const AboutUs: React.FC = () => {
               0
             </h2>
             <p className="text-sm lg:text-base font-regular font-poppins">
-              Machines Sold
+              {aboutData.leftstats}
             </p>
           </div>
           <p className="font-poppins hidden lg:flex text-sm lg:text-sm md:px-6 py-4 text-center font-regular w-full md:w-3/5 leading-6">
@@ -128,16 +128,16 @@ const AboutUs: React.FC = () => {
               0
             </h2>
             <p className="lg:text-base font-regular  text-sm font-poppins">
-              Ready Stock Machines
+             {aboutData.rightstats}
             </p>
           </div>
         </div>
 
         <Link
-          href={`/${countryCode}/about`}
+          href={`/about`}
           className="text-[#483d73] text-center font-poppins text-base hover:font-semibold mt-4"
         >
-          Read more
+          {aboutData.readmore}
         </Link>
       </div>
 
@@ -148,7 +148,7 @@ const AboutUs: React.FC = () => {
             className={`relative w-full lg:w-1/3 group flex flex-col items-center ${
               index === 1 ? "z-10 lg:w-[40%]" : ""
             }`}
-            href={`/${countryCode}/about/${card.link}`}
+            href={`/about/${card.link}`}
           >
             <div className="w-full">
               <div
