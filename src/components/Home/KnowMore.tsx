@@ -1,6 +1,5 @@
 "use client";
 
-import { projects } from "./data";
 import KnowMoreCard from "./Common/KnowMoreCard";
 import { useScroll } from "framer-motion";
 import { useEffect, useRef } from "react";

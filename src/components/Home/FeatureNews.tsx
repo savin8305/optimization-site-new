@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { FaCirclePlus } from "react-icons/fa6";
-import newsData from "./newsData.json"; // Assuming the JSON file is in the data folder
 import data from "../Constants/hero.json"
 export default function FeatureNews() {
   const newsfData=data.find((item)=>item.category==="newsFeature")?.data;
