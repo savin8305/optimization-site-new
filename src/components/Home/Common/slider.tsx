@@ -3,34 +3,7 @@ import { motion, useMotionValue } from "framer-motion";
 import { BsBoxArrowUpRight } from "react-icons/bs";
 import { IoClose } from "react-icons/io5";
 import styles from "../Styles/SwipeCarousel.module.css";
-
-const videos = [
-  {
-    src: "/video/bg.mp4",
-    youtubeLink: "https://www.youtube.com/embed/UxPkK8gW0hs?rel=0",
-  },
-  {
-    src: "/video/Homebg.mp4",
-    youtubeLink: "https://www.youtube.com/embed/UxPkK8gW0hs?rel=0",
-  },
-  {
-    src: "/video/iotvideo.mp4",
-    youtubeLink: "https://www.youtube.com/embed/UxPkK8gW0hs?rel=0",
-  },
-  {
-    src: "/video/bg.mp4",
-    youtubeLink: "https://www.youtube.com/embed/UxPkK8gW0hs?rel=0",
-  },
-  {
-    src: "/video/Homebg.mp4",
-    youtubeLink: "https://www.youtube.com/embed/UxPkK8gW0hs?rel=0",
-  },
-  {
-    src: "/video/iotvideo.mp4",
-    youtubeLink: "https://www.youtube.com/embed/UxPkK8gW0hs?rel=0",
-  },
-];
-
+import data from "../../Constants/hero.json"
 const ONE_SECOND = 1000;
 const AUTO_DELAY = ONE_SECOND * 10;
 const DRAG_BUFFER = 50;
@@ -41,8 +14,14 @@ const SPRING_OPTIONS = {
   stiffness: 400,
   damping: 50,
 };
+const testinomialData = data.findLast(
+  (item) => item.category === "testinomial"
+)?.data;
+// Provide a fallback value for `testinomialData?.testinomial`
+const testimonialItems = testinomialData?.Testinomialvideos || [];
 
 export const SwipeCarousel: React.FC = () => {
+
   const [videoIndex, setVideoIndex] = useState<number>(0);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [currentVideoLink, setCurrentVideoLink] = useState<string>("");
@@ -54,7 +33,7 @@ export const SwipeCarousel: React.FC = () => {
       const x = dragX.get();
 
       if (x === 0) {
-        setVideoIndex((pv) => (pv === videos.length - 1 ? 0 : pv + 1));
+        setVideoIndex((pv) => (pv === testimonialItems.length - 1 ? 0 : pv + 1));
       }
     }, AUTO_DELAY);
 
@@ -64,7 +43,7 @@ export const SwipeCarousel: React.FC = () => {
   const onDragEnd = () => {
     const x = dragX.get();
 
-    if (x <= -DRAG_BUFFER && videoIndex < videos.length - 1) {
+    if (x <= -DRAG_BUFFER && videoIndex < testimonialItems.length - 1) {
       setVideoIndex((pv) => pv + 1);
     } else if (x >= DRAG_BUFFER && videoIndex > 0) {
       setVideoIndex((pv) => pv - 1);
@@ -92,7 +71,7 @@ export const SwipeCarousel: React.FC = () => {
         onDragEnd={onDragEnd}
         className="flex cursor-grab items-center active:cursor-grabbing"
       >
-        {videos.map((video, idx) => (
+        {testimonialItems.map((video, idx) => (
           <motion.div
             key={idx}
             animate={{ scale: videoIndex === idx ? 0.95 : 0.85 }}
@@ -148,7 +127,7 @@ type DotsProps = {
 const Dots: React.FC<DotsProps> = ({ videoIndex, setVideoIndex }) => {
   return (
     <div className={styles.indicators}>
-      {videos.map((_, idx) => (
+      {testimonialItems.map((_, idx) => (
         <button
           key={idx}
           onClick={() => setVideoIndex(idx)}

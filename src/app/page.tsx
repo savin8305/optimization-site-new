@@ -3,6 +3,7 @@ import { Metadata } from "next";
 import React from "react";
 import seoData from "../components/Constants/hero.json"; // Importing the JSON array
 
+// Define HomeSeoData interface to match your JSON structure
 interface HomeSeoData {
   title: string;
   description: string;
@@ -18,10 +19,18 @@ interface HomeSeoData {
   alternates: {
     canonical: string;
   };
+  twitter: {
+    card: string;
+    site: string;
+    title: string;
+    description: string;
+    image: string;
+  };
 }
+
 export async function generateMetadata(): Promise<Metadata> {
-  const metadata: HomeSeoData | undefined = seoData[0]?.homeSeoData; // Safely access homeSeoData
-  // Provide fallback values in case metadata is undefined
+  const metadata: HomeSeoData | undefined = seoData[0]?.homeSeoData;
+
   if (!metadata) {
     return {
       title: "Default Title",
@@ -42,6 +51,18 @@ export async function generateMetadata(): Promise<Metadata> {
       publisher: "Default Publisher",
       alternates: {
         canonical: "https://www.default.com",
+      },
+      twitter: {
+        card: "summary_large_image", // Fix: Ensure it uses the union type.
+        site: "@DefaultTwitter",
+        title: "Default Twitter Title",
+        description: "Default Twitter Description",
+        images: [ // Fix: Change 'image' to 'images'
+          {
+            url: "/default-image.webp",
+            alt: "Default Twitter Image",
+          },
+        ],
       },
     };
   }
@@ -66,12 +87,25 @@ export async function generateMetadata(): Promise<Metadata> {
     alternates: {
       canonical: metadata.alternates.canonical,
     },
+    twitter: {
+      card: "summary_large_image", // Fix: Use appropriate union type
+      site: metadata.twitter.site,
+      title: metadata.twitter.title,
+      description: metadata.twitter.description,
+      images: [ // Fix: Change 'image' to 'images'
+        {
+          url: metadata.twitter.image,
+          alt: "Twitter Image",
+        },
+      ],
+    },
   };
 }
 
+// Home component rendering the MainLayout
 export default function Home() {
   return (
-    <main className="">
+    <main>
       <MainLayout />
     </main>
   );

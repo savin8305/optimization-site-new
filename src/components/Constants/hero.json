@@ -23,6 +23,13 @@
       "publisher": "Nessco India",
       "alternates": {
         "canonical": "https://www.nesscoindia.com"
+      },
+      "twitter": {
+        "card": "summary_large_image",
+        "site": "@NesscoIndia",
+        "title": "Paper Cup Machine Manufacturer - Nessco India",
+        "description": "Nessco India provides top-quality paper cup making machines paired with the latest technology. Enquire today!",
+        "image": "https://www.nesscoindia.com/Assets/images/resource/fully-automatic-paper-cup-making-machine.webp"
       }
     },
     "homeMachineSection": {
@@ -505,7 +512,7 @@
   {
     "category": "testinomial",
     "data": {
-      "testinomila": [
+      "testinomial": [
         {
           "src": "https://i.pinimg.com/236x/36/a2/e2/36a2e242bfe3ac039e0618fbaaef7596.jpg",
           "username": "Alice Johnson",
@@ -617,6 +624,32 @@
           "country": "New Zealand",
           "quote": "Design is intelligence made visible. Creativity transforms.",
           "flag": "https://flagcdn.com/fr.svg"
+        }
+      ],
+      "Testinomialvideos": [
+        {
+          "src": "/video/bg.mp4",
+          "youtubeLink": "https://www.youtube.com/embed/UxPkK8gW0hs?rel=0"
+        },
+        {
+          "src": "/video/Homebg.mp4",
+          "youtubeLink": "https://www.youtube.com/embed/UxPkK8gW0hs?rel=0"
+        },
+        {
+          "src": "/video/iotvideo.mp4",
+          "youtubeLink": "https://www.youtube.com/embed/UxPkK8gW0hs?rel=0"
+        },
+        {
+          "src": "/video/bg.mp4",
+          "youtubeLink": "https://www.youtube.com/embed/UxPkK8gW0hs?rel=0"
+        },
+        {
+          "src": "/video/Homebg.mp4",
+          "youtubeLink": "https://www.youtube.com/embed/UxPkK8gW0hs?rel=0"
+        },
+        {
+          "src": "/video/iotvideo.mp4",
+          "youtubeLink": "https://www.youtube.com/embed/UxPkK8gW0hs?rel=0"
         }
       ],
       "heading": "Testinomials",
