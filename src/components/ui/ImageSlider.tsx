@@ -30,7 +30,7 @@ const ImageSlider: React.FC = () => {
     <div className="relative w-full mx-auto h-full group">
       <motion.div className="w-full h-full bg-white rounded-3xl bg-center">
         <Image
-          priority
+          priority // Add this attribute to prioritize loading
           src={images[currentIndex]}
           alt={`HomeSlide${currentIndex + 1}`}
           width={600}

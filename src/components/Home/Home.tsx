@@ -1,10 +1,12 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
-import PositionAwareButton from "../ui/PositionAwareButton";
-import ImageSlider from "../ui/ImageSlider";
 import FeatureProducts from "./FeatureProjects";
 import data from "../Constants/hero.json";
+import Image from "next/image";
+import home from "../../../public/video/home.webp";
+import { ArrowRightIcon } from "lucide-react";
+import { Button } from "../ui/button";
 const Home: React.FC = () => {
   const homeData = data.find((item) => item.category === "HeroSection")?.data;
 
@@ -12,8 +14,15 @@ const Home: React.FC = () => {
     <>
       <div className="relative  h-full p-0   flex flex-col items-center overflow-hidden  w-screen">
         <div className="relative px-4 lg:px-10 w-full flex-wrap">
-          <motion.div className=" w-full flex justify-center items-center h-[calc(100vh-100px)] lg:h-[52vh] rounded-3xl">
-            <ImageSlider />
+          <motion.div className="w-full flex justify-center items-center h-[calc(100vh-100px)] lg:h-[52vh] rounded-3xl">
+            <motion.div className="w-full h-full bg-white rounded-3xl bg-center">
+              <Image
+                className="object-cover w-full rounded-3xl"
+                priority
+                src={home}
+                alt={"HomePage"}
+              />
+            </motion.div>
           </motion.div>
         </div>
         <div className="absolute h-auto w-[80%] lg:w-auto  left-8 top-1/3 lg:top-[38%] lg:left-28 flex-col text-7xl text-white font-alexBrush">
@@ -23,7 +32,6 @@ const Home: React.FC = () => {
               {homeData?.textOverlay?.subheadline}
             </div>
           </h1>
-         
         </div>
         <div className="absolute flex flex-col w-1/2  lg:w-[20rem] lg:h-[5rem] lg:rounded-tl-[2rem] rounded-tl-[1.5rem] right-0 bg-[#f5f5f5] lg:bottom-0 bottom-0 text-3xl font-poppins text-white text-center">
           <motion.div className="-mt-4 lg:-mt-6 flex mr-2 lg:mr-8 justify-end">
@@ -42,32 +50,26 @@ const Home: React.FC = () => {
             </svg>
           </motion.div>
           <div className="w-full mt-4 ml-8 hidden lg:flex  justify-start">
-            <PositionAwareButton
-              borderWidth="1px"
-              iconSize="50"
-              icon
-              height="55px"
-              padding="2px"
-              width="230px"
-              fontSize="22px"
-              borderRadius="100px"
-              text={homeData?.buttonText ||"Get a quote"}
-            />
+            <div className="absolute bottom-4 right-[5.5rem]">
+              <Button className="rounded-full flex items-center bg-primary text-primary-foreground hover:bg-white hover:text-black border border-black px-1 py-2 text-base font-regular group">
+                <span className="flex-grow ml-2 text-center">View All</span>
+                <span className="ml-2 bg-white rounded-full p-1 transition-colors duration-200 group-hover:bg-black">
+                  <ArrowRightIcon className="h-5 w-5 text-primary transition-colors duration-200 group-hover:text-white" />
+                </span>
+              </Button>
+            </div>
           </div>
           <div className=" lg:hidden mt-2 -ml-2 items-center flex justify-center">
-            <PositionAwareButton
-              borderWidth="1px"
-              iconSize="30px"
-              icon
-              height="40px"
-              padding="5px"
-              width="150px"
-              fontSize="16px"
-              borderRadius="100px"
-              text={homeData?.buttonText || "Get a quote"}
-            />
+            <div className="absolute bottom-4 right-4">
+              <Button className="rounded-full flex items-center bg-primary text-primary-foreground hover:bg-white hover:text-black border border-black px-1 py-2 text-base font-regular group">
+                <span className="flex-grow ml-2 text-center">View All</span>
+                <span className="ml-2 bg-white rounded-full p-1 transition-colors duration-200 group-hover:bg-black">
+                  <ArrowRightIcon className="h-5 w-5 text-primary transition-colors duration-200 group-hover:text-white" />
+                </span>
+              </Button>
+            </div>
           </div>
-          <div className=" z-50 -mt-[0.95rem] ">
+          <div className=" z-50 mt-12 ">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="100%"

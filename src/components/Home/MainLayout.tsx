@@ -18,13 +18,20 @@ const MarqueeSection = dynamic(
   }
 );
 
-
+const KnowMore = dynamic(() => import("@/components/Home/KnowMore"), {
+  ssr: true,
+});
 
 const HomeMachine = dynamic(() => import("@/components/Home/HomeMachine"), {
   ssr: true,
 });
 
-
+const HomeTestimonial = dynamic(
+  () => import("@/components/Home/TestimonialsSection"),
+  {
+    ssr: false,
+  }
+);
 
 export default function MainLayout() {
   const aboutUsRef = useRef<HTMLDivElement>(null);
@@ -87,13 +94,22 @@ export default function MainLayout() {
         >
           <MarqueeSection />
         </div>
-      
+        <div id="knowMore" className="h-auto" ref={knowMoreRef}>
+          <KnowMore />
+        </div>
 
         <div id="news" className="" ref={newsFeatureRef}>
+          {/* <NewsFeature /> */}
           <FeatureNews />
         </div>
 
-       
+        <div
+          id="testimonials"
+          className="relative  bg-gradient-to-l via-purple-200 to-transparent h-screen overflow-hidden"
+          ref={homeTestimonialRef}
+        >
+          <HomeTestimonial />
+        </div>
       </div>
     </main>
   );
