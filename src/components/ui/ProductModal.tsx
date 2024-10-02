@@ -1,7 +1,8 @@
 import { FaCircleNotch } from "react-icons/fa";
 import { BlurImage } from "./BlurImage";
 import Breadcrumb from "./Breadcrumb";
-import PositionAwareButton from "./PositionAwareButton";
+import { ArrowRightIcon } from "lucide-react";
+import { Button } from "./button";
 
 interface ProductModalProps {
   image: string;
@@ -48,14 +49,14 @@ const ProductModal: React.FC<ProductModalProps> = ({
                 <div className="flex w-[60%] lg:-ml-14 space-x-2 lg:space-x-8 justify-center mt-8">
                   {buttons.map((button, index) => (
                     <div key={index} className="ml-1">
-                      <PositionAwareButton
-                        key={index}
-                        text={button.text}
-                        icon={button.icon}
-                        width={
-                          button.text === "Know Machine" ? "180px" : "160px"
-                        }
-                      />
+                      <Button className="rounded-full flex items-center bg-primary text-primary-foreground hover:bg-white hover:text-black border border-black px-1 py-2 text-base font-regular group">
+                        <span className="flex-grow ml-2 text-center">
+                          View All
+                        </span>
+                        <span className="ml-2 bg-white rounded-full p-1 transition-colors duration-200 group-hover:bg-black">
+                          <ArrowRightIcon className="h-5 w-5 text-primary transition-colors duration-200 group-hover:text-white" />
+                        </span>
+                      </Button>
                     </div>
                   ))}
                 </div>
