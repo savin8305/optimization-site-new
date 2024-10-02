@@ -49,13 +49,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head>
-        <link
-          rel="preload"
-          as="image"
-          href="https://www.nesscoindia.com/Assets/images/banner/banner-image-nessco-2.webp"
-        />
-      </head>
+     
       <body className={`${inter.variable} ${poppins.variable}`}>
         <NavbarDemo />
         {children}
