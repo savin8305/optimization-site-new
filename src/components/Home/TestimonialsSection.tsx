@@ -30,9 +30,9 @@ const HomeTestimonial: React.FC = () => {
               />
             </span>
           </h2>
-          <h4 className="mt-20 text-lg text-center font-poppins">
+          <h3 className="mt-20 text-lg text-center font-poppins">
             {testinomialData?.description}
-          </h4>
+          </h3>
         </div>
         <div className="flex w-full mt-2 justify-between lg:hidden flex-row">
           <h4 className="text-sm w-1/2 text-center font-poppins">
