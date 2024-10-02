@@ -1,14 +1,14 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
-import FeatureProducts from "./FeatureProjects";
 import data from "../Constants/hero.json";
 import Image from "next/image";
-import home from "../../../public/video/home.webp";
 import { ArrowRightIcon } from "lucide-react";
 import { Button } from "../ui/button";
+import dynamic from "next/dynamic";
+const FeatureProducts = dynamic(() => import("./FeatureProjects"));
 const Home: React.FC = () => {
-  const homeData = data.find((item) => item.category === "HeroSection")?.data;
+const homeData = data.find((item) => item.category === "HeroSection")?.data;
 
   return (
     <>
@@ -23,7 +23,7 @@ const Home: React.FC = () => {
                 height={600}
                 src="https://assets.nesscoindustries.com/public/video/home.webp"
                 alt="Home Page"
-                />
+              />
             </motion.div>
           </motion.div>
         </div>
