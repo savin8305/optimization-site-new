@@ -15,13 +15,15 @@ const Home: React.FC = () => {
       <div className="relative  h-full p-0   flex flex-col items-center overflow-hidden  w-screen">
         <div className="relative px-4 lg:px-10 w-full flex-wrap">
           <motion.div className="w-full flex justify-center items-center h-[calc(100vh-100px)] lg:h-[52vh] rounded-3xl">
-            <motion.div className="w-full h-full bg-white rounded-3xl bg-center">
+            <motion.div className="relative w-full h-full bg-white rounded-3xl bg-center">
               <Image
-                className="object-cover w-full rounded-3xl"
+                className="object-cover w-full h-auto rounded-3xl"
                 priority
-                src={home}
-                alt={"HomePage"}
-              />
+                width={600}
+                height={600}
+                src="https://assets.nesscoindustries.com/public/video/home.webp"
+                alt="Home Page"
+                />
             </motion.div>
           </motion.div>
         </div>

@@ -17,7 +17,12 @@ export const metadata: Metadata = {
   title: "Paper Cup Machine Manufacturer and Supplier - Nessco India",
   description:
     "Trusted Paper Cup Machine Manufacturer since 1978. Nessco offers a wide range of paper cup making machines pairing with the latest technology. Enquire now!",
-  keywords: ["Nessco India", "Paper Cup Machine", "Packaging Machines", "Machinery Manufacturer"],
+  keywords: [
+    "Nessco India",
+    "Paper Cup Machine",
+    "Packaging Machines",
+    "Machinery Manufacturer",
+  ],
   openGraph: {
     title: "Paper Cup Machine Manufacturer and Supplier - Nessco India",
     description:
@@ -44,6 +49,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <link
+          rel="preload"
+          as="image"
+          href="https://assets.nesscoindustries.com/public/video/home.webp"
+        />
+      </head>
       <body className={`${inter.variable} ${poppins.variable}`}>
         <NavbarDemo />
         {children}
