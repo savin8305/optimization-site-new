@@ -5,8 +5,7 @@ import data from "../Constants/hero.json";
 import Image from "next/image";
 import { ArrowRightIcon } from "lucide-react";
 import { Button } from "../ui/button";
-import dynamic from "next/dynamic";
-const FeatureProducts = dynamic(() => import("./FeatureProjects"));
+import FeatureProjects from "./FeatureProjects";
 const Home: React.FC = () => {
 const homeData = data.find((item) => item.category === "HeroSection")?.data;
   return (
@@ -20,7 +19,7 @@ const homeData = data.find((item) => item.category === "HeroSection")?.data;
                 priority
                 width={600}
                 height={600}
-                src="https://assets.nesscoindustries.com/public/video/home.webp"
+                src="https://www.nesscoindia.com/Assets/images/banner/banner-image-nessco-2.webp"
                 alt="Home Page"
               />
             </motion.div>
@@ -87,7 +86,7 @@ const homeData = data.find((item) => item.category === "HeroSection")?.data;
           </div>
         </div>
       </div>
-      <FeatureProducts />
+      <FeatureProjects/>
     </>
   );
 };

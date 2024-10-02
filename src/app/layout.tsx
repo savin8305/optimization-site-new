@@ -53,7 +53,7 @@ export default function RootLayout({
         <link
           rel="preload"
           as="image"
-          href="https://assets.nesscoindustries.com/public/video/home.webp"
+          href="https://www.nesscoindia.com/Assets/images/banner/banner-image-nessco-2.webp"
         />
       </head>
       <body className={`${inter.variable} ${poppins.variable}`}>
