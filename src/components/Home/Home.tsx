@@ -9,7 +9,6 @@ import dynamic from "next/dynamic";
 const FeatureProducts = dynamic(() => import("./FeatureProjects"));
 const Home: React.FC = () => {
 const homeData = data.find((item) => item.category === "HeroSection")?.data;
-
   return (
     <>
       <div className="relative  h-full p-0   flex flex-col items-center overflow-hidden  w-screen">

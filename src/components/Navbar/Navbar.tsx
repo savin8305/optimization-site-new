@@ -52,8 +52,8 @@ function Navbar({ className }: { className?: string }) {
             <Image
               src="https://assets.nesscoindustries.com/public/assets/Logo.png"
               alt="Logo"
-              width={500}
-              height={500}
+              width={640}
+              height={170}
               className="h-[1.4rem]  w-20"
             />
           </Link>
