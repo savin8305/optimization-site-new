@@ -7,7 +7,6 @@ import { useRef} from "react";
 import Link from "next/link";
 import AnimatedText from "@/components/ui/AnimatedText";
 import LottieAnimation from "@/components/ui/LottieAnimation";
-import { IconType } from "react-icons"; // Import the IconType
 import lottiicon1 from "../../../../public/assets/Lottiimages/industry_experty.json"
 import lottiicon2 from "../../../../public/assets/Lottiimages/know_your_business.json"
 import lottiicon3 from "../../../../public/assets/Lottiimages/know_your_machine.json"
