@@ -101,5 +101,4 @@ const Stepper: React.FC<{ onStepChange: (index: number) => void }> = ({
     </div>
   );
 };
-
 export default Stepper;
