@@ -1,17 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import styles from "../Styles/style.module.css";
 import { useTransform, motion, MotionValue } from "framer-motion";
-import { useRef} from "react";
+import { useRef, useEffect, useState } from "react";
 import Link from "next/link";
 import AnimatedText from "@/components/ui/AnimatedText";
-import LottieAnimation from "@/components/ui/LottieAnimation";
-import lottiicon1 from "../../../../public/assets/Lottiimages/industry_experty.json"
-import lottiicon2 from "../../../../public/assets/Lottiimages/know_your_business.json"
-import lottiicon3 from "../../../../public/assets/Lottiimages/know_your_machine.json"
-import lottiicon4 from "../../../../public/assets/Lottiimages/know_your_product.json"
-import lottiicon5 from "../../../../public/assets/Lottiimages/precision-manufacturing.json"
 
 interface KnowMoreCardProps {
   i: number;
@@ -22,17 +15,11 @@ interface KnowMoreCardProps {
   color: string;
   expertiseExperience: string;
   expertiseAbout: string;
-  progress: MotionValue<number>; // framer-motion's MotionValue for animations
+  progress: MotionValue<number>;
   range: number[];
   targetScale: number;
 }
-const lottiicons=[
-  lottiicon1,
-  lottiicon2,
-  lottiicon3,
-  lottiicon4,
-  lottiicon5,  
-]
+
 const KnowMoreCard: React.FC<KnowMoreCardProps> = ({
   i,
   title,
@@ -48,18 +35,28 @@ const KnowMoreCard: React.FC<KnowMoreCardProps> = ({
 }) => {
   const container = useRef<HTMLDivElement>(null);
   const scale = useTransform(progress, range, [1, targetScale]);
+
+  const [styles, setStyles] = useState<{ [key: string]: string } | null>(null); // Updated type
+
+  useEffect(() => {
+    // Dynamically import the styles when the component mounts
+    import(`../Styles/style.module.css`).then((module) => {
+      setStyles(module.default); // Update to use default export
+    });
+  }, []);
+
+  if (!styles) {
+    return null; // Return null or a loading state until the styles are loaded
+  }
+
   return (
-    <div
-      ref={container}
-      className={`${styles.KnowMoreCardContainer} -mt-[5rem]`}
-    >
+    <div ref={container} className={`${styles.KnowMoreCardContainer} -mt-[5rem]`}>
       <motion.div
         style={{
           backgroundColor: color,
           scale,
-          top: ``,
         }}
-        className={` ${
+        className={`${
           styles.KnowMoreCard
         } top-[calc(2vh + ${i}px)] lg:top-[calc(2vh + ${i * 0.5}px)] `}
       >
@@ -71,10 +68,6 @@ const KnowMoreCard: React.FC<KnowMoreCardProps> = ({
               }}
               className={styles.expertiseContainer}
             >
-              <LottieAnimation
-                animationData={lottiicons[i]}
-                className="h-8 w-8 lg:h-20 lg:w-20" // Example Tailwind CSS classes for size
-              />
               <div className={styles.expertiseText}>
                 <div className="font-poppins text-white">
                   {expertiseExperience}
@@ -87,7 +80,7 @@ const KnowMoreCard: React.FC<KnowMoreCardProps> = ({
                 </div>
               </div>
             </div>
-            <h2 className="text-center  text-base lg:text-lg font-semibold text-white font-poppins">
+            <h2 className="text-center text-base lg:text-lg font-semibold text-white font-poppins">
               {title}
             </h2>
             <p className="text-sm mt-2 lg:text-base font-regular text-white text-center font-poppins">

@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import { motion, useMotionValue } from "framer-motion";
 import { BsBoxArrowUpRight } from "react-icons/bs";
 import { IoClose } from "react-icons/io5";
-import styles from "../Styles/SwipeCarousel.module.css";
-import data from "../../Constants/hero.json"
+import data from "../../Constants/hero.json";
+
 const ONE_SECOND = 1000;
 const AUTO_DELAY = ONE_SECOND * 10;
 const DRAG_BUFFER = 50;
@@ -14,14 +14,13 @@ const SPRING_OPTIONS = {
   stiffness: 400,
   damping: 50,
 };
+
 const testinomialData = data.findLast(
   (item) => item.category === "testinomial"
 )?.data;
-// Provide a fallback value for `testinomialData?.testinomial`
 const testimonialItems = testinomialData?.Testinomialvideos || [];
 
 export const SwipeCarousel: React.FC = () => {
-
   const [videoIndex, setVideoIndex] = useState<number>(0);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [currentVideoLink, setCurrentVideoLink] = useState<string>("");
@@ -61,7 +60,7 @@ export const SwipeCarousel: React.FC = () => {
   };
 
   return (
-    <div className={styles.carouselContainer}>
+    <div className="relative h-full w-auto mt-6 overflow-hidden">
       <motion.div
         drag="x"
         dragConstraints={{ left: 0, right: 0 }}
@@ -76,19 +75,19 @@ export const SwipeCarousel: React.FC = () => {
             key={idx}
             animate={{ scale: videoIndex === idx ? 0.95 : 0.85 }}
             transition={SPRING_OPTIONS}
-            className={styles.videoWrapper}
+            className="relative h-full w-full flex-shrink-0 rounded-xl bg-black"
           >
             <video
               src={video.src}
               autoPlay={videoIndex === idx}
               loop
               muted
-              className={styles.video}
+              className="w-full h-full object-cover rounded-xl"
             />
-            <div className={styles.iconWrapper}>
+            <div className="absolute bottom-4 right-0 transform -translate-x-1/2">
               <BsBoxArrowUpRight
                 onClick={() => openModal(video.youtubeLink)}
-                className={styles.icon}
+                className="text-white font-bold text-2xl cursor-pointer transition-transform duration-300 hover:scale-110"
               />
             </div>
           </motion.div>
@@ -98,15 +97,19 @@ export const SwipeCarousel: React.FC = () => {
       <Dots videoIndex={videoIndex} setVideoIndex={setVideoIndex} />
 
       {isModalOpen && (
-        <div className={styles.modalOverlay}>
-          <div className={styles.modalContent}>
-            <button aria-label="CloseModal" onClick={closeModal} className={styles.closeButton}>
+        <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-[9995]">
+          <div className="relative bg-white rounded-xl overflow-hidden max-w-3xl w-full">
+            <button
+              aria-label="CloseModal"
+              onClick={closeModal}
+              className="absolute top-0 right-0 bg-white p-1 rounded-full text-black z-50"
+            >
               <IoClose size={24} />
             </button>
-            <div className={styles.iframeWrapper}>
+            <div className="relative w-full pt-[56.25%]">
               <iframe
                 src={currentVideoLink}
-                className={styles.iframe}
+                className="absolute top-0 left-0 w-full h-full"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
                 title="YouTube Video"
@@ -126,19 +129,19 @@ type DotsProps = {
 
 const Dots: React.FC<DotsProps> = ({ videoIndex, setVideoIndex }) => {
   return (
-    <div className={styles.indicators}>
+    <div className="absolute mt-1 left-1/2 transform -translate-x-1/2 flex gap-1.5">
       {testimonialItems.map((_, idx) => (
         <button
           aria-label="Dots"
           key={idx}
           onClick={() => setVideoIndex(idx)}
-          className={`${styles.indicator} ${
-            idx === videoIndex ? styles.activeIndicator : ""
+          className={`relative block w-1.5 h-1.5 bg-gray-400 rounded-full overflow-hidden transition-all duration-300 ${
+            idx === videoIndex ? "w-10 rounded-lg h-1.5" : ""
           }`}
         >
           <span
-            className={`${styles.progress} ${
-              idx === videoIndex ? styles.activeProgress : ""
+            className={`absolute top-0 left-0 w-full h-full bg-white transform scale-x-0 origin-left ${
+              idx === videoIndex ? "animate-progress" : ""
             }`}
           ></span>
         </button>

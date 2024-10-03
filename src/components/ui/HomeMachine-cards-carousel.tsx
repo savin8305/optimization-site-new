@@ -375,9 +375,7 @@ export const Card = ({
                     <span className="text-lg lg:text-base font-bold text-[#dc0e2a]">
                       70
                     </span>
-                    <span className="text-5  text-[#483d78]">
-                      PCM/MIN
-                    </span>
+                    <span className="text-5 text-[#483d78]">PCM/MIN</span>
                   </div>
                 </div>
               </div>

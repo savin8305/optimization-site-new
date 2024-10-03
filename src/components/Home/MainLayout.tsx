@@ -14,7 +14,7 @@ const AboutUs = dynamic(() => import("@/components/Home/AboutSection"), {
 const MarqueeSection = dynamic(
   () => import("@/components/Home/MarqueeSection"),
   {
-    ssr: false,
+    ssr: true,
   }
 );
 
@@ -29,7 +29,7 @@ const HomeMachine = dynamic(() => import("@/components/Home/HomeMachine"), {
 const HomeTestimonial = dynamic(
   () => import("@/components/Home/TestimonialsSection"),
   {
-    ssr: false,
+    ssr: true,
   }
 );
 
