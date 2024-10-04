@@ -1,3 +1,6 @@
+// Import the bundle analyzer using the ES module syntax
+import withBundleAnalyzer from '@next/bundle-analyzer';
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
@@ -14,10 +17,16 @@ const nextConfig = {
       'restcountries.com',
       'assets.nesscoindustries.com',
       'www.nesscoindia.com',
-      'res.cloudinary.com'
+      'res.cloudinary.com',
     ],
   },
   swcMinify: true,
 };
 
-export default nextConfig;
+// Initialize the bundle analyzer
+const bundleAnalyzer = withBundleAnalyzer({
+  enabled: process.env.ANALYZE === 'true',
+});
+
+// Export the configuration with the bundle analyzer applied
+export default bundleAnalyzer(nextConfig);
