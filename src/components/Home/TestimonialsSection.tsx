@@ -1,8 +1,8 @@
 import React from "react";
 import { SwipeCarousel } from "./Common/slider";
 import AnimatedText from "../ui/AnimatedText";
-import { TestiNomialAnimation } from "../ui/testinomialAnimation";
 import data from "../Constants/hero.json";
+import { TestiNomialAnimation } from "../ui/testinomialAnimation";
 
 const HomeTestimonial: React.FC = () => {
   const testinomialData = data.findLast(
@@ -53,7 +53,7 @@ const HomeTestimonial: React.FC = () => {
       <div className="w-full h-[55%] mt-8 lg:mt-0 lg:w-2/3 relative lg:h-full">
         <div className="ml-0 lg:ml-14 h-screen mask-gradient rounded-md flex flex-col antialiased dark:bg-grid-white/[0.05] items-center justify-center relative overflow-hidden">
           {/* Use testimonialItems instead of testinomialData?.testinomial */}
-          <TestiNomialAnimation items={testimonialItems} speed="slow" />
+          <TestiNomialAnimation items={testimonialItems} speed="normal" />
         </div>
       </div>
     </div>

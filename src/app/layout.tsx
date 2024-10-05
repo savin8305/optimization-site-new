@@ -1,9 +1,7 @@
 import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
 import NavbarDemo from "@/components/Navbar/Navbar";
-import dynamic from "next/dynamic";
-// import Footer from "@/components/Footer/Footer";
-const Footer = dynamic(() => import("@/components/Footer/Footer"), { ssr: false }); // Lazy load footer
+import Footer from "@/components/Footer/Footer";
 
 // Initialize the fonts with the correct configurations
 const inter = Inter({ subsets: ["latin"], variable: "--inter" });

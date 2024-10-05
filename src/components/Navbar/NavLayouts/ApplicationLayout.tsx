@@ -1,20 +1,22 @@
 import { useState } from "react";
-import HandBurgerBox from "../../Icons/HandBurgerBox";
-import LunchBox from "../../Icons/LunchBox";
-import PaperBlank from "../../Icons/PaperBlank";
-import PaperBowl from "../../Icons/PaperBowl";
-import PaperCup from "../../Icons/PaperCup";
-import PaperCupWithLid from "../../Icons/PaperCupWithLid";
-import PaperCupWithSleeve from "../../Icons/PaperCupWithSleeve";
-import PaperCutlery from "../../Icons/PaperCutlery";
-import PaperPlate from "../../Icons/PaperPlate";
-import PaperRoll from "../../Icons/PaperRoll";
-import PaperStraw from "../../Icons/PaperStraw";
-import PopcornTub from "../../Icons/PopcornTub";
-import PositionAwareButton from "../../ui/PositionAwareButton";
+// Dynamically import the icons and other UI components
+const HandBurgerBox = dynamic(() => import("../../Icons/HandBurgerBox"), { ssr: false });
+const LunchBox = dynamic(() => import("../../Icons/LunchBox"), { ssr: false });
+const PaperBlank = dynamic(() => import("../../Icons/PaperBlank"), { ssr: false });
+const PaperBowl = dynamic(() => import("../../Icons/PaperBowl"), { ssr: false });
+const PaperCup = dynamic(() => import("../../Icons/PaperCup"), { ssr: false });
+const PaperCupWithLid = dynamic(() => import("../../Icons/PaperCupWithLid"), { ssr: false });
+const PaperCupWithSleeve = dynamic(() => import("../../Icons/PaperCupWithSleeve"), { ssr: false });
+const PaperCutlery = dynamic(() => import("../../Icons/PaperCutlery"), { ssr: false });
+const PaperPlate = dynamic(() => import("../../Icons/PaperPlate"), { ssr: false });
+const PaperRoll = dynamic(() => import("../../Icons/PaperRoll"), { ssr: false });
+const PaperStraw = dynamic(() => import("../../Icons/PaperStraw"), { ssr: false });
+const PopcornTub = dynamic(() => import("../../Icons/PopcornTub"), { ssr: false });
+const PositionAwareButton = dynamic(() => import("../../ui/PositionAwareButton"), { ssr: false });
 import { Button } from "../../ui/button";
 import { ArrowRightIcon } from "lucide-react";
 import data from "../../Constants/Navbar/index.json";
+import dynamic from "next/dynamic";
 interface Product {
   id: string;
   name: string;

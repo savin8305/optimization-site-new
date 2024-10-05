@@ -237,3 +237,44 @@ body {
   display: none; /* Chrome, Safari, and Opera */
 }
 
+
+
+
+/* hide scrollbar from blogs Page3 component */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, and Opera */
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+@layer utilities {
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+      display: none;
+  }
+ /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+      -ms-overflow-style: none;  /* IE and Edge */
+      scrollbar-width: none;  /* Firefox */
+}
+
+}
+@keyframes scrollTestimonial {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-50%);
+  }
+}
+
+.animate-scroll-testimonial {
+  animation: scrollTestimonial var(--animation-duration) linear infinite;
+}
+
+.animate-scroll-testimonial:hover {
+  animation-play-state: paused;
+}

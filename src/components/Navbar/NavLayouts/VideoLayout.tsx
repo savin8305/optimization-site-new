@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { MdPlayCircleOutline } from "react-icons/md";
 import { IoIosArrowForward } from "react-icons/io";
@@ -53,18 +52,7 @@ const VideoGrid: React.FC = ({}) => {
     }
   };
 
-  const imageVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: (i: number) => ({
-      opacity: 1,
-      y: 0,
-      transition: {
-        delay: i * 0.1,
-        duration: 0.3,
-        ease: "easeOut",
-      },
-    }),
-  };
+ 
 
   const shouldShowArrows = videoDataItem.length > 5;
 
@@ -86,12 +74,9 @@ const VideoGrid: React.FC = ({}) => {
         {videoDataItem.map((item, index) => (
           <div key={index} className="flex cursor-grab flex-col space-y-4">
             <Link href={`/`}>
-              <motion.div
+              <div
                 className="relative flex-shrink-0 cursor-grab w-80 h-48 bg-[#f2f2f2] rounded-3xl  flex flex-col justify-center items-center"
-                initial="hidden"
-                animate="visible"
-                custom={index}
-                variants={imageVariants}
+               
               >
                 <div className="relative w-full h-full flex justify-center items-center">
                   <Image
@@ -103,7 +88,7 @@ const VideoGrid: React.FC = ({}) => {
                   />
                   <MdPlayCircleOutline className="absolute top-2  right-2 text-3xl text-white" />
                 </div>
-              </motion.div>
+              </div>
               <p className="relative font-poppins text-center mt-4 invert-0 font-normal hover:text-[#483d78] hover:font-semibold text-base">
                 {item.title}
               </p>
@@ -121,18 +106,15 @@ const VideoGrid: React.FC = ({}) => {
         >
           <div className="flex flex-row gap-2">
             {paginatedItems.map((group, groupIndex) => (
-              <motion.div
+              <div
                 key={`slide-${groupIndex}`}
                 className="min-w-full p-1 grid grid-cols-2 grid-rows-2 gap-4"
               >
                 {group.map((item, itemIndex) => (
-                  <motion.div
+                  <div
                     key={itemIndex}
                     className="relative w-40 h-36 border-[1px] bg-white rounded-xl  flex flex-col justify-start items-center p-2"
-                    initial="hidden"
-                    animate="visible"
-                    custom={itemIndex}
-                    variants={imageVariants}
+                   
                   >
                     <div className="relative w-32 bg-white rounded-xl border-[1px] h-16 flex justify-center items-center">
                       <Image
@@ -147,9 +129,9 @@ const VideoGrid: React.FC = ({}) => {
                     <p className="relative font-poppins text-center mt-4 invert-0 font-medium hover:text-[#483d78] hover:font-bold text-16">
                       {item.title}
                     </p>
-                  </motion.div>
+                  </div>
                 ))}
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -202,5 +184,4 @@ const VideoGrid: React.FC = ({}) => {
     </div>
   );
 };
-
 export default VideoGrid;

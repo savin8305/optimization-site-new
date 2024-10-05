@@ -91,4 +91,4 @@ const LabelInputContainer = ({
   );
 };
 
-export { SignupFormDemo };
+export default SignupFormDemo;

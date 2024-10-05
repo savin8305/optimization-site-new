@@ -2,7 +2,6 @@
 
 import React, { useMemo } from "react";
 import { InfiniteMovingCards } from "../ui/marqueeCardAnimation";
-import { motion } from "framer-motion";
 import data from "../Constants/hero.json";
 
 export default function MarqueeSection() {
@@ -20,13 +19,7 @@ export default function MarqueeSection() {
 
   return (
     <div className="h-screen px-8 flex flex-col justify-center gap-12 overflow-hidden">
-      <motion.div
-        className="relative h-1/3 flex flex-col lg:flex-row"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 0.6 }}
-      >
+      <div className="relative h-1/3 flex flex-col lg:flex-row">
         {/* Heading Section */}
         <div className="flex w-[10%] lg:w-[15%] flex-col">
           <h1 className="text-sm lg:text-2xl font-regular mt-8 font-poppins whitespace-nowrap">
@@ -43,7 +36,6 @@ export default function MarqueeSection() {
             <InfiniteMovingCards
               items={trusted}
               direction="left"
-              speed="slow"
               className="w-full"
             />
           </div>
@@ -52,26 +44,19 @@ export default function MarqueeSection() {
             <InfiniteMovingCards
               items={partners}
               direction="right"
-              speed="slow"
               className="w-full"
             />
           </div>
         </div>
-      </motion.div>
+      </div>
 
       {/* Description Section */}
       {description?.text && (
-        <motion.div
-          className="relative flex flex-col h-[20%] items-center text-center"
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: 50 }}
-          transition={{ duration: 0.6 }}
-        >
+        <div className="relative flex flex-col h-[20%] items-center text-center">
           <p className="text-sm lg:text-2xl mx-4 w-full lg:w-[62%] font-poppins font-regular leading-8">
             {description.text}
           </p>
-        </motion.div>
+        </div>
       )}
     </div>
   );

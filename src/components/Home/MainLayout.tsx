@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useRef, useState, useEffect } from "react";
 import dynamic from "next/dynamic";
 import Hero from "@/components/Home/Home";
@@ -15,17 +14,17 @@ const AboutUs = dynamic(() => import("@/components/Home/AboutSection"), {
 });
 const MarqueeSection = dynamic(
   () => import("@/components/Home/MarqueeSection"),
-  { ssr: false }
+  { ssr: true }
 );
 const KnowMore = dynamic(() => import("@/components/Home/KnowMore"), {
-  ssr: false,
+  ssr: true,
 });
 const HomeMachine = dynamic(() => import("@/components/Home/HomeMachine"), {
   ssr: true,
 });
 const HomeTestimonial = dynamic(
   () => import("@/components/Home/TestimonialsSection"),
-  { ssr: false }
+  { ssr: true }
 );
 
 export default function MainLayout() {
@@ -78,8 +77,7 @@ export default function MainLayout() {
   };
 
   useEffect(() => {
-    const observerOptions = { threshold: 0.1 }; // Trigger when 20% of the section is visible
-
+    const observerOptions = { threshold: 0.1 }; // Trigger when 10% of the section is visible
     const handleIntersection = (
       entries: IntersectionObserverEntry[],
       observer: IntersectionObserver
@@ -92,17 +90,14 @@ export default function MainLayout() {
         }
       });
     };
-
     const observer = new IntersectionObserver(
       handleIntersection,
       observerOptions
     );
-
     // Start observing sections
     Object.values(sectionRefs).forEach((ref) => {
       if (ref.current) observer.observe(ref.current);
     });
-
     // Cleanup observer on component unmount
     return () => observer.disconnect();
   }, []);
@@ -155,7 +150,7 @@ export default function MainLayout() {
           className="max-w-screen-2xl mx-auto"
           ref={sectionRefs.infiniteCardsRef}
         >
-          {visibleSections.marquee && <MarqueeSection />}
+          {<MarqueeSection />}
         </div>
         <div id="knowMore" className="h-auto" ref={sectionRefs.knowMoreRef}>
           {visibleSections.knowMore && <KnowMore />}
@@ -168,7 +163,7 @@ export default function MainLayout() {
           className="relative bg-gradient-to-l via-purple-200 to-transparent h-screen overflow-hidden"
           ref={sectionRefs.homeTestimonialRef}
         >
-          {visibleSections.testimonials && <HomeTestimonial />}
+          {<HomeTestimonial />}
         </div>
       </div>
     </main>

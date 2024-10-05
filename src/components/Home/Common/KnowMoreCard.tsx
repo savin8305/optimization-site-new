@@ -41,7 +41,7 @@ const KnowMoreCard: React.FC<KnowMoreCardProps> = ({
   useEffect(() => {
     // Dynamically import the styles when the component mounts
     import(`../Styles/style.module.css`).then((module) => {
-      setStyles(module.default); // Update to use default export
+      setStyles(module.default); 
     });
   }, []);
 
@@ -99,7 +99,7 @@ const KnowMoreCard: React.FC<KnowMoreCardProps> = ({
             </span>
           </div>
           <motion.div className={styles.imageContainer}>
-            <Image fill src={src} alt="image" className={styles.image} />
+            <Image height={400} width={400} src={src} alt="image" className={styles.image} />
           </motion.div>
           <div className={styles.imageCorner}>
             <svg

@@ -2,7 +2,7 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { ImageProps } from "next/image";
 
-export const BlurImage = ({
+const BlurImage = ({
   height,
   width,
   src,
@@ -21,3 +21,4 @@ export const BlurImage = ({
     />
   );
 };
+export default BlurImage;

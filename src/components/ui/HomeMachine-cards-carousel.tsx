@@ -1,35 +1,13 @@
 "use client";
-import React, {
-  useEffect,
-  useRef,
-  useState,
-  createContext,
-  useContext,
-} from "react";
 
+import React, { useEffect, useState, createContext, useCallback, useMemo } from "react";
 import { cn } from "@/lib/utils";
-import { StaticImageData } from "next/image";
-import { useOutsideClick } from "@/hooks/use-outside-click";
-import { BlurImage } from "./BlurImage";
 import { ArrowLeft, ArrowRight } from "lucide-react";
-import { BiCross } from "react-icons/bi";
-import ProductModal from "./ProductModal";
+
 interface CarouselProps {
   items: JSX.Element[];
   initialScroll?: number;
 }
-
-type Card = {
-  description: string;
-  items: { className: string; text: string }[];
-  firstname: string;
-  secondname: string;
-  image: string;
-  title: string;
-  icon: StaticImageData | string;
-  category: string;
-  content?: React.ReactNode;
-};
 
 export const CarouselContext = createContext<{
   onCardClose: (index: number) => void;
@@ -39,43 +17,52 @@ export const CarouselContext = createContext<{
   currentIndex: 0,
 });
 
-export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
+const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
   const carouselRef = React.useRef<HTMLDivElement>(null);
-  const [canScrollLeft, setCanScrollLeft] = React.useState(false);
-  const [canScrollRight, setCanScrollRight] = React.useState(true);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+
+  const checkScrollability = useCallback(() => {
+    if (carouselRef.current) {
+      const { scrollLeft, scrollWidth, clientWidth } = carouselRef.current;
+      setCanScrollLeft(scrollLeft > 0);
+      setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 1);
+    }
+  }, []);
 
   useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 767px)");
+    setIsMobile(mediaQuery.matches);
+
+    const handleResize = (e: MediaQueryListEvent) => setIsMobile(e.matches);
+    mediaQuery.addListener(handleResize);
+
     if (carouselRef.current) {
       carouselRef.current.scrollLeft = initialScroll;
       checkScrollability();
     }
-  }, [initialScroll]);
 
-  const checkScrollability = () => {
-    if (carouselRef.current) {
-      const { scrollLeft, scrollWidth, clientWidth } = carouselRef.current;
-      setCanScrollLeft(scrollLeft > 0);
-      setCanScrollRight(scrollLeft < scrollWidth - clientWidth);
-    }
-  };
+    return () => mediaQuery.removeListener(handleResize);
+  }, [initialScroll, checkScrollability]);
 
-  const scrollLeft = () => {
+  const scrollLeft = useCallback(() => {
     if (carouselRef.current) {
       carouselRef.current.scrollBy({ left: -300, behavior: "smooth" });
     }
-  };
+  }, []);
 
-  const scrollRight = () => {
+  const scrollRight = useCallback(() => {
     if (carouselRef.current) {
       carouselRef.current.scrollBy({ left: 300, behavior: "smooth" });
     }
-  };
+  }, []);
 
-  const handleCardClose = (index: number) => {
+  const handleCardClose = useCallback((index: number) => {
     if (carouselRef.current) {
-      const cardWidth = isMobile() ? 230 : 384; // (md:w-96)
-      const gap = isMobile() ? 4 : 8;
+      const cardWidth = isMobile ? 230 : 384;
+      const gap = isMobile ? 4 : 8;
       const scrollPosition = (cardWidth + gap) * (index + 1);
       carouselRef.current.scrollTo({
         left: scrollPosition,
@@ -83,331 +70,72 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
       });
       setCurrentIndex(index);
     }
-  };
+  }, [isMobile]);
 
-  const isMobile = () => {
-    return window && window.innerWidth < 768;
-  };
+  const contextValue = useMemo(() => ({ onCardClose: handleCardClose, currentIndex }), [handleCardClose, currentIndex]);
+
+  const renderCarouselItems = useCallback((start: number, end: number) => (
+    <div className={cn("flex flex-row gap-4 pl-[5%]", "max-w-7xl mx-auto")}>
+      {items.slice(start, end).map((item, index) => (
+        <div key={`card-${start + index}`} className="last:pr-[5%] md:last:pr-[4%] rounded-3xl">
+          {item}
+        </div>
+      ))}
+    </div>
+  ), [items]);
+
+  const carouselContent = useMemo(() => {
+    if (items.length <= 5) {
+      return renderCarouselItems(0, items.length);
+    } else if (items.length <= 10) {
+      return (
+        <>
+          <div className="relative mt-12 w-full">{renderCarouselItems(0, Math.ceil(items.length / 2))}</div>
+          <div className="relative w-full mt-4">{renderCarouselItems(Math.ceil(items.length / 2), items.length)}</div>
+        </>
+      );
+    } else {
+      return (
+        <>
+          <div className="relative mt-12 w-full">{renderCarouselItems(0, items.length / 2)}</div>
+          <div className="relative w-full mt-4">{renderCarouselItems(items.length / 2, items.length - 1)}</div>
+        </>
+      );
+    }
+  }, [items, renderCarouselItems]);
 
   return (
-    <CarouselContext.Provider
-      value={{ onCardClose: handleCardClose, currentIndex }}
-    >
-      {items.length <= 10 ? (
-        <>
-          <div
-            className=" grid grid-rows-2  w-full overflow-x-scroll overscroll-x-auto py-4 md:py-4 scroll-smooth [scrollbar-width:none]"
-            ref={carouselRef}
-            onScroll={checkScrollability}
-          ></div>
-
-          {items.length > 5 ? (
-            <div
-              className="grid grid-rows-2 w-full overflow-x-scroll overscroll-x-auto py-4 md:py-4 scroll-smooth [scrollbar-width:none]"
-              ref={carouselRef}
-              onScroll={checkScrollability}
-            >
-              <div className="relative mt-12 w-full">
-                <div
-                  className={cn(
-                    "absolute right-0  z-10 h-auto  w-[5%] overflow-hidden bg-gradient-to-l"
-                  )}
-                ></div>
-
-                <div
-                  className={cn(
-                    "flex flex-row  gap-4 pl-[5%]",
-                    "max-w-7xl mx-auto"
-                  )}
-                >
-                  {items
-                    .slice(
-                      0,
-                      items.length % 2 === 0
-                        ? items.length / 2
-                        : Math.ceil(items.length / 2)
-                    )
-                    .map((item, index) => (
-                      <div
-                        key={"card" + index}
-                        className="last:pr-[5%] md:last:pr-[4%] rounded-3xl"
-                      >
-                        {item}
-                      </div>
-                    ))}
-                </div>
-              </div>
-              <div className="relative w-full">
-                <div
-                  className={cn(
-                    "absolute right-0  z-20 h-auto  w-[5%] overflow-hidden bg-gradient-to-l"
-                  )}
-                ></div>
-
-                <div
-                  className={cn(
-                    "flex flex-row mt-4  gap-4 pl-[5%]",
-                    "max-w-7xl mx-auto"
-                  )}
-                >
-                  {items
-                    .slice(items.length / 2, items.length - 1)
-                    .map((item, index) => (
-                      <div
-                        key={"card" + index}
-                        className="last:pr-[5%] md:last:pr-[4%]  rounded-3xl"
-                      >
-                        {item}
-                      </div>
-                    ))}
-                </div>
-              </div>
-            </div>
-          ) : (
-            <div
-              className="flex w-full overflow-x-scroll overscroll-x-auto py-4 md:py-4 scroll-smooth [scrollbar-width:none]"
-              ref={carouselRef}
-              onScroll={checkScrollability}
-            >
-              <div className="relative mt-12 w-full">
-                <div
-                  className={cn(
-                    "absolute right-0  z-10 h-auto  w-[5%] overflow-hidden bg-gradient-to-l"
-                  )}
-                ></div>
-
-                <div
-                  className={cn(
-                    "flex flex-row  gap-4 pl-[5%]",
-                    "max-w-7xl mx-auto"
-                  )}
-                >
-                  {items.slice(0, items.length).map((item, index) => (
-                    <div
-                      key={"card" + index}
-                      className="last:pr-[5%] md:last:pr-[4%] rounded-3xl"
-                    >
-                      {item}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          )}
-        </>
-      ) : (
-        <>
-          <div
-            className="flex  w-full overflow-x-scroll overscroll-x-auto py-4 md:py-4 scroll-smooth [scrollbar-width:none]"
-            ref={carouselRef}
-            onScroll={checkScrollability}
+    <CarouselContext.Provider value={contextValue}>
+      <div
+        className={cn(
+          "w-full overflow-x-scroll overscroll-x-auto py-4 md:py-4 scroll-smooth [scrollbar-width:none]",
+          items.length > 5 ? "grid grid-rows-2" : "flex"
+        )}
+        ref={carouselRef}
+        onScroll={checkScrollability}
+      >
+        {carouselContent}
+      </div>
+      {items.length > 10 && (
+        <div className="flex justify-end gap-2 mr-10">
+          <button
+            className="relative z-20 h-10 w-10 rounded-full bg-gray-100 flex items-center justify-center disabled:opacity-50"
+            onClick={scrollLeft}
+            disabled={!canScrollLeft}
           >
-            {items.length >= 10 && (
-              <div className="">
-                <div className="relative mt-12 w-full">
-                  <div
-                    className={cn(
-                      "absolute right-0  z-10 h-auto  w-[5%] overflow-hidden bg-gradient-to-l"
-                    )}
-                  ></div>
-
-                  <div
-                    className={cn(
-                      "flex flex-row  gap-4 pl-[5%]",
-                      "max-w-7xl mx-auto"
-                    )}
-                  >
-                    {items.slice(0, items.length / 2).map((item, index) => (
-                      <div
-                        key={"card" + index}
-                        className="last:pr-[5%] md:last:pr-[4%]  rounded-3xl"
-                      >
-                        {item}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-                <div className="relative w-full">
-                  <div
-                    className={cn(
-                      "absolute right-0  z-20 h-auto  w-[5%] overflow-hidden bg-gradient-to-l"
-                    )}
-                  ></div>
-
-                  <div
-                    className={cn(
-                      "flex flex-row mt-4  gap-4 pl-[5%]",
-                      "max-w-7xl mx-auto"
-                    )}
-                  >
-                    {items
-                      .slice(items.length / 2, items.length - 1)
-                      .map((item, index) => (
-                        <div
-                          key={"card" + index}
-                          className="last:pr-[5%] md:last:pr-[10%]  rounded-3xl"
-                        >
-                          {item}
-                        </div>
-                      ))}
-                  </div>
-                </div>
-              </div>
-            )}
-          </div>
-          <div className="flex justify-end gap-2 mr-10">
-            <button
-              className="relative z-20 h-10 w-10 rounded-full bg-gray-100 flex items-center justify-center disabled:opacity-50"
-              onClick={scrollLeft}
-              disabled={!canScrollLeft}
-            >
-              <ArrowLeft className="h-6 w-6 text-gray-500" />
-            </button>
-            <button
-              className="relative z-20 h-10 w-10 rounded-full bg-gray-100 flex items-center justify-center disabled:opacity-50"
-              onClick={scrollRight}
-              disabled={!canScrollRight}
-            >
-              <ArrowRight className="h-6 w-6 text-gray-500" />
-            </button>
-          </div>
-        </>
+            <ArrowLeft className="h-6 w-6 text-gray-500" />
+          </button>
+          <button
+            className="relative z-20 h-10 w-10 rounded-full bg-gray-100 flex items-center justify-center disabled:opacity-50"
+            onClick={scrollRight}
+            disabled={!canScrollRight}
+          >
+            <ArrowRight className="h-6 w-6 text-gray-500" />
+          </button>
+        </div>
       )}
     </CarouselContext.Provider>
   );
 };
 
-export const Card = ({
-  card,
-  index,
-}: {
-  card: Card;
-  index: number;
-  layout?: boolean;
-}) => {
-  const [open, setOpen] = useState(false);
-  const containerRef = useRef<HTMLDivElement>(null);
-  const { onCardClose } = useContext(CarouselContext);
-
-  useEffect(() => {
-    function onKeyDown(event: KeyboardEvent) {
-      if (event.key === "Escape") {
-        handleClose();
-      }
-    }
-    window.addEventListener("keydown", onKeyDown);
-    return () => window.removeEventListener("keydown", onKeyDown);
-  }, [open]);
-
-  useOutsideClick(containerRef, () => handleClose());
-
-  const handleOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-    onCardClose(index);
-  };
-
-  return (
-    <>
-      {open && (
-        <div className="fixed font-poppins  inset-0  h-screen z-[99999] overflow-auto">
-          <div className="bg-black/80  backdrop-blur-lg h-full w-full fixed inset-0" />
-          <div
-            ref={containerRef}
-            className="max-w-5xl mx-auto bg-white dark:bg-neutral-900 h-fit  z-[60] my-10 p-4 md:p-10 rounded-3xl font-sans relative"
-          >
-            <button
-              className="sticky z-50 top-0 h-8 w-8 right-0 -mr-32 -mt-6 ml-auto bg-black dark:bg-white rounded-full flex items-center justify-center"
-              onClick={handleClose}
-            >
-              <BiCross className="h-6 w-6 text-neutral-100 dark:text-neutral-900" />
-            </button>
-            <div className="py-0">
-              <ProductModal
-                image={card.image}
-                title={card.title}
-                description={card.description}
-                buttons={[{ text: "Know Machine", icon: true }]} // Customize buttons if needed
-                items={card.items}
-                firstname={card.firstname}
-                secondname={card.secondname}
-              />
-            </div>
-          </div>
-        </div>
-      )}
-
-      <button
-        onClick={handleOpen}
-        className=" h-48 rounded-3xl bg-white font-poppins p-1 lg:p-2   w-40 lg:h-[16rem] md:w-56  overflow-hidden flex flex-col items-start justify-start relative z-10"
-      >
-        <div className="relative p-2 h-full w-full">
-          <div className="absolute flex bg-white h-14 lg:h-16 w-24 lg:w-32  flex-row  top-0 space-x-2 -mr-4 right-0 z-40 rounded-bl-xl">
-            <div className="">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="100%"
-                viewBox="0 0 20 20"
-                fill="none"
-                className="h-4 w-4 -ml-4 mt-0 "
-              >
-                <path
-                  d="M20 20C20 8.95431 11.0457 0 0 0H20V20Z"
-                  fill="white" // Use the color prop here
-                ></path>
-              </svg>
-            </div>
-            <div className="flex flex-row h-14 w-12 lg:w-20 items-center justify-center">
-              <div className="h-full w-16 lg:h-20 lg:w-20  flex items-center justify-center">
-                <BlurImage
-                  src={card.icon}
-                  alt="icon"
-                  height={100}
-                  width={100}
-                />
-              </div>
-              <div className="flex items-center justify-center">
-                <div className="relative h-8 w-8 lg:h-12 lg:w-12 -mr-4 flex items-center justify-center border-2 border-[#483d78] rounded-full bg-white">
-                  <div className="absolute inset-0 flex flex-col items-center justify-center">
-                    <span className="text-lg lg:text-base font-bold text-[#dc0e2a]">
-                      70
-                    </span>
-                    <span className="text-5 text-[#483d78]">PCM/MIN</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="100%"
-                viewBox="0 0 20 20"
-                fill="none"
-                className="h-4 w-4 mt-14 lg:mt-16 mr-4"
-              >
-                <path
-                  d="M20 20C20 8.95431 11.0457 0 0 0H20V20Z"
-                  fill="white" // Use the color prop here
-                ></path>
-              </svg>
-            </div>
-          </div>
-          <BlurImage
-            src={card.image}
-            alt={card.title}
-            fill
-            className="object-contain h-36 border-2 bg-[#f2f2f2]  rounded-[1.5rem] absolute z-10 inset-0"
-          />
-          <div className="absolute -mb-2 font-poppins left-0 right-0 bottom-0 z-40 p-4">
-            <h3 className="text-black font-poppins text-sm md:text-base font-regular text-left">
-              {card.title}
-            </h3>
-          </div>
-        </div>
-      </button>
-    </>
-  );
-};
+export default Carousel;

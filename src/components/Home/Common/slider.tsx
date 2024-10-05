@@ -1,3 +1,4 @@
+"use client"
 import React, { useEffect, useState } from "react";
 import { motion, useMotionValue } from "framer-motion";
 import { BsBoxArrowUpRight } from "react-icons/bs";

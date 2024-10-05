@@ -1,10 +1,10 @@
 import React, { useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { usePathname } from "next/navigation";
-import { SignupFormDemo } from "./SignupFormDemo";
 import { IoClose } from "react-icons/io5"; // Import the close icon
 import Link from "next/link";
-
+import dynamic from "next/dynamic";
+const SignupFormDemo=dynamic(()=>import("./SignupFormDemo"))
 interface ContactFormProps {
   isContactFormVisible: boolean;
   setContactFormVisible: (visible: boolean) => void;

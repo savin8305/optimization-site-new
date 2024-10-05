@@ -1,7 +1,6 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
 import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
-import { motion } from "framer-motion";
 import Image, { StaticImageData } from "next/image";
 
 interface CarouselProps {
@@ -21,13 +20,7 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
     }
   }, [initialScroll]);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      scrollRight();
-    }, 3000); // Adjust delay as needed (3000ms = 3 seconds)
-
-    return () => clearInterval(interval);
-  }, []);
+ 
 
   const checkScrollability = () => {
     if (carouselRef.current) {
@@ -94,22 +87,13 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
       >
         <div className="flex flex-row justify-start gap-4 lg:pl-4 max-w-7xl mx-auto">
           {items.map((item, index) => (
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{
-                opacity: 1,
-                y: 0,
-                transition: {
-                  duration: 0.5,
-                  delay: 0.2 * index,
-                  ease: "easeOut",
-                },
-              }}
+            <div
+             
               key={"card" + index}
               className="last:pr-[5%] md:last:pr-[2%] rounded-3xl"
             >
               {item}
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>
@@ -126,15 +110,15 @@ interface CardProps {
 
 export const Card = ({ src, title, category, date }: CardProps) => {
   return (
-    <motion.div className="rounded-2xl bg-white shadow-lg  dark:bg-neutral-900 h-28 w-[18rem] md:h-[5rem] md:w-80 overflow-hidden flex items-center space-x-4 p-2">
+    <div className="rounded-2xl bg-white shadow-lg  dark:bg-neutral-900 h-28 w-[18rem] md:h-[5rem] md:w-80 overflow-hidden flex items-center space-x-4 p-2">
       <div className="relative flex-shrink-0 h-12 w-12 md:h-16 md:w-16 rounded-2xl overflow-hidden">
-        <Image src={src} alt={title} fill className="object-fill" />
+        <Image src={src} alt={title} height={400} width={400}  className="object-fill" />
       </div>
       <div className="flex flex-col font-poppins h-16 md:h-16">
         <h3 className="text-black text-base  font-medium">{title}</h3>
         <p className="text-gray-600 font-light text-sm  ">{category}</p>
         <p className="text-gray-500 font-light text-sm ">{date}</p>
       </div>
-    </motion.div>
+    </div>
   );
 };

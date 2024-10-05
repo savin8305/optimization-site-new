@@ -2,7 +2,6 @@
 import React, { useRef, useEffect, useState, useCallback } from "react";
 import dynamic from "next/dynamic";
 import Image from "next/image";
-import { motion } from "framer-motion";
 import AnimatedContainer from "@/hooks/AnimatedContainer";
 import data from "../../Constants/Navbar/index.json";
 
@@ -79,11 +78,8 @@ const AboutLayout: React.FC<AboutData> = () => {
     <div className="flex w-full lg:border-none lg:pb-6 mx-auto max-w-screen-2xl flex-col lg:flex-row items-center justify-center lg:rounded-xl h-full">
       <div className="grid grid-cols-2 h-[80%]  sm:grid-cols-3 lg:grid-cols-4 w-full lg:w-[70.5vw]">
         {navRightData.map((item: NavItem, index: number) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
+          <div
+           key={index}
             className="border-2 p-2 rounded-3xl lg:rounded-none lg:p-0 lg:border-none flex flex-col justify-start items-center lg:mt-4"
           >
             <a href={`/about/${item.link}`}>
@@ -93,14 +89,13 @@ const AboutLayout: React.FC<AboutData> = () => {
                 className="rounded-xl cursor-pointer w-44 h-32 lg:w-56 lg:h-56 object-cover transform lg:hover:scale-80 transition-transform duration-200"
                 width={224}
                 height={224}
-                priority={index < 4}
-                loading={index < 4 ? "eager" : "lazy"}
+                loading="lazy"
               />
               <p className="mt-2 flex items-center justify-center space-x-2 text-center font-poppins invert-0 hover:text-[#483d78] hover:font-bold font-normal text-xs sm:text-sm md:text-base transform lg:hover:scale-80 transition-transform duration-300">
                 <span>{item.title}</span>
               </p>
             </a>
-          </motion.div>
+          </div>
         ))}
       </div>
       <div className="hidden lg:flex ml-2 w-2 h-72 border-l border-gray-300"></div>

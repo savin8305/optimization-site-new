@@ -1,14 +1,11 @@
 import React, { useState, useRef, useEffect } from "react";
-import { motion } from "framer-motion";
-import {
-  FaRegPaperPlane,
-  FaCoffee,
-  FaUtensils,
-  FaShoppingBag,
-  FaConciergeBell,
-  FaStarHalf,
-} from "react-icons/fa";
-
+import box from "../../../public/assets/stepper/box.svg";
+import box1 from "../../../public/assets/stepper/bowl.svg";
+import box2 from "../../../public/assets/stepper/popcorn.svg";
+import box3 from "../../../public/assets/stepper/spoon.svg";
+import box4 from "../../../public/assets/stepper/lid.svg";
+import box5 from "../../../public/assets/stepper/box.svg";
+import Image from "next/image";
 const Stepper: React.FC<{ onStepChange: (index: number) => void }> = ({
   onStepChange,
 }) => {
@@ -16,33 +13,30 @@ const Stepper: React.FC<{ onStepChange: (index: number) => void }> = ({
   const stepperRef = useRef<HTMLDivElement>(null);
 
   const steps = [
-    { name: "All paper Products", icon: <FaRegPaperPlane /> },
-    { name: "Paper cup machines", icon: <FaCoffee /> },
-    { name: "Paper bowl machines", icon: <FaUtensils /> },
-    { name: "Paper bag machines", icon: <FaShoppingBag /> },
-    { name: "Paper plate machines", icon: <FaConciergeBell /> },
-    { name: "Paper straw machines", icon: <FaStarHalf /> },
-    { name: "Paper wrap machines", icon: <FaRegPaperPlane /> },
-    { name: "Napkin machines", icon: <FaCoffee /> },
-    { name: "Tissue machines", icon: <FaUtensils /> },
-    { name: "new products", icon: <FaShoppingBag /> },
-    { name: "Other products", icon: <FaShoppingBag /> },
-    { name: "Paper plate machines", icon: <FaConciergeBell /> },
-    { name: "Paper straw machines", icon: <FaStarHalf /> },
-    { name: "Paper wrap machines", icon: <FaRegPaperPlane /> },
-    { name: "Napkin machines", icon: <FaCoffee /> },
-    { name: "Tissue machines", icon: <FaUtensils /> },
-    { name: "new products", icon: <FaShoppingBag /> },
-    { name: "Other products", icon: <FaShoppingBag /> },
+    { name: "All paper Products", icon: box },
+    { name: "Paper cup machines", icon: box1 },
+    { name: "Paper bowl machines", icon: box2 },
+    { name: "Paper bag machines", icon: box3 },
+    { name: "Paper plate machines", icon: box4 },
+    { name: "Paper straw machines", icon: box5 },
+    { name: "Paper wrap machines", icon: box },
+    { name: "Napkin machines", icon: box1 },
+    { name: "Tissue machines", icon: box2 },
+    { name: "new products", icon: box3 },
+    { name: "Other products", icon: box3 },
+    { name: "Paper plate machines", icon: box4 },
+    { name: "Paper straw machines", icon: box5 },
+    { name: "Paper wrap machines", icon: box },
+    { name: "Napkin machines", icon: box1 },
+    { name: "Tissue machines", icon: box2 },
+    { name: "new products", icon: box3 },
+    { name: "Other products", icon: box3 },
   ];
 
   const handleClick = (index: number) => {
     setActiveStep(index);
     onStepChange(index);
   };
-
-
-
 
   const [scrolling, setScrolling] = useState(false);
   const navRef = useRef<HTMLDivElement | null>(null);
@@ -78,28 +72,32 @@ const Stepper: React.FC<{ onStepChange: (index: number) => void }> = ({
           >
             {steps.map((step, index) => (
               <React.Fragment key={index}>
-                <motion.div
+                <div
                   className={`flex flex-col pt-1 last:pr-[6%]  first:pl-[4%] items-center justify-center relative cursor-pointer ${
                     index === activeStep ? "text-black" : "text-black"
                   }`}
                   onClick={() => handleClick(index)}
                 >
-                  <motion.div
-                    initial={{ scale: 1 }}
-                    animate={{ scale: index === activeStep ? 1 : 1 }}
-                    transition={{ type: "spring", stiffness: 300 }}
+                  <div
+                   
                     className={`relative h-8 w-8 flex items-center justify-center text-xl ${
                       index === activeStep
                         ? "bg-[#dc0e2a] text-white rounded-full shadow-lg"
                         : "p-0"
                     }`}
                   >
-                    {step.icon}
-                  </motion.div>
+                    <Image
+                      className="h-6 w-6"
+                      src={step.icon}
+                      alt={"step-icons"}
+                      height={200}
+                      width={200}
+                    />
+                  </div>
                   <span className="text-xs text-black lg:text-xs font-regular  mt-2 font-poppins text-center w-20 lg:w-20">
                     {step.name}
                   </span>
-                </motion.div>
+                </div>
                 {index < steps.length - 1 && (
                   <div className="flex items-center">
                     <div className="h-1 border-t-2 w-4 lg:w-10"></div>

@@ -1,7 +1,8 @@
 "use client";
 import React from "react";
-import { Carousel, Card } from "@/components/ui/HomeMachine-cards-carousel";
-
+import dynamic from "next/dynamic";
+const Carousel =dynamic(()=>import("@/components/ui/HomeMachine-cards-carousel"));
+const Card=dynamic(()=>import("@/components/ui/HomeMachineCard"))
 interface CardData {
   content?: React.ReactNode;
   category: string;
@@ -20,7 +21,7 @@ interface HomeMachineCarouselProps {
   filteredCardsData: CardData[];
 }
 
-export function HomeMachineCarousel({
+export default function HomeMachineCarousel({
   filteredCardsData,
 }: HomeMachineCarouselProps) {
   const cards = filteredCardsData.map((card: CardData, index: number) => (

@@ -1,4 +1,3 @@
-"use client";
 import React from "react";
 import { motion } from "framer-motion";
 import data from "../Constants/hero.json";
@@ -12,7 +11,7 @@ const Home: React.FC = () => {
     <>
       <div className="relative  h-full p-0   flex flex-col items-center overflow-hidden  w-screen">
         <div className="relative  px-4 lg:px-10 w-full flex-wrap">
-          <motion.div className="w-full flex justify-center bg-yellow-300 items-center h-[calc(100vh-100px)] lg:h-[52vh] rounded-3xl">
+          <motion.div className="w-full flex justify-center items-center h-[calc(100vh-100px)] lg:h-[52vh] rounded-3xl">
             <motion.div className="relative w-full h-full  rounded-3xl bg-center">
               <Image
                 className="object-cover w-full h-auto rounded-3xl"

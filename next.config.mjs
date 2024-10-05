@@ -6,13 +6,7 @@ const nextConfig = {
   images: {
     domains: [
       'i.pinimg.com',
-      'upload.wikimedia.org',
-      'www.ignant.com',
-      'assets.aceternity.com',
-      'images.unsplash.com',
       'www.youtube.com',
-      'piano.io',
-      'www.svgrepo.com',
       'in.pinterest.com',
       'restcountries.com',
       'assets.nesscoindustries.com',
@@ -21,6 +15,13 @@ const nextConfig = {
     ],
   },
   swcMinify: true,
+  experimental: {
+    optimizePackageImports: [
+      '@mantine/core',     // Add Mantine components
+      '@mantine/hooks',    // Add Mantine hooks
+      'lodash',            // Add Lodash for tree shaking
+    ],  // List any additional packages you'd like to optimize
+  },
 };
 
 // Initialize the bundle analyzer

@@ -1,12 +1,10 @@
-"use client";
-
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import { cn } from "../../lib/utils";
 import Image from "next/image";
 
 export const TestiNomialAnimation = ({
   items,
-  speed = "slow",
+  speed = "normal",
   pauseOnHover = true,
   className,
 }: {
@@ -22,39 +20,20 @@ export const TestiNomialAnimation = ({
   pauseOnHover?: boolean;
   className?: string;
 }) => {
-  const scrollerRefs = useRef<HTMLUListElement[]>([]);
-
-  useEffect(() => {
-    getSpeed();
-  }, []);
-
-  const getSpeed = () => {
-    scrollerRefs.current.forEach((scroller, index) => {
-      if (scroller) {
-        if (speed === "fast") {
-          scroller.style.setProperty(
-            "--animation-duration",
-            index === 1 ? "25s" : "20s"
-          );
-        } else if (speed === "normal") {
-          scroller.style.setProperty(
-            "--animation-duration",
-            index === 1 ? "35s" : "30s"
-          );
-        } else {
-          scroller.style.setProperty(
-            "--animation-duration",
-            index === 1 ? "45s" : "40s"
-          );
-        }
-      }
-    });
+  const getAnimationDuration = (index: number) => {
+    if (speed === "fast") {
+      return index === 1 ? "25s" : "20s";
+    } else if (speed === "normal") {
+      return index === 1 ? "35s" : "30s";
+    } else {
+      return index === 1 ? "45s" : "40s";
+    }
   };
 
   return (
     <div
       className={cn(
-        "relative max-w-5xl mask-gradient overflow-hidden grid grid-cols-3 gap-2 lg:gap-4", 
+        "relative max-w-5xl mask-gradient overflow-hidden grid grid-cols-3 gap-2 lg:gap-4",
         className
       )}
     >
@@ -67,18 +46,14 @@ export const TestiNomialAnimation = ({
           )}
         >
           <ul
-            ref={(el) => {
-              if (el) scrollerRefs.current[index] = el;
-            }}
             className={cn(
               "flex flex-col min-h-full shrink-0 py-4 flex-nowrap",
-              "animate-scroll-testinomial",
+              "animate-scroll-testimonial",
               pauseOnHover && "hover:[animation-play-state:paused]"
             )}
             style={{
-              animationDirection: "forwards",
-              animationName: "scrollTestinomial",
-            }}
+              '--animation-duration': getAnimationDuration(index),
+            } as React.CSSProperties}
           >
             {items.map((el, idx) => (
               <li

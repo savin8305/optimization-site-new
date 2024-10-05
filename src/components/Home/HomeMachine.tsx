@@ -1,10 +1,11 @@
 "use client";
-
 import React, { useState } from "react";
-import Stepper from "../ui/Stepper";
 import cardsData from "../Constants/hero.json"; // Assuming you have your product data in this JSON
-import { HomeMachineCarousel } from "./Common/HomeMachineCarousel";
-
+import dynamic from "next/dynamic";
+const HomeMachineCarousel = dynamic(
+  () => import("./Common/HomeMachineCarousel")
+);
+const Stepper=dynamic(()=>import("../ui/Stepper"))
 // Define the type for each card item
 type CardItem = {
   category: string;

@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, useMemo, useCallback } from "react";
 import Image from "next/image";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -17,27 +17,29 @@ const FeatureProjects: React.FC = () => {
   const borderRef = useRef<HTMLDivElement | null>(null);
   const [hoveredCardIndex, setHoveredCardIndex] = useState<number | null>(null);
 
-  const relatedProduct = data.find(
-    (item) => item.category === "homefeaturedata"
-  )?.data;
+  // Memoize relatedProduct to prevent recalculation on every render
+  const relatedProduct = useMemo(() => {
+    return data.find((item) => item.category === "homefeaturedata")?.data;
+  }, []);
 
-  const scrollLeft = () => {
+  // Memoized scroll functions to avoid re-creation on every render
+  const scrollLeft = useCallback(() => {
     if (carouselRef.current) {
       carouselRef.current.scrollBy({
         left: -carouselRef.current.offsetWidth,
         behavior: "smooth",
       });
     }
-  };
+  }, []);
 
-  const scrollRight = () => {
+  const scrollRight = useCallback(() => {
     if (carouselRef.current) {
       carouselRef.current.scrollBy({
         left: carouselRef.current.offsetWidth,
         behavior: "smooth",
       });
     }
-  };
+  }, []);
 
   useEffect(() => {
     if (borderRef.current) {
@@ -69,11 +71,11 @@ const FeatureProjects: React.FC = () => {
         {/* Left Section with Title and Buttons */}
         <div className="flex w-[20%] pt-2 flex-col relative items-center">
           <div className="lg:text-2xl text-center text-[1.8rem]">
-            <h2 className="lg:text-2xl text-center  text-[1.8rem] bg-gradient-to-r from-[#483d73] to-red-700  bg-clip-text text-transparent font-medium">
+            <h2 className="lg:text-2xl text-center  text-[1.8rem] bg-gradient-to-r from-[#483d73] to-red-700 bg-clip-text text-transparent font-medium">
               {relatedProduct?.title?.trim().replace(/\s+\S+$/, "") ||
                 "Default Title"}
             </h2>
-            <h2 className="lg:text-2xl text-center  text-[1.8rem] bg-gradient-to-r from-[#483d73] to-red-700  bg-clip-text text-transparent font-semibold">
+            <h2 className="lg:text-2xl text-center  text-[1.8rem] bg-gradient-to-r from-[#483d73] to-red-700 bg-clip-text text-transparent font-semibold">
               {relatedProduct?.title?.trim().match(/\S+$/) ||
                 "Default Subtitle"}
             </h2>
@@ -169,4 +171,4 @@ const FeatureProjects: React.FC = () => {
   );
 };
 
-export default FeatureProjects;
+export default React.memo(FeatureProjects);

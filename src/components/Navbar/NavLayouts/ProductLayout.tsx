@@ -3,7 +3,6 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { motion } from "framer-motion";
 import {
   MdKeyboardArrowRight,
   MdKeyboardArrowLeft,
@@ -20,7 +19,6 @@ interface Machine {
   mimage: string; // Added this field based on the error message
   category: string; // Changed this from string[] to string
 }
-
 
 interface Link {
   name: string;
@@ -138,15 +136,8 @@ const ProductLayout: React.FC<ProductLayoutProps> = ({
   };
 
   const renderMachineItem = useCallback(
-    (machine: Machine, index: number) => (
-      <motion.div
-        key={`${machine.name}-${index}`}
-        className="text-center relative w-1/3 p-2"
-        custom={index}
-        initial="hidden"
-        animate="visible"
-        variants={imageVariants}
-      >
+    (machine: Machine) => (
+      <div className="text-center relative w-1/3 p-2">
         <a href={`/${countryCode}/products/${machine.name}`}>
           <Image
             src={machine.image}
@@ -154,6 +145,7 @@ const ProductLayout: React.FC<ProductLayoutProps> = ({
             className="object-contain lg:hover:scale-80 transform transition-transform duration-200 rounded-3xl relative z-10 h-32 w-[80%]"
             width={200}
             height={150}
+            loading="lazy"
           />
           <h3
             className={`${
@@ -165,19 +157,15 @@ const ProductLayout: React.FC<ProductLayoutProps> = ({
             {machine.name}
           </h3>
         </a>
-      </motion.div>
+      </div>
     ),
     [countryCode, imageVariants]
   );
 
   const renderSidebarItem = useCallback(
-    (link: Link, index: number) => (
-      <motion.div
+    (link: Link) => (
+      <div
         key={link.name}
-        custom={index}
-        initial="hidden"
-        animate="visible"
-        variants={sidebarVariants}
         onMouseEnter={() => {
           setHoveredCategory(link.name);
           setCurrentIndex(0);
@@ -205,7 +193,7 @@ const ProductLayout: React.FC<ProductLayoutProps> = ({
           </div>
           <p className="w-60">{link.name}</p>
         </a>
-      </motion.div>
+      </div>
     ),
     [countryCode, handleCategoryClick, hoveredCategory, sidebarVariants]
   );
@@ -248,9 +236,7 @@ const ProductLayout: React.FC<ProductLayoutProps> = ({
                   : "opacity-100"
               }`}
               style={{ top: "50%", transform: "translateY(-50%)" }}
-              disabled={
-                currentIndex + totalVisible >= filteredMachines.length
-              }
+              disabled={currentIndex + totalVisible >= filteredMachines.length}
             >
               <MdKeyboardArrowRight />
             </button>
@@ -296,15 +282,8 @@ const ProductLayout: React.FC<ProductLayoutProps> = ({
                 {navRightData
                   .slice(sidebarIndex, navRightData.length)
                   .map((link, index) => (
-                    <motion.div
+                    <div
                       key={index}
-                      initial={{
-                        height: expandedItem === link.name ? "auto" : "3rem",
-                      }}
-                      animate={{
-                        height: expandedItem === link.name ? "auto" : "3rem",
-                      }}
-                      transition={{ duration: 0 }}
                       onClick={() => handleCategoryClick(link.name, link.name)}
                       className="flex flex-col border-b-[1px] justify-between text-lg transition-colors duration-300 cursor-pointer font-poppins text-[#483d78] font-semimedium overflow-hidden"
                     >
@@ -339,24 +318,15 @@ const ProductLayout: React.FC<ProductLayoutProps> = ({
                       </div>
 
                       {expandedItem === link.name && (
-                        <motion.div
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          transition={{ duration: 0.3 }}
-                          className="inset-0 w-full bg-white h-full z-50 flex flex-col overflow-hidden"
-                        >
+                        <div className="inset-0 w-full bg-white h-full z-50 flex flex-col overflow-hidden">
                           <div className="py-4 px-2 h-full flex-grow overflow-y-auto">
                             <div className="text-sm text-gray-700">
                               <div className="grid h-[22rem] border-t-[1px] grid-cols-2 py-4 gap-4 w-full">
                                 {filteredMachines.length <= mobileVisibleItems
                                   ? filteredMachines.map((machine, index) => (
-                                      <motion.div
+                                      <div
                                         key={`${machine.name}-${index}`}
                                         className="text-center h-40 rounded-2xl border-2 p-2"
-                                        custom={index}
-                                        initial="hidden"
-                                        animate="visible"
-                                        variants={imageVariants}
                                       >
                                         <Image
                                           src={machine.image}
@@ -368,7 +338,7 @@ const ProductLayout: React.FC<ProductLayoutProps> = ({
                                         <h3 className="text-sm invert-0 mt-2 w-full font-bold">
                                           {machine.name}
                                         </h3>
-                                      </motion.div>
+                                      </div>
                                     ))
                                   : filteredMachines
                                       .slice(
@@ -376,13 +346,9 @@ const ProductLayout: React.FC<ProductLayoutProps> = ({
                                         currentIndex + mobileVisibleItems
                                       )
                                       .map((machine, index) => (
-                                        <motion.div
+                                        <div
                                           key={`${machine.name}-${index}`}
                                           className="text-center h-40 rounded-xl p-2 border-2"
-                                          custom={index}
-                                          initial="hidden"
-                                          animate="visible"
-                                          variants={imageVariants}
                                         >
                                           <BlurImage
                                             src={machine.image}
@@ -395,7 +361,7 @@ const ProductLayout: React.FC<ProductLayoutProps> = ({
                                           <h2 className="text-sm invert-0 font-bold mt-2">
                                             {machine.name}
                                           </h2>
-                                        </motion.div>
+                                        </div>
                                       ))}
                               </div>
                               <div className="relative w-full space-x-4 flex z-30 h-[5%] justify-center items-center">
@@ -433,9 +399,9 @@ const ProductLayout: React.FC<ProductLayoutProps> = ({
                               </div>
                             </div>
                           </div>
-                        </motion.div>
+                        </div>
                       )}
-                    </motion.div>
+                    </div>
                   ))}
               </div>
             </div>

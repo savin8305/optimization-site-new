@@ -4,8 +4,8 @@ import { StaticImageData } from "next/image";
 import { motion } from "framer-motion";
 import { Item } from "../../type"; // Adjust the path according to your file structure
 import Breadcrumb from "./Breadcrumb";
-import PositionAwareButton from "./PositionAwareButton";
-
+import dynamic from "next/dynamic";
+const PositionAwareButton =dynamic(()=>import("./PositionAwareButton"))
 interface ModalProps {
   image: StaticImageData;
   title?: string; // Optional
