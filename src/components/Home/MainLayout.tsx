@@ -3,15 +3,15 @@ import React, { useRef, useState, useEffect } from "react";
 import dynamic from "next/dynamic";
 import Hero from "@/components/Home/Home";
 import NavLinksDemo from "@/components/Home/NavLinks";
-import ContactIcons from "@/components/Contact/ContactIcon";
+// import ContactIcons from "@/components/Contact/ContactIcon";
 import FeatureNews from "@/components/Home/FeatureNews";
-import { AnnouncementSection } from "@/components/Home/AnnouncementSection";
 import data from "../Constants/hero.json";
-
+const AnnouncementSection=dynamic(()=>import("@/components/Home/AnnouncementSection"))
 // Dynamically import components for better client-side loading
 const AboutUs = dynamic(() => import("@/components/Home/AboutSection"), {
   ssr: false,
 });
+const ContactIcons=dynamic(()=>import("@/components/Contact/ContactIcon"))
 const MarqueeSection = dynamic(
   () => import("@/components/Home/MarqueeSection"),
   { ssr: true }

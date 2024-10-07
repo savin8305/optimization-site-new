@@ -1,7 +1,6 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 import { motion } from "framer-motion";
 import data from "../Constants/hero.json";
 const ImageSlider: React.FC = () => {
@@ -44,7 +43,6 @@ const ImageSlider: React.FC = () => {
         className="hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] left-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer"
         onClick={prevSlide}
       >
-        <ChevronLeft size={30} />
       </div>
 
       {/* Right arrow for next slide */}
@@ -52,7 +50,6 @@ const ImageSlider: React.FC = () => {
         className="hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] right-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer"
         onClick={nextSlide}
       >
-        <ChevronRight size={30} />
       </div>
 
       {/* Indicators to show current slide */}

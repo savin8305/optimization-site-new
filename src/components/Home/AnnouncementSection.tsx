@@ -3,7 +3,7 @@ import React from "react";
 import { Carousel, Card } from "./Common/AnnouncementCarousel";
 import drupa from "../../../public/assets/Announcement/drupa.png";
 
-export function AnnouncementSection() {
+function AnnouncementSection() {
   const cards = data.map((card, index) => (
     <Card
       key={index} // Using index as the key
@@ -59,3 +59,4 @@ const data = [
     src: drupa,
   },
 ];
+export default AnnouncementSection;

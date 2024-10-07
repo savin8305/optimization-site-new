@@ -4,7 +4,6 @@ import { useEffect, useRef, useMemo } from "react";
 import Lenis from "@studio-freight/lenis";
 import data from "../Constants/hero.json";
 import dynamic from "next/dynamic";
-
 const KnowMoreCard = dynamic(() => import("./Common/KnowMoreCard"));
 
 export default function KnowMore() {

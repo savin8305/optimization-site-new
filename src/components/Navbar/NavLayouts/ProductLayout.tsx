@@ -3,14 +3,8 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import {
-  MdKeyboardArrowRight,
-  MdKeyboardArrowLeft,
-  MdKeyboardArrowDown,
-  MdKeyboardArrowUp,
-} from "react-icons/md";
-import { FaArrowRightLong, FaArrowLeftLong } from "react-icons/fa6";
-import { BlurImage } from "../../ui/BlurImage";
+
+import BlurImage from "../../ui/BlurImage";
 import data from "../../Constants/Navbar/index.json";
 
 interface Machine {
@@ -215,7 +209,6 @@ const ProductLayout: React.FC<ProductLayoutProps> = ({
               style={{ top: "50%", transform: "translateY(-50%)" }}
               disabled={currentIndex === 0}
             >
-              <MdKeyboardArrowLeft />
             </button>
           )}
 
@@ -238,7 +231,6 @@ const ProductLayout: React.FC<ProductLayoutProps> = ({
               style={{ top: "50%", transform: "translateY(-50%)" }}
               disabled={currentIndex + totalVisible >= filteredMachines.length}
             >
-              <MdKeyboardArrowRight />
             </button>
           )}
         </div>
@@ -250,7 +242,7 @@ const ProductLayout: React.FC<ProductLayoutProps> = ({
                 style={{ width: "40px", height: "40px" }}
                 onClick={handleSidebarPrev}
               >
-                <MdKeyboardArrowUp />
+                
               </button>
             )}
 
@@ -266,7 +258,6 @@ const ProductLayout: React.FC<ProductLayoutProps> = ({
                 style={{ width: "40px", height: "40px" }}
                 onClick={handleSidebarNext}
               >
-                <MdKeyboardArrowDown />
               </button>
             )}
           </div>
@@ -377,7 +368,6 @@ const ProductLayout: React.FC<ProductLayoutProps> = ({
                                       }`}
                                       disabled={currentIndex === 0}
                                     >
-                                      <FaArrowLeftLong />
                                     </button>
                                     <button
                                       onClick={handleNext}
@@ -392,7 +382,6 @@ const ProductLayout: React.FC<ProductLayoutProps> = ({
                                         filteredMachines.length
                                       }
                                     >
-                                      <FaArrowRightLong />
                                     </button>
                                   </>
                                 )}

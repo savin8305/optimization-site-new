@@ -2,7 +2,6 @@
 
 import React, { useEffect, useState, createContext, useCallback, useMemo } from "react";
 import { cn } from "@/lib/utils";
-import { ArrowLeft, ArrowRight } from "lucide-react";
 
 interface CarouselProps {
   items: JSX.Element[];
@@ -123,14 +122,12 @@ const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
             onClick={scrollLeft}
             disabled={!canScrollLeft}
           >
-            <ArrowLeft className="h-6 w-6 text-gray-500" />
           </button>
           <button
             className="relative z-20 h-10 w-10 rounded-full bg-gray-100 flex items-center justify-center disabled:opacity-50"
             onClick={scrollRight}
             disabled={!canScrollRight}
           >
-            <ArrowRight className="h-6 w-6 text-gray-500" />
           </button>
         </div>
       )}

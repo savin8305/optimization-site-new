@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from "react";
-import { FaArrowLeft, FaArrowRight, FaPhone } from "react-icons/fa";
 import bgPick from "../../../../public/assets/nav_support/BgMapImage.png";
 import data from "../../Constants/Navbar/index.json";
 import Link from "next/link";
@@ -79,7 +78,6 @@ const SupportGrid: React.FC<SupportGridProps> = () => {
           onClick={scrollLeft}
           disabled={!canScrollLeft}
         >
-          <FaArrowLeft className="text-xl text-gray-500" />
         </button>
       )}
       <div
@@ -111,7 +109,6 @@ const SupportGrid: React.FC<SupportGridProps> = () => {
           onClick={scrollRight}
           disabled={!canScrollRight}
         >
-          <FaArrowRight className="text-xl text-gray-500" />
         </button>
       )}
       {/* mobile view */}
@@ -151,14 +148,12 @@ const SupportGrid: React.FC<SupportGridProps> = () => {
               onClick={scrollLeft}
               disabled={!canScrollLeft}
             >
-              <FaArrowLeft className="text-xl text-gray-500" />
             </button>
             <button
               className="h-12 w-12 rounded-full flex items-start justify-center disabled:opacity-50"
               onClick={scrollRight}
               disabled={!canScrollRight}
             >
-              <FaArrowRight className="text-xl text-gray-500" />
             </button>
           </div>
         )}
@@ -178,7 +173,6 @@ const SupportGrid: React.FC<SupportGridProps> = () => {
                 padding: "5px 10px",
               }}
             >
-              <FaPhone />
               {mobileItem.mobileFirst}
             </p>
             <div className="w-1 h-20 border-l-2"></div>
@@ -193,7 +187,6 @@ const SupportGrid: React.FC<SupportGridProps> = () => {
                 padding: "5px 10px",
               }}
             >
-              <FaPhone />
               {mobileItem.mobileSecond}
             </p>
           </div>

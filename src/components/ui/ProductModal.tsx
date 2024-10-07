@@ -1,7 +1,5 @@
-import { FaCircleNotch } from "react-icons/fa";
-import { BlurImage } from "./BlurImage";
+import BlurImage from "./BlurImage";
 import Breadcrumb from "./Breadcrumb";
-import { ArrowRightIcon } from "lucide-react";
 import { Button } from "./button";
 
 interface ProductModalProps {
@@ -54,7 +52,6 @@ const ProductModal: React.FC<ProductModalProps> = ({
                           View All
                         </span>
                         <span className="ml-2 bg-white rounded-full p-1 transition-colors duration-200 group-hover:bg-black">
-                          <ArrowRightIcon className="h-5 w-5 text-primary transition-colors duration-200 group-hover:text-white" />
                         </span>
                       </Button>
                     </div>
@@ -72,7 +69,6 @@ const ProductModal: React.FC<ProductModalProps> = ({
                 <ul className="list-none grid grid-cols-2 gap-4 text-gray-700">
                   {items.map((item, index) => (
                     <li key={index} className="flex items-center space-x-2">
-                      <FaCircleNotch className={item.className} />
                       <span className="text-sm font-regular">{item.text}</span>
                     </li>
                   ))}

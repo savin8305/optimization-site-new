@@ -1,54 +1,67 @@
 "use client"
-import React, { useEffect, useRef } from 'react';
-import gsap from 'gsap';
+
+import React, { useEffect, useRef, useState } from 'react';
 
 interface AnimatedTextProps {
   text: string;
-  className?: string; // Optional prop for custom text classes
-  blockClassName?: string; // Optional prop for custom block classes (background color, etc.)
+  className?: string;
+  blockClassName?: string;
+  animationDuration?: number;
 }
 
-const AnimatedText: React.FC<AnimatedTextProps> = ({ text, className, blockClassName }) => {
+const AnimatedText: React.FC<AnimatedTextProps> = ({
+  text,
+  className = 'text-base font-regular',
+  blockClassName = 'bg-white h-full',
+  animationDuration = 700
+}) => {
   const containerRef = useRef<HTMLDivElement>(null);
+  const blockRef = useRef<HTMLSpanElement>(null);
+  const [hasAnimated, setHasAnimated] = useState(false);
 
   useEffect(() => {
     const container = containerRef.current;
+    const block = blockRef.current;
 
-    if (!container) return;
+    if (!container || !block) {
+      console.error('Container or block element not found');
+      return;
+    }
 
     const handleAnimation = () => {
-      const block = container.querySelector('.block');
+      if (hasAnimated) return;
 
-      if (block) {
-        // Reset the block's initial state
-        gsap.set(block, { width: '0%', left: '0%' });
+      const slideInDuration = animationDuration * 0.57; // 57% of total duration
+      const slideOutDuration = animationDuration * 0.43; // 43% of total duration
 
-        const tl = gsap.timeline();
+      // Reset the block's initial state
+      block.style.transition = 'none';
+      block.style.width = '0%';
+      block.style.left = '0%';
 
-        // Animate the block sliding over the text at a faster speed
-        tl.fromTo(
-          block,
-          { width: '0%' },
-          {
-            width: '100%',
-            duration: 0.4, // Faster duration
-            ease: 'cubic-bezier(0.74, 0.06, 0.4, 0.92)',
-          }
-        ).to(block, {
-          width: '0%',
-          left: '100%',
-          duration: 0.3, // Faster duration
-          ease: 'power2.out',
-        });
-      }
+      // Force a reflow to ensure the initial state is applied
+      block.offsetWidth;
+
+      // Animate the block sliding over the text
+      block.style.transition = `width ${slideInDuration}ms cubic-bezier(0.74, 0.06, 0.4, 0.92), left ${slideOutDuration}ms cubic-bezier(0.25, 0.46, 0.45, 0.94)`;
+      block.style.width = '100%';
+
+      // Use setTimeout to delay the second part of the animation
+      setTimeout(() => {
+        block.style.width = '0%';
+        block.style.left = '100%';
+      }, slideInDuration);
+
+      // Mark animation as completed
+      setHasAnimated(true);
     };
 
     // IntersectionObserver to detect when the element enters the viewport
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            handleAnimation(); // Trigger animation each time element enters the viewport
+          if (entry.isIntersecting && !hasAnimated) {
+            handleAnimation();
           }
         });
       },
@@ -59,17 +72,19 @@ const AnimatedText: React.FC<AnimatedTextProps> = ({ text, className, blockClass
 
     // Clean up on component unmount
     return () => {
-      observer.disconnect(); // Ensure observer is disconnected when component unmounts
+      observer.disconnect();
     };
-  }, []);
+  }, [animationDuration, hasAnimated]);
 
   return (
-    <div ref={containerRef} className="relative flex flex-col justify-center w-auto">
+    <div ref={containerRef} className="relative flex flex-col justify-center w-auto overflow-hidden">
       <div className="relative flex items-center justify-center w-full h-auto">
-        {/* The animated block with customizable background class */}
-        <span className={`block absolute ${blockClassName ? blockClassName : 'bg-white h-full'}`}></span>
-        {/* The heading text with customizable class */}
-        <h2 className={`${className ? className : 'text-base font-regular'}`}>
+        <span 
+          ref={blockRef}
+          className={`block absolute ${blockClassName}`}
+          style={{ pointerEvents: 'none' }}
+        ></span>
+        <h2 className={className}>
           {text}
         </h2>
       </div>

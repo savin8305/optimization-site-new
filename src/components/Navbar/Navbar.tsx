@@ -4,10 +4,7 @@ import { navbarItems } from "@/components/Constants/Navbar/navbarData";
 import Image from "next/image";
 import Link from "next/link";
 import { Menu, MenuItem } from "./nav-menue";
-import { HiMiniMinusCircle } from "react-icons/hi2";
-import { VscAccount } from "react-icons/vsc";
-import { TfiSearch } from "react-icons/tfi";
-import { IoClose } from "react-icons/io5";
+
 import ContactForm from "../Contact/Contact";
 import { usePathname } from "next/navigation";
 import CountryLayout from "./NavLayouts/CountryLayout";
@@ -35,7 +32,6 @@ function Navbar({ className }: { className?: string }) {
     setExpandedItem(expandedItem === item ? null : item);
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) =>
     setSearchValue(e.target.value);
-  const handleClearSearch = () => setSearchValue("");
   return (
     <div
       className={`fixed flex w-full ${
@@ -169,7 +165,6 @@ function Navbar({ className }: { className?: string }) {
                           className=" invert-0 p-4"
                           onClick={() => expandItem(item.name)}
                         >
-                          <HiMiniMinusCircle className="text-2xl" />
                         </button>
                       </div>
                       <div className="py-4 flex-grow">
@@ -196,14 +191,7 @@ function Navbar({ className }: { className?: string }) {
                             placeholder="Search Product Name..."
                             required
                           />
-                          {searchValue ? (
-                            <IoClose
-                              onClick={handleClearSearch}
-                              className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 cursor-pointer text-18"
-                            />
-                          ) : (
-                            <TfiSearch className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 cursor-pointer text-18" />
-                          )}
+                         
                         </div>
                       </form>
                     </div>
@@ -213,7 +201,6 @@ function Navbar({ className }: { className?: string }) {
                       <CountryLayout />
                     </div>
                     <div className="relative ">
-                      <VscAccount className="text-xl cursor-pointer" />
                     </div>
                   </div>
                 </div>

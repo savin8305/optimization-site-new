@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { FaCirclePlus } from "react-icons/fa6";
 import data from "../Constants/hero.json"
 export default function FeatureNews() {
   const newsfData=data.find((item)=>item.category==="newsFeature")?.data;
@@ -29,7 +28,6 @@ export default function FeatureNews() {
             {/* Icon positioned absolutely over the image */}
             <div className="relative h-[80%] lg:h-[80%]">
               <div className="float-right h-[15%] flex items-center">
-                <FaCirclePlus className="text-xl text-black" />
               </div>
               <Image
                 src={newsfData?.newsData[0].image}
@@ -56,7 +54,6 @@ export default function FeatureNews() {
                 </p>
               </div>
               <div className="absolute bottom-2 right-1/3 mr-4">
-                <FaCirclePlus className="rounded-full text-xl bg-white text-black" />
               </div>
               <Image
                 src={news.image}

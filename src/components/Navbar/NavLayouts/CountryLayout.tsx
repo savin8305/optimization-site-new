@@ -2,7 +2,6 @@
 "use client";
 import Image from "next/image";
 import React, { useState, useEffect, useRef } from "react";
-import { FiSearch } from "react-icons/fi";
 import { useRouter, usePathname } from "next/navigation";
 import lookup from "country-code-lookup";
 
@@ -314,7 +313,6 @@ const CountryLayout: React.FC = () => {
         >
           <div className="relative p-4">
             <div className="absolute inset-y-0 right-6 flex items-center pointer-events-none">
-              <FiSearch className="invert-0" />
             </div>
             <input
               type="text"

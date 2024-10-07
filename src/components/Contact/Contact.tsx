@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { usePathname } from "next/navigation";
-import { IoClose } from "react-icons/io5"; // Import the close icon
 import Link from "next/link";
 import dynamic from "next/dynamic";
 const SignupFormDemo=dynamic(()=>import("./SignupFormDemo"))
@@ -116,7 +115,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
                 aria-label="Close contact form"
                 className="text-gray-600 hover:text-gray-800"
               >
-                <IoClose size={24} />
+                X
               </button>
             </div>
 

@@ -1,8 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
-import { MdPlayCircleOutline } from "react-icons/md";
-import { IoIosArrowForward } from "react-icons/io";
+
 import data from "../../Constants/Navbar/index.json";
 import Link from "next/link";
 
@@ -86,7 +84,6 @@ const VideoGrid: React.FC = ({}) => {
                     height={96}
                     className="object-cover h-full w-full rounded-xl"
                   />
-                  <MdPlayCircleOutline className="absolute top-2  right-2 text-3xl text-white" />
                 </div>
               </div>
               <p className="relative font-poppins text-center mt-4 invert-0 font-normal hover:text-[#483d78] hover:font-semibold text-base">
@@ -124,7 +121,6 @@ const VideoGrid: React.FC = ({}) => {
                         height={96}
                         className="object-contain h-16 w-32"
                       />
-                      <MdPlayCircleOutline className="absolute top-0 right-0 text-3xl text-gray-200" />
                     </div>
                     <p className="relative font-poppins text-center mt-4 invert-0 font-medium hover:text-[#483d78] hover:font-bold text-16">
                       {item.title}
@@ -143,14 +139,12 @@ const VideoGrid: React.FC = ({}) => {
               onClick={scrollLeft}
               disabled={!canScrollLeft}
             >
-              <FaArrowLeft className="text-xl text-gray-500" />
             </button>
             <button
               className="h-12 w-12 rounded-full flex items-start justify-center disabled:opacity-50"
               onClick={scrollRight}
               disabled={!canScrollRight}
             >
-              <FaArrowRight className="text-xl text-gray-500" />
             </button>
           </div>
         )}
@@ -174,7 +168,6 @@ const VideoGrid: React.FC = ({}) => {
                     </div>
                     <p className="text-base">{item.title}</p>
                   </div>
-                  <IoIosArrowForward className="text-2xl" />
                 </Link>
               </div>
             ))}

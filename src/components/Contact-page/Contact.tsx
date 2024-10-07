@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { IoIosArrowForward } from "react-icons/io";
 import styles from "./contact.module.css";
 import { contactContent } from "../Constants/contact/Contact";
 
@@ -190,10 +189,7 @@ const ContactForm: React.FC = () => {
               >
                 <p>{contactContent.form.buttonText}</p>
 
-                <IoIosArrowForward
-                  className="ml-2 text-[#300675] bg-white rounded-full p-1 "
-                  style={{ fontSize: "1.4rem" }}
-                />
+               
               </button>
             </form>
           </div>

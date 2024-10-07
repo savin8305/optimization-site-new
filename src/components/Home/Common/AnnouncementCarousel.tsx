@@ -1,6 +1,5 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
-import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
 import Image, { StaticImageData } from "next/image";
 
 interface CarouselProps {
@@ -68,7 +67,6 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
             aria-label="scrollLeft"
             disabled={!canScrollLeft}
           >
-            <FaArrowLeft className="text-xl lg:text-2xl text-gray-500" />
           </button>
           <button
             className="relative z-20 h-12 w-12 lg:h-14 lg:w-24 rounded-full flex items-center justify-center disabled:opacity-50"
@@ -76,7 +74,6 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
             disabled={!canScrollRight}
             aria-label="scrollRight"
           >
-            <FaArrowRight className="text-xl lg:text-2xl text-gray-500" />
           </button>
         </div>
       </div>

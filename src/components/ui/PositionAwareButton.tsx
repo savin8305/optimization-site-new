@@ -1,6 +1,5 @@
 import React, { useRef, useState } from "react";
 import Link from "next/link";
-import { IoIosArrowDropright } from "react-icons/io";
 import styles from "./PositionAwareButton.module.css";
 
 interface PositionAwareButtonProps {
@@ -34,9 +33,7 @@ interface PositionAwareButtonProps {
 
 const PositionAwareButton: React.FC<PositionAwareButtonProps> = ({
   text,
-  icon = false,
   textColor = "#000",
-  iconColor = "#000",
   bgColor = "transparent",
   hoveredTextColor = "#fff",
   width = "170px",
@@ -51,14 +48,6 @@ const PositionAwareButton: React.FC<PositionAwareButtonProps> = ({
   boxShadow = "none",
   hoverBoxShadow = "0 4px 15px rgba(0, 0, 0, 0.2)",
   transitionDuration = "0.3s",
-
-  // Icon-specific props
-  iconSize = "32px",
-  iconMargin = "0 0 0 10px",
-  iconPadding = "0",
-  iconBorderRadius = "100%",
-  iconBoxShadow = "none",
-  iconHoverBoxShadow = "0 4px 10px rgba(0, 0, 0, 0.1)",
 }) => {
   const buttonRef = useRef<HTMLAnchorElement>(null);
   const [isHovered, setIsHovered] = useState(false);
@@ -115,21 +104,7 @@ const PositionAwareButton: React.FC<PositionAwareButtonProps> = ({
       }}
     >
       {text}
-      {icon && (
-        <IoIosArrowDropright
-          className={styles.icon}
-          style={{
-            color: iconColor,
-            backgroundColor: isHovered ? "white" : "transparent",
-            borderRadius: iconBorderRadius,
-            margin: iconMargin,
-            padding: iconPadding,
-            fontSize: iconSize,
-            boxShadow: isHovered ? iconHoverBoxShadow : iconBoxShadow,
-            transition: `all ${transitionDuration} ease-in-out`,
-          }}
-        />
-      )}
+      
       <span></span>
     </Link>
   );

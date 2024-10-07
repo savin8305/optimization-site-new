@@ -1,6 +1,5 @@
 "use client";
 import React, { useRef, useEffect, useState, useCallback } from "react";
-import dynamic from "next/dynamic";
 import Image from "next/image";
 import AnimatedContainer from "@/hooks/AnimatedContainer";
 import data from "../../Constants/Navbar/index.json";
@@ -23,12 +22,7 @@ interface AboutData {
   };
 }
 
-const IoIosArrowDown = dynamic(() =>
-  import("react-icons/io").then((mod) => mod.IoIosArrowDown)
-);
-const IoIosArrowUp = dynamic(() =>
-  import("react-icons/io").then((mod) => mod.IoIosArrowUp)
-);
+
 
 const AboutLayout: React.FC<AboutData> = () => {
   const carouselRef = useRef<HTMLDivElement | null>(null);
@@ -143,7 +137,6 @@ const AboutLayout: React.FC<AboutData> = () => {
               onClick={scrollUp}
               className="absolute text-3xl invert-0 lg:top-[5%] top-[55%] rounded-full"
             >
-              <IoIosArrowUp />
             </button>
           )}
         </div>
@@ -153,7 +146,6 @@ const AboutLayout: React.FC<AboutData> = () => {
               onClick={scrollDown}
               className="absolute bg-transparent invert-0 flex justify-center items-center"
             >
-              <IoIosArrowDown />
             </button>
           )}
         </div>

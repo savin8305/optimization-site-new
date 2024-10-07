@@ -1,26 +1,20 @@
-"use client";
-import React, { useEffect, useRef, useState, useMemo, useCallback } from "react";
-import Image from "next/image";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import {
-  IoIosArrowDropleftCircle,
-  IoIosArrowDroprightCircle,
-} from "react-icons/io";
-import { FaArrowCircleRight } from "react-icons/fa";
-import data from "../Constants/hero.json"; // Assuming this holds the 'homefeaturedata'
+"use client"
 
-gsap.registerPlugin(ScrollTrigger);
+import React, { useEffect, useRef, useState, useMemo, useCallback } from "react"
+import Image from "next/image"
+
+import data from "../Constants/hero.json" // Assuming this holds the 'homefeaturedata'
 
 const FeatureProjects: React.FC = () => {
-  const carouselRef = useRef<HTMLDivElement | null>(null);
-  const borderRef = useRef<HTMLDivElement | null>(null);
-  const [hoveredCardIndex, setHoveredCardIndex] = useState<number | null>(null);
+  const carouselRef = useRef<HTMLDivElement | null>(null)
+  const borderRef = useRef<HTMLDivElement | null>(null)
+  const [hoveredCardIndex, setHoveredCardIndex] = useState<number | null>(null)
+  const [borderWidth, setBorderWidth] = useState("10%")
 
   // Memoize relatedProduct to prevent recalculation on every render
   const relatedProduct = useMemo(() => {
-    return data.find((item) => item.category === "homefeaturedata")?.data;
-  }, []);
+    return data.find((item) => item.category === "homefeaturedata")?.data
+  }, [])
 
   // Memoized scroll functions to avoid re-creation on every render
   const scrollLeft = useCallback(() => {
@@ -28,43 +22,44 @@ const FeatureProjects: React.FC = () => {
       carouselRef.current.scrollBy({
         left: -carouselRef.current.offsetWidth,
         behavior: "smooth",
-      });
+      })
     }
-  }, []);
+  }, [])
 
   const scrollRight = useCallback(() => {
     if (carouselRef.current) {
       carouselRef.current.scrollBy({
         left: carouselRef.current.offsetWidth,
         behavior: "smooth",
-      });
+      })
     }
-  }, []);
+  }, [])
 
   useEffect(() => {
-    if (borderRef.current) {
-      gsap.fromTo(
-        borderRef.current,
-        { width: "10%" },
-        {
-          width: "95%",
-          ease: "none",
-          scrollTrigger: {
-            trigger: carouselRef.current,
-            start: "-80% 80%",
-            end: "70% 85%",
-            scrub: true,
-          },
+    const handleScroll = () => {
+      if (carouselRef.current) {
+        const scrollPosition = window.scrollY
+        const triggerStart = carouselRef.current.offsetTop - window.innerHeight * 0.8
+        const triggerEnd = carouselRef.current.offsetTop + carouselRef.current.offsetHeight * 0.7
+
+        if (scrollPosition >= triggerStart && scrollPosition <= triggerEnd) {
+          const progress = (scrollPosition - triggerStart) / (triggerEnd - triggerStart)
+          const newWidth = 10 + progress * 85
+          setBorderWidth(`${Math.min(95, Math.max(10, newWidth))}%`)
         }
-      );
+      }
     }
-  }, []);
+
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
 
   return (
     <div className="w-full h-[35vh] px-10 font-poppins max-w-screen-2xl mx-auto">
       <div
         ref={borderRef}
-        className="border-t-[0.1rem] border-solid border-[#f2f2f2] w-[10%] lg:mx-[2rem] mx-[1rem]"
+        className="border-t-[0.1rem] border-solid border-[#f2f2f2] lg:mx-[2rem] mx-[1rem] transition-all duration-300 ease-linear"
+        style={{ width: borderWidth }}
       />
 
       <div className="flex flex-row rounded-2xl lg:my-[1vh] bg-white p-2">
@@ -89,14 +84,14 @@ const FeatureProjects: React.FC = () => {
               onClick={scrollLeft}
               aria-label="Scroll Left"
             >
-              <IoIosArrowDropleftCircle />
+              &#8592;
             </button>
             <button
               className="text-[#cccaca] absolute right-16 bottom-2 lg:text-[1.5rem] text-[1.8rem] hover:text-black"
               onClick={scrollRight}
               aria-label="Scroll Right"
             >
-              <IoIosArrowDroprightCircle />
+              &#8594;
             </button>
           </div>
         </div>
@@ -158,7 +153,6 @@ const FeatureProjects: React.FC = () => {
                       <button className="text-[0.6rem] font-medium mr-1">
                         View Machine
                       </button>
-                      <FaArrowCircleRight className="text-xs" />
                     </div>
                   )}
                 </div>
@@ -168,7 +162,7 @@ const FeatureProjects: React.FC = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default React.memo(FeatureProjects);
+export default React.memo(FeatureProjects)

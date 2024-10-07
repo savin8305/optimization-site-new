@@ -1,8 +1,5 @@
 import React from "react";
-import { FaPhoneAlt } from "react-icons/fa";
-import { IoIosMail } from "react-icons/io";
-import { BsMessenger } from "react-icons/bs";
-import { IoChatboxEllipsesOutline } from "react-icons/io5";
+
 
 const ContactIcons = () => {
   return (
@@ -14,35 +11,35 @@ const ContactIcons = () => {
           href="sms:+123456789"
           className="flex items-center justify-center h-8 w-10 text-black hover:bg-opacity-90 transition duration-300 pb-2 border-b border-gray-300"
         >
-          <FaPhoneAlt className="h-6 w-6" />
+          phone
         </a>
         <a
           aria-label="message"
           href="mailto:info@example.com"
           className="flex items-center justify-center h-8 w-10 text-black hover:bg-opacity-90 transition duration-300 pb-2 border-b border-gray-300"
         >
-          <BsMessenger className="h-8 w-8 font-extrabold" />
+          message
         </a>
         <a
           aria-label="newmessage"
           href="mailto:info@example.com"
           className="flex items-center justify-center h-8 w-10 text-black hover:bg-opacity-90 transition duration-300 pb-2 border-b border-gray-300"
         >
-          <BsMessenger className="h-8 w-8 font-extrabold" />
+          message
         </a>
         <a
           aria-label="iosmail"
           href="mailto:info@example.com"
           className="flex items-center justify-center h-8 w-10 text-black hover:bg-opacity-90 transition duration-300 pb-2"
         >
-          <IoIosMail className="h-8 w-8 font-extrabold" />
+          mail
         </a>
       </div>
 
       {/* Chat Icon */}
       <div className="fixed z-[9999] hidden md:flex  right-4 bottom-4 md:right-8 md:bottom-8 transform hover:scale-110 transition duration-300">
         <div className="flex justify-center items-center text-white rounded-full bg-[#4d3d78] bg-opacity-50 backdrop-blur-sm p-4 md:p-5">
-          <IoChatboxEllipsesOutline className="h-6 w-6 md:h-8 md:w-8" />
+          chat
         </div>
       </div>
 
@@ -53,19 +50,16 @@ const ContactIcons = () => {
           href="sms:+123456789"
           className="flex items-center justify-center h-8 w-10 text-black hover:bg-opacity-90 transition duration-300"
         >
-          <FaPhoneAlt className="h-6 w-6" />
         </a>
         <a
           aria-label="message"
           href="mailto:info@example.com"
           className="flex items-center justify-center h-8 w-10 text-black hover:bg-opacity-90 transition duration-300"
         >
-          <BsMessenger className="h-8 w-8 font-extrabold" />
         </a>
 
         <div className="relative flex justify-center items-center">
           <div className="absolute -top-14 flex justify-center items-center text-white rounded-full bg-[#4d3d78] bg-opacity-50 backdrop-blur-sm p-6 transform hover:scale-110 transition duration-300">
-            <IoChatboxEllipsesOutline className="h-6 w-6" />
           </div>
         </div>
         <a
@@ -73,14 +67,12 @@ const ContactIcons = () => {
           href="mailto:info@example.com"
           className="flex items-center justify-center h-8 w-10 text-black hover:bg-opacity-90 transition duration-300"
         >
-          <IoIosMail className="h-8 w-8 font-extrabold" />
         </a>
         <a
           aria-label="bsmessenger"
           href="mailto:info@example.com"
           className="flex items-center justify-center h-8 w-10 text-black hover:bg-opacity-90 transition duration-300"
         >
-          <BsMessenger className="h-8 w-8 font-extrabold" />
         </a>
       </div>
     </div>

@@ -1,8 +1,7 @@
 "use client"
 import React, { useEffect, useState } from "react";
 import { motion, useMotionValue } from "framer-motion";
-import { BsBoxArrowUpRight } from "react-icons/bs";
-import { IoClose } from "react-icons/io5";
+
 import data from "../../Constants/hero.json";
 
 const ONE_SECOND = 1000;
@@ -50,10 +49,7 @@ export const SwipeCarousel: React.FC = () => {
     }
   };
 
-  const openModal = (youtubeLink: string) => {
-    setCurrentVideoLink(youtubeLink);
-    setIsModalOpen(true);
-  };
+ 
 
   const closeModal = () => {
     setIsModalOpen(false);
@@ -86,10 +82,7 @@ export const SwipeCarousel: React.FC = () => {
               className="w-full h-full object-cover rounded-xl"
             />
             <div className="absolute bottom-4 right-0 transform -translate-x-1/2">
-              <BsBoxArrowUpRight
-                onClick={() => openModal(video.youtubeLink)}
-                className="text-white font-bold text-2xl cursor-pointer transition-transform duration-300 hover:scale-110"
-              />
+              
             </div>
           </motion.div>
         ))}
@@ -105,7 +98,6 @@ export const SwipeCarousel: React.FC = () => {
               onClick={closeModal}
               className="absolute top-0 right-0 bg-white p-1 rounded-full text-black z-50"
             >
-              <IoClose size={24} />
             </button>
             <div className="relative w-full pt-[56.25%]">
               <iframe

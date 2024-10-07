@@ -14,7 +14,6 @@ const PaperStraw = dynamic(() => import("../../Icons/PaperStraw"), { ssr: false 
 const PopcornTub = dynamic(() => import("../../Icons/PopcornTub"), { ssr: false });
 const PositionAwareButton = dynamic(() => import("../../ui/PositionAwareButton"), { ssr: false });
 import { Button } from "../../ui/button";
-import { ArrowRightIcon } from "lucide-react";
 import data from "../../Constants/Navbar/index.json";
 import dynamic from "next/dynamic";
 interface Product {
@@ -70,7 +69,6 @@ export default function ApplicationLayout() {
           <Button className="rounded-full flex items-center bg-primary text-primary-foreground hover:bg-white hover:text-black border border-black px-1 py-2 text-base font-regular group">
             <span className="flex-grow ml-2 text-center">View All</span>
             <span className="ml-2 bg-white rounded-full p-1 transition-colors duration-200 group-hover:bg-black">
-              <ArrowRightIcon className="h-5 w-5 text-primary transition-colors duration-200 group-hover:text-white" />
             </span>
           </Button>
         </div>

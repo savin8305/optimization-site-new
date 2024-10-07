@@ -4,7 +4,6 @@ import React, {
   useState,
 } from "react";
 import { StaticImageData } from "next/image";
-import { BiCross } from "react-icons/bi";
 import dynamic from "next/dynamic";
 const ProductModal=dynamic(()=>import("./ProductModal"))
 const BlurImage=dynamic(()=>import("./BlurImage"))
@@ -49,7 +48,7 @@ const Card = ({
                 className="sticky z-50 top-0 h-8 w-8 right-0 -mr-32 -mt-6 ml-auto bg-black dark:bg-white rounded-full flex items-center justify-center"
                 onClick={handleClose}
               >
-                <BiCross className="h-6 w-6 text-neutral-100 dark:text-neutral-900" />
+               X
               </button>
               <div className="py-0">
                 <ProductModal

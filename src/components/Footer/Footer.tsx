@@ -5,12 +5,7 @@ import Image from "next/image";
 
 import styles from "./footer.module.css";
 import { footerData } from "../Constants/footer/footer";
-import { FaTelegram } from "react-icons/fa";
-import { FaSquareFacebook } from "react-icons/fa6";
-import { FaSquareXTwitter } from "react-icons/fa6";
-import { FaYoutubeSquare } from "react-icons/fa";
-import { FaSquareInstagram } from "react-icons/fa6";
-import { FaLinkedin } from "react-icons/fa";
+
 import { usePathname } from "next/navigation";
 
 const Footer: React.FC = () => {
@@ -169,10 +164,7 @@ const Footer: React.FC = () => {
                     placeholder="Enter your email address"
                     className=" lg:w-[20rem] w-[22rem] mt-2 h-[2.5rem] rounded-xl border p-2 border-black font-poppins font-light text-xs"
                   />
-                  <FaTelegram
-                    size={30}
-                    className="relative top-3 lg:-left-8 -left-10 hover:scale-80 hover:transition-shadow transition-transform duration-300 "
-                  />
+                  telegram
                 </div>
 
                 <div className="flex lg:flex-col ">
@@ -193,11 +185,7 @@ const Footer: React.FC = () => {
                     </div>
 
                     <div className="flex flex-row space-x-2 mt-5  ">
-                      <FaSquareFacebook size={30} />
-                      <FaSquareXTwitter size={30} />
-                      <FaYoutubeSquare size={30} />
-                      <FaSquareInstagram size={30} />
-                      <FaLinkedin size={30} />
+                     
                     </div>
                   </div>
                   <div>
